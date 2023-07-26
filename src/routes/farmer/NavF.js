@@ -16,6 +16,7 @@ const NavF = () => {
   const cookies = new Cookies()
   const access = cookies.get('access')
 
+
   useEffect(()=>{
     const body=undefined
     const token=true
@@ -55,7 +56,7 @@ return (
       </div>
     </div>
 
-    <div className="flex justify-between items-center h-14 mb-2 ">
+    <div style={{justifyContent:params.SalonId && !EpochId ? 'start':'space-between'}} className="flex flex-row  items-center h-14 mb-2 ">
       <div className="px-10 mt-2 text-lg ">
         <Link to={`/NavF/HomePage/${id}`} className='ads_bar'>{params.id?' سالن ها ':''} </Link>
         <Link to={`/NavF/HomePage/${id}/SalonId/${params.SalonId}`} className='ads_bar'>
@@ -65,8 +66,9 @@ return (
         <div className={epoch.is_active?"inline-block mx-1":'hidden'}>
           <div className={EpochId?"":'hidden'}> ({epoch.herd_age} روزگی)</div>
         </div>
+        
       </div>
-
+      {params.SalonId&& !params.EpochId &&<div className=' mt-2 mr-[225px]'>دوره های پرورش</div>}
       {EpochId?<BtnEnd />:''}
     </div>
   </div>

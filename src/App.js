@@ -54,8 +54,10 @@ const access=cookies.get('access')
         <Route path='*' element={<NotFound />} />
 
         <Route path='/NavF' element={access ?<NavF/>:<Navigate to={'/'}/>} >
-          <Route path="HomePage/:id" element={<HomePage />} />
-          <Route path="HomePage/:id/SalonId/:SalonId" element={<Salon />} />
+          <Route path="HomePage/:id" element={<HomePage />} >
+          <Route path="SalonId/:SalonId" element={<></>} />
+            </Route>
+          
           <Route path="HomePage/:id/SalonId/:SalonId/EpochId/:EpochId/Record" element={<Record />} />
 
           <Route path="HomePage/:id/SalonId/:SalonId/EpochId/:EpochId/View" element={<View />} >
