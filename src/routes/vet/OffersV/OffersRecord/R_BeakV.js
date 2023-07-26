@@ -28,7 +28,7 @@ const R_BeakV = ({setshow}) => {
     const body={ epoch_id:EpochId, herd_age, date}
     const token=true
     const method='POST'
-    const api=`/api/v1/beak-trimming/`
+    const api=`/api/v1/beak-trimming/suggestions/`
     Fetch(body,token,setdata,method,api,navigate)
     setTimeout(() => {setupdateG(!updateG)}, 1000); 
     setshow(false)

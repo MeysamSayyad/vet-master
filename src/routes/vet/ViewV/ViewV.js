@@ -4,7 +4,7 @@ import { NavLink, Outlet } from 'react-router-dom'
 const ViewV = () => {
 return (
   <div className='flex gap-10'>
-  <nav className='border flex flex-col p-2 px-6 shadow-xl rounded-3xl text-center text-sm'>
+  <nav className='border flex flex-col p-2 px-6 shadow-xl rounded-3xl text-center text-sm h-min'>
     {/* <NavLink to={'V_InfoV'} className={({isActive}) => isActive? 'active':'not_active'}> مشخصات دوره پرورش </NavLink> <hr /> */}
     <NavLink to={'V_LossV'} className={({isActive}) => isActive? 'active':'not_active'}> تلفات </NavLink> <hr />
     <NavLink to={'V_VaccinationV'} className={({isActive}) => isActive? 'active':'not_active '}> واکسیناسیون </NavLink> <hr />
