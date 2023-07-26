@@ -8,7 +8,7 @@ import { Cookies } from 'react-cookie'
 import Chart from 'chart.js/auto';
 import { Bar } from 'react-chartjs-2';
 
-const Salon = ({_id}) => {
+const Salon = ({_id,setLoading}) => {
   const [show,setshow] = useState(false)
   const [show2,setshow2] = useState(false)
   const [data,setdata] = useState([])
@@ -27,7 +27,7 @@ const Salon = ({_id}) => {
     const token=true
     const method='GET'
     const api=`/api/v1/epochs/?salon_id=${_id}`
-    Fetch(body,token,setdata,method,api,navigate)
+    Fetch(body,token,setdata,method,api,navigate,setLoading)
   },[update,add,_id])
 
   const chart ={

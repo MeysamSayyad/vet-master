@@ -48,12 +48,12 @@ return (
       <div className="flex flex-col gap-4 w-full ">
         <div className="flex flex-row items-center justify-around">
           <h4 className="">نام کاربری</h4>
-          <input className="" value={userName} onChange={e => setuserName(e.target.value)} />
+          <input dir='ltr' className="" value={userName} onChange={e => setuserName(e.target.value)} />
           
         </div>
         <div className='flex flex-row items-center justify-around'>
            <h4 className="">رمز عبور</h4>
-          <input className="mr-2" value={password} onChange={e => setpassword(e.target.value)} type='password' />
+          <input dir='ltr' className="mr-2" value={password} onChange={e => setpassword(e.target.value)} type='password' />
         </div>
       </div>
       <div className=' mr-10 mt-6 text-xs'>
@@ -62,7 +62,7 @@ return (
         </p>
       </div>
       <div className="flex justify-end mt-7 ">
-        <button onClick={login} className='btn-g justify-center items-center flex h-7'>{onLoad ?<div className=' bg-transparent border-[3px] border-r-transparent border-white w-5 h-5 rounded-full animate-spin '></div>:'ورود'}</button>
+        <button disabled={onLoad} onClick={login} className='btn-g justify-center items-center flex h-7'>{onLoad ?<div className=' bg-transparent border-[3px] border-r-transparent border-white w-5 h-5 rounded-full animate-spin '></div>:'ورود'}</button>
       </div>
     </div>
   </div>

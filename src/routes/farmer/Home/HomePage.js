@@ -5,6 +5,7 @@ import Chart from 'chart.js/auto';
 import { Bar } from 'react-chartjs-2';
 import { myContext } from '../../../context'
 import Salon from './Salon';
+import { Loading } from '../../../components/Loading';
 
 
 const HomePage = () => {
@@ -16,6 +17,7 @@ const HomePage = () => {
   const [data,setdata] = useState([])
   const [update,setupdate] = useState(false)
   const [add,setadd] = useState(0)
+  const [loading,setLoading]=useState(false)
   const navigate =useNavigate()
   const id = useParams().id
 
@@ -24,7 +26,8 @@ const HomePage = () => {
     const token=true
     const method='GET'
     const api=`/api/v1/salons/?farmer_id=${id}`
-    Fetch(body,token,setdata,method,api,navigate)
+    setLoading(true)
+    Fetch(body,token,setdata,method,api,navigate,setLoading)
   },[update,add])
 
   const addSalon=async()=>{
@@ -72,13 +75,14 @@ const HomePage = () => {
   
 return (
 <div className="">
+  {loading && <Loading loading={loading} setLoading={setLoading}  />}
   <div className=' flex flex-row gap-[10px]  '>
     <div className="border-l border-slate-400 w-96 min-h-[90vh]  ">
       <button className='text-slate-500 bold border-[1.5px] border-slate-500 p-2 px-6 mb-1 italic rounded 'onClick={()=> setshow(true)}> افزودن سالن </button>
       {
         data.length > 0?
         data.map(i => 
-          <div key={i.id} onClick={()=>setSalonId(i.id)} className=" cursor-pointer rounded-lg p-4 px-7 ml-5 mt-4 grid grid-cols-2 text-center gap-2 bg-slate-200" >
+          <div key={i.id} onClick={()=>{setSalonId(i.id);i.id != SalonId && setLoading(true)}} className=" cursor-pointer rounded-lg p-4 px-7 ml-5 mt-4 grid grid-cols-2 text-center gap-2 bg-slate-200" >
             <h4 className=""> نام سالن:</h4>
             <h4 className=""> {i.name} </h4>
             <h4 className="">مکان سالن:</h4>
@@ -89,7 +93,7 @@ return (
       }
     </div>
     {/* 2 */}
-<div className=' flex-grow border-l'>{SalonId &&<Salon _id={SalonId} />}</div>
+<div className=' flex-grow border-l'>{SalonId &&<Salon setLoading={setLoading} _id={SalonId} />}</div>
   </div>
   {/* modul */}
   {
