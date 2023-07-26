@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React,{ useState, useEffect, useContext } from 'react'
 import { myContext } from '../../../context'
 import { useNavigate, useParams } from 'react-router-dom'

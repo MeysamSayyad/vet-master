@@ -1,4 +1,4 @@
-import React,{ useState } from 'react'
+import React from 'react'
 import DatePicker from "react-multi-date-picker"
 import persian from "react-date-object/calendars/persian"
 import persian_fa from "react-date-object/locales/persian_fa"
@@ -47,7 +47,7 @@ const DatePickerV = ({setdate,value,setvalue}) => {
   if(value.length !== 0){jalali_to_gregorian(jy,jm,jd)}
 
 return (
-<div dir='ltr' className='flex justify-between items-center border rounded w-[220px] mx-2 '>
+<div dir='ltr' className='flex justify-between items-center border rounded w-[220px] mx-2'>
   <DatePicker 
     className=''
     value
