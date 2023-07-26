@@ -12,7 +12,6 @@ const HomePage = () => {
   const {setsalonName} = useContext(myContext)
   const [show,setshow] = useState(false)
   const [name,setname] = useState('')
-  const [SalonId,setSalonId]=useState('')
   const [location,setlocation] = useState('')
   const [data,setdata] = useState([])
   const [update,setupdate] = useState(false)
@@ -20,7 +19,7 @@ const HomePage = () => {
   const [loading,setLoading]=useState(false)
   const navigate =useNavigate()
   const id = useParams().id
-
+  const SalonId=useParams().SalonId
   useEffect(()=>{
     const body=undefined
     const token=true
@@ -41,6 +40,17 @@ const HomePage = () => {
       setupdate(add + 1)
       console.log(add);
     }, 1000);
+  }
+  const navToSalon=(_id,name)=>{
+    if(_id==SalonId){
+      navigate(`/NavF/HomePage/${id}`)
+      setsalonName('')
+    }
+    else{
+      navigate(`/NavF/HomePage/${id}/SalonId/${_id}`)
+      setsalonName(name)
+    }
+    _id != SalonId && setLoading(true)
   }
 
   
@@ -76,13 +86,13 @@ const HomePage = () => {
 return (
 <div className="">
   {loading && <Loading loading={loading} setLoading={setLoading}  />}
-  <div className=' flex flex-row gap-[10px]  '>
+  <div className=' flex flex-row gap-[40px]  '>
     <div className="border-l border-slate-400 w-96 min-h-[90vh]  ">
-      <button className='text-slate-500 bold border-[1.5px] border-slate-500 p-2 px-6 mb-1 italic rounded 'onClick={()=> setshow(true)}> افزودن سالن </button>
+      <button className='text-slate-500 bold border-[1.5px] border-slate-500 p-2 px-6 mb-1 hover:bg-slate-500 transition-all hover:text-white  rounded 'onClick={()=> setshow(true)}> افزودن سالن </button>
       {
         data.length > 0?
         data.map(i => 
-          <div key={i.id} onClick={()=>{setSalonId(i.id);i.id != SalonId && setLoading(true)}} className=" cursor-pointer rounded-lg p-4 px-7 ml-5 mt-4 grid grid-cols-2 text-center gap-2 bg-slate-200" >
+          <div style={SalonId==i.id ? {borderWidth:'1px',borderColor:'black'}:undefined} key={i.id} onClick={()=>{navToSalon(i.id,i.name)}} className=" cursor-pointer rounded-lg p-4 px-7 ml-5 mt-4 grid grid-cols-2 text-center gap-2 bg-slate-200" >
             <h4 className=""> نام سالن:</h4>
             <h4 className=""> {i.name} </h4>
             <h4 className="">مکان سالن:</h4>
@@ -93,7 +103,7 @@ return (
       }
     </div>
     {/* 2 */}
-<div className=' flex-grow border-l'>{SalonId &&<Salon setLoading={setLoading} _id={SalonId} />}</div>
+<div className=' flex-grow border-l'>{SalonId &&<Salon setLoading={setLoading} />}</div>
   </div>
   {/* modul */}
   {

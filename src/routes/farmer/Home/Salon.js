@@ -8,7 +8,7 @@ import { Cookies } from 'react-cookie'
 import Chart from 'chart.js/auto';
 import { Bar } from 'react-chartjs-2';
 
-const Salon = ({_id,setLoading}) => {
+const Salon = ({setLoading}) => {
   const [show,setshow] = useState(false)
   const [show2,setshow2] = useState(false)
   const [data,setdata] = useState([])
@@ -17,7 +17,8 @@ const Salon = ({_id,setLoading}) => {
   const [add, setadd] = useState(0)
   const navigate =useNavigate()
   const cookie = new Cookies()
-
+  const params=useParams()
+  const _id=params.SalonId
   useEffect(()=>{
     setupdate(!update)
   },[])
@@ -59,7 +60,7 @@ return (
 
   <div className='flex  '>
     <div className=" border-slate-400 w-96 min-h-[90vh] ">
-      <button className='text-slate-500 bold border-[1.5px] border-slate-500 p-2 px-6 mb-1 italic rounded 'onClick={data.length>0?creact:()=>setshow(true)}> افزودن دوره پرورش </button> <br />
+      <button className='text-slate-500 bold border-[1.5px] border-slate-500 p-2 px-6 mb-1  hover:bg-slate-500 transition-all hover:text-white rounded 'onClick={data.length>0?creact:()=>setshow(true)}> افزودن دوره پرورش </button> <br />
       {
         data.length === 0 ? <h2 className="text-lg my-3">هنوز دوره پرورشی وجود ندارد</h2>:
         data.map(i => <button key={i.id}
