@@ -1,6 +1,6 @@
 import Cookies from "universal-cookie";
 
-const Fetch = (body,token,setdata,method,api,navigate) => {
+const Fetch = (body,token,setdata,method,api,navigate,setLoad,setError) => {
   const cookies = new Cookies()
   const access = cookies.get('access')
   const refresh = cookies.get('refresh')
@@ -20,13 +20,19 @@ const Fetch = (body,token,setdata,method,api,navigate) => {
       body: JSON.stringify(body)
     })
     .then(res=>{ 
-      if(res.status == 401){ refreshToken() }
+      if(res.status == 401){ refreshToken()
+      setError && setError('نام کاربری یا رمز عبور اشتباه است')
+      }
       // console.log(res);
       return res.json()
     })
     .then(data => {
+      
       console.log(data);
       setdata(data)
+    })
+    .finally(data=>{
+      setLoad && setLoad(false)
     })
   // }
   // request()

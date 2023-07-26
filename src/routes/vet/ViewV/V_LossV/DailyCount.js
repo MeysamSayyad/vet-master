@@ -5,7 +5,7 @@ import { Bar } from 'react-chartjs-2';
 
 const DailyCount = ({id, navigate}) => {
   const [data,setdata] = useState({})
-
+ console.log(data)
   const chart ={
     labels : data.herd_age_list,
     datasets: [
@@ -14,13 +14,11 @@ const DailyCount = ({id, navigate}) => {
         data: data.count_list,
         // data: {count:50, min: -100, 10: 100},
         backgroundColor: [
-          'rgba(111 255 241)',
+          "#1984c5"
           // 'rgba(115 155 244)',
         ],
-        borderColor: [
-          'rgb(111 255 241)',
-        ],
-        borderWidth: 1,
+        
+        
         // borderSkipped:'bottom',
 
         // base:10
@@ -28,8 +26,9 @@ const DailyCount = ({id, navigate}) => {
         // barThickness: 75, // ضخامت ستون ها
         // inflateAmount:10, // ضخامت ستون ها
         // grouped:false
-        hoverBackgroundColor:['rgba(111 25 241)'],
+        hoverBackgroundColor:['#054658'],
         hoverBorderWidth:0,
+        borderRadius:3
         // indexAxis:'y'
       },
       {
@@ -37,12 +36,10 @@ const DailyCount = ({id, navigate}) => {
         data: data.cutoff_list,
         backgroundColor: [
           // 'rgba(111 255 241)',
-          'rgba(220 89 45)',
+          "#f6c85f",'#ca472f',
         ],
-        borderColor: [
-          'rgb(111 255 241)',
-        ],
-        borderWidth: 1,
+        borderRadius:3,
+        hoverBackgroundColor:['#054658'],
       }
     ]
   }

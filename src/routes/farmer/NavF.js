@@ -23,6 +23,7 @@ const NavF = () => {
     const api=`/api/v1/user-info/`
     Fetch(body,token,setdata,method,api,navigate)
 
+   if(EpochId){
     fetch(`${process.env.REACT_APP_BASE_URL}/api/v1/epochs/detail/?epoch_id=${EpochId}`,{
       headers:{
         'Content-Type': 'application/json',
@@ -31,6 +32,7 @@ const NavF = () => {
     })
     .then(res=>res.json())
     .then(data=>{setepoch(data);})
+   } 
   },[])
 
 return (

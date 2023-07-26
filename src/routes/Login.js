@@ -13,15 +13,23 @@ const Login = () => {
   const [userName,setuserName] = useState('')
   const [password,setpassword] = useState('')
   const [data,setdata] = useState({role:''})
+  const [error,setError]=useState('')
+  const [onLoad,setOnLoad]=useState(false)
   const navigate =useNavigate()
   const cookies = new Cookies()
 
   const login =async()=>{
+    if(userName.trim()&& password.trim()){
+      setOnLoad(true)
     const body={ "phone_number": userName, password }
     const token=false
     const method='POST'
     const api='/api/auth/token/'
-    Fetch(body,token,setdata,method,api)
+    Fetch(body,token,setdata,method,api,navigate,setOnLoad,setError)
+    }
+    else{
+      setError('نام کاربری و رمز عبور را وارد کنید')
+    } 
   }
   useEffect(()=>{
     if(data.role === 'VET' ){ navigate(`/NavV/HomePageV/${data.id}`)}
@@ -37,18 +45,24 @@ return (
   
   <div className="center">
     <div className="rounded-lg shadow-lg w-[530px] p-11 py-8 ">
-      <div className="grid grid-cols-2 w-full ">
-        <div className="">
+      <div className="flex flex-col gap-4 w-full ">
+        <div className="flex flex-row items-center justify-around">
           <h4 className="">نام کاربری</h4>
-          <h4 className="mt-5">رمز عبور</h4>
+          <input className="" value={userName} onChange={e => setuserName(e.target.value)} />
+          
         </div>
-        <div className="">
-          <input className="" value={userName} onChange={e => setuserName(e.target.value)} />  
-          <input className="mt-5" value={password} onChange={e => setpassword(e.target.value)} type='password' />
+        <div className='flex flex-row items-center justify-around'>
+           <h4 className="">رمز عبور</h4>
+          <input className="mr-2" value={password} onChange={e => setpassword(e.target.value)} type='password' />
         </div>
       </div>
-      <div className="flex justify-end mt-10 ">
-        <button onClick={login} className='btn-g'>ورود</button>
+      <div className=' mr-10 mt-6 text-xs'>
+        <p className='text-red-500'>
+          {error}
+        </p>
+      </div>
+      <div className="flex justify-end mt-7 ">
+        <button onClick={login} className='btn-g justify-center items-center flex h-7'>{onLoad ?<div className=' bg-transparent border-[3px] border-r-transparent border-white w-5 h-5 rounded-full animate-spin '></div>:'ورود'}</button>
       </div>
     </div>
   </div>

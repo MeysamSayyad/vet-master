@@ -3,7 +3,7 @@ import { myContext } from '../../../context'
 import Fetch from '../../../components/Fetch'
 import { useNavigate, Link } from 'react-router-dom'
 
-const InfoSalon = ({setshow2, EpochId }) => {
+const InfoSalon = ({setshow2, EpochId,_id }) => {
   const {epoch,setepoch} = useContext(myContext)
   const [data,setdata] = useState('')
   const [update,setupdate] = useState(false)
@@ -20,8 +20,10 @@ const InfoSalon = ({setshow2, EpochId }) => {
     const api=`/api/v1/epochs/detail/?epoch_id=${EpochId}`
     Fetch(body,token,setdata,method,api,navigate)
   },[update])
+  useEffect(()=>{
+    if (data !== ''){setepoch(data)}
+  },[data])
   
-  if (data !== ''){setepoch(data)}
 
   
   function ok(){
@@ -38,8 +40,8 @@ const InfoSalon = ({setshow2, EpochId }) => {
 
 return (
 <>
-<div onClick={()=> setshow2(false)} className="backdrop"></div>
-  <div className="center ">
+<div onClick={()=> setshow2(false)} className=" bg-opacity-30 inset-0 w-screen h-screen fixed flex justify-center items-center bg-black z-10">
+  
     <div className="z-40 bg-white rounded-xl p-8 px-14 fixed top-[10vh] ">
       <h1 className="text-3xl mx-28 mb-8 "> مشخصات سالن و دوره پرورش </h1>
       <div className="center gap-40">
@@ -63,7 +65,7 @@ return (
         </div>
       </div>
       <div className="flex justify-center mt-7 ">
-        <Link className='info_btn text-black' to={`${param}/View`}> نمایش اطلاعات </Link>
+        <Link className='info_btn text-black' to={`SalonID/${_id}/${param}/View`}> نمایش اطلاعات </Link>
         <Link className={data.is_active?'info_btn text-black':'hidden'} to={`${param}/Record`}> ثبت اطلاعات  </Link>
         <Link className='info_btn text-black' to={`${param}/NavO`}> پیشنهادات </Link>
         <button className={data.is_active?'info_btn text-red-500':'hidden'} onClick={ok}> اتمام دوره پرورش </button>

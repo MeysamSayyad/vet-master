@@ -8,7 +8,7 @@ import { Cookies } from 'react-cookie'
 import Chart from 'chart.js/auto';
 import { Bar } from 'react-chartjs-2';
 
-const Salon = () => {
+const Salon = ({_id}) => {
   const [show,setshow] = useState(false)
   const [show2,setshow2] = useState(false)
   const [data,setdata] = useState([])
@@ -16,7 +16,6 @@ const Salon = () => {
   const [update,setupdate] = useState(false)
   const [add, setadd] = useState(0)
   const navigate =useNavigate()
-  const _id = useParams().SalonId
   const cookie = new Cookies()
 
   useEffect(()=>{
@@ -29,7 +28,7 @@ const Salon = () => {
     const method='GET'
     const api=`/api/v1/epochs/?salon_id=${_id}`
     Fetch(body,token,setdata,method,api,navigate)
-  },[update,add])
+  },[update,add,_id])
 
   const chart ={
     labels : [],
@@ -58,8 +57,8 @@ const Salon = () => {
 return (
 <div className="">
 
-  <div className='flex justify-around '>
-    <div className="border-l border-slate-400 w-96 min-h-[90vh] ">
+  <div className='flex  '>
+    <div className=" border-slate-400 w-96 min-h-[90vh] ">
       <button className='text-slate-500 bold border-[1.5px] border-slate-500 p-2 px-6 mb-1 italic rounded 'onClick={data.length>0?creact:()=>setshow(true)}> افزودن دوره پرورش </button> <br />
       {
         data.length === 0 ? <h2 className="text-lg my-3">هنوز دوره پرورشی وجود ندارد</h2>:
@@ -80,16 +79,12 @@ return (
       )}
     </div>
     {/* 2 */}
-    <div className="w-[60%] ">
-      <Bar data={chart} />
-      <br />
-      <Bar data={chart} />
-    </div>
+    
   </div>
   {/* modul 1*/}
   {show ? <CreateSalon id={_id} setshow={setshow} setadd={setadd} add={add} /> : ''}
   {/* modul 2*/}
-  { show2 ? <InfoSalon EpochId={EpochId} setshow2={setshow2}/>: ''}
+  { show2 ? <InfoSalon _id={_id} EpochId={EpochId} setshow2={setshow2}/>: ''}
 </div>
 )}
 export default Salon
