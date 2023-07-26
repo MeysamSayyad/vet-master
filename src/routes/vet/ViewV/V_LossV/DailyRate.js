@@ -14,12 +14,10 @@ const DailyRate = ({id, navigate}) => {
         data: data.daily_rate_list,
         // data: {count:50, min: -100, 10: 100},
         backgroundColor: [
-          'rgba(111 255 241)',
+          "#1984c5","#f6c85f",'#ca472f'
           // 'rgba(115 155 244)',
         ],
-        borderColor: [
-          'rgb(111 255 241)',
-        ],
+        
         borderWidth: 1,
         // borderSkipped:'bottom',
 
@@ -28,15 +26,17 @@ const DailyRate = ({id, navigate}) => {
         // barThickness: 75, // ضخامت ستون ها
         // inflateAmount:10, // ضخامت ستون ها
         // grouped:false
-        hoverBackgroundColor:['rgba(111 25 241)'],
+        hoverBackgroundColor:['#054658'],
         hoverBorderWidth:0,
         // indexAxis:'y'
+        borderRadius:5
       },
     ]
   }
 
   const options ={
     responsive: true,
+    locale:'fa',
     scales: {
       x: {stacked: true },
       y: {stacked: true }     
