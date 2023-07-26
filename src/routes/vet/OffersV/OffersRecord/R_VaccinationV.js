@@ -1,3 +1,6 @@
+/* eslint-disable eqeqeq */
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable no-unused-vars */
 import React, { useState ,useEffect, useContext } from 'react'
 import { myContext } from '../../../../context'
 import { useLocation, useNavigate, useParams } from 'react-router-dom'
@@ -7,7 +10,7 @@ import Vaccine from '../../../../components/option/Vaccine'
 import HerdAge from '../../../../components/HerdAge';
 import DatePickerV from '../../../../components/DatePickerV';
 
-const R_BeakV = ({setshow}) => {
+const R_VaccinationV = ({setshow}) => {
   const [date,setdate] = useState('2023-10-10')
   const [data,setdata] = useState([])
   const [value,setvalue] = useState('')
@@ -53,4 +56,4 @@ return (
   </div>
 </div>
 )}
-export default R_BeakV
+export default R_VaccinationV;
