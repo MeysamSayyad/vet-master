@@ -105,7 +105,7 @@ return (
         <div className="flex justify-between w-full gap-7 ">
           <div className="">
             <h4 className=""> نام سالن </h4>
-            <h4 className="mt-5"> مکان سالن </h4>
+            <h4 className="mt-8"> مکان سالن </h4>
           </div>
           <div className="">
             <input className="" value={name} onChange={e => setname(e.target.value)} /> <br/>

@@ -1,3 +1,6 @@
+/* eslint-disable eqeqeq */
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable no-unused-vars */
 import React, { useState ,useEffect, useContext } from 'react'
 import { useLocation, useNavigate, useParams } from 'react-router-dom'
 import RationOption from '../../../../components/option/Ration'
@@ -65,7 +68,7 @@ return (
     </tbody>
   </table>
   <div className="center" onClick={plus}><button className='text-4xl px-2'>+</button></div>
-  <div className="flex items-end ">
+  <div className="flex items-end">
     <h3 className="mb-2 mt-3 text-lg mx-2 "> تاریخ :</h3> 
     <DatePickerF setdate={setdate} value={value} setvalue={setvalue} />
   </div>

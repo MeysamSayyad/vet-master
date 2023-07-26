@@ -40,7 +40,7 @@ const R_VaccinationV = ({setshow}) => {
   }
   
 return (
-<div className={location == `${param}/O_VaccinationV`? "":'hidden'}>
+<div className={location == `${param}/O_VaccinationV`? "w-[860px] h-[280px]":'hidden'}>
   <div className='grid grid-cols-3 text-center gap-4'>
     <h5 className="h-min -m-2">نام واکسن</h5>
     <h5 className="h-min -m-2">طریقه مصرف</h5>

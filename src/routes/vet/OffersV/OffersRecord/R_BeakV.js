@@ -35,7 +35,7 @@ const R_BeakV = ({setshow}) => {
   }
   
 return (
-<div className={location == `${param}/O_BeakV`?'':'hidden'}>
+<div className={location == `${param}/O_BeakV`?'h-[250px]':'hidden'}>
   <div className='flex'>
     در تاریخ
     <DatePickerV setdate={setdate} value={value} setvalue={setvalue} />
