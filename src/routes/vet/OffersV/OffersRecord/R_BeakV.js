@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState ,useEffect, useContext } from 'react'
 import { myContext } from '../../../../context'
 import { useLocation, useNavigate, useParams } from 'react-router-dom'
@@ -11,7 +12,7 @@ const R_BeakV = ({setshow}) => {
   const [data,setdata] = useState([])
   const [herd_age, setherd_age] = useState('')
   const location = useLocation().pathname
-  const navigate =useNavigate()
+  const navigate = useNavigate()
   const EpochId = useParams().EpochId
   const params = useParams()
   const param = `/NavV/HomePageV/${params.id}/userId/${params.userId}/salonId/${params.salonId}/EpochId/${params.EpochId}/OffersV`

@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React,{ useState, useEffect, useContext } from 'react'
 import { myContext } from '../../../context'
 import { useNavigate, useParams } from 'react-router-dom'
@@ -6,7 +7,7 @@ import Gregorian_to_jalali from '../../../components/Gregorian_to_jalali'
 
 const O_BeakV = () => {
   const [data,setdata] = useState([])
-  const navigate =useNavigate()
+  const navigate = useNavigate()
   const id = useParams().EpochId
   const {updateG} = useContext(myContext)
 
