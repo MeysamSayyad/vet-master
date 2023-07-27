@@ -1,4 +1,5 @@
-import { BrowserRouter, Routes, Route, useParams, useNavigate, Navigate } from "react-router-dom";
+/* eslint-disable react/jsx-pascal-case */
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Cookies from "universal-cookie";
 import { myContext } from "./context";
 

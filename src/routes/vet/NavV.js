@@ -39,8 +39,7 @@ return (
 
     <div className='bg-[#6FFFF1] flex justify-between items-center p-2'>
       <div className="flex items-center">
-        {/* to={`/NavV/HomePageV/${id}`} */}
-      <Link className='nav text-slate-700 bold bg-slate-50 rounded' to={`/`} > 
+      <Link className='nav text-slate-700 bold bg-slate-50 rounded' to={`/NavV/HomePageV/${id}`} > 
         <img src="/img/home button.png" alt="" className="w-36 " />
       </Link>
         <nav className={params.EpochId?"mx-6":'hidden'}>

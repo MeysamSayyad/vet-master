@@ -12,7 +12,7 @@ const V_BeakV = () => {
     const body=undefined
     const token=true
     const method='GET'
-    const api=`/api/v1/beak-trimming/?epoch_id=${id}`
+    const api=`/api/v1/beak-trimming/suggestions/?epoch_id=${id}`
     Fetch(body,token,setdata,method,api,navigate)
   },[])
 
