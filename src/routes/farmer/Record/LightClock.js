@@ -63,7 +63,7 @@ return (
       {hours.map((i,inx)=>{
         return <div key={inx} className="w-full center my-4 ">
           <span className='mx-2'>از</span>
-          <input value={i.start_time} onChange={e=> {hours[inx].start_time = e.target.value; sethours(hours); setupdate(!update)}} type="time" />
+          <input value={i.start_time} onChange={e=> {hours[inx].start_time = e.target.value; sethours(hours); setupdate(!update)}}  type="time" />
           <span className='mx-2'>تا</span>
           <input value={i.end_time} onChange={e=> {hours[inx].end_time = e.target.value; sethours(hours); setupdate(!update)}} type="time" />
         </div>}

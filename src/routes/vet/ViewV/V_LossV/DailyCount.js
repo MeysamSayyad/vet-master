@@ -36,7 +36,7 @@ const DailyCount = ({id, navigate}) => {
         data: data.cutoff_list,
         backgroundColor: [
           // 'rgba(111 255 241)',
-          "#f6c85f",'#ca472f',
+          "#F45050"
         ],
         borderRadius:3,
         hoverBackgroundColor:['#054658'],

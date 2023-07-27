@@ -1,9 +1,41 @@
 import React, { useContext } from 'react'
 import { myContext } from '../../context'
-import { NavLink, Outlet } from 'react-router-dom'
+import { NavLink, Outlet, useLocation, useParams } from 'react-router-dom'
+import { Bar } from 'react-chartjs-2'
 
 const View = () => {
   const {epoch} = useContext(myContext)
+  const params=useParams()
+  const location=useLocation()
+
+  const chart ={
+    labels : [],
+    datasets: [
+      {
+        label: '',
+        data: [],
+        // data: {count:50, min: -100, 10: 100},
+        backgroundColor: [
+          'rgba(111 255 241)',
+          // 'rgba(115 155 244)',
+        ],
+        borderColor: [
+          'rgb(111 255 241)',
+        ],
+        borderWidth: 1,
+        // borderSkipped:'bottom',
+
+        // base:10
+        // barPercentage: 1.3 // فاصله ستون ها
+        // barThickness: 75, // ضخامت ستون ها
+        // inflateAmount:10, // ضخامت ستون ها
+        // grouped:false
+        hoverBackgroundColor:['rgba(111 25 241)'],
+        hoverBorderWidth:0,
+        // indexAxis:'y'
+      },
+    ]
+  }
 
 return (
   <div className='flex gap-10'>
@@ -23,6 +55,11 @@ return (
   </nav>
 
   <div className="w-full ">
+ { location.pathname== `/NavF/HomePage/${params.id}/SalonId/${params.SalonId}/EpochId/${params.EpochId}/View` && <div className="w-[60%] ">
+      <Bar data={chart} />
+      <br />
+      <Bar data={chart} />
+    </div>}
     <Outlet/>
   </div>
 </div>

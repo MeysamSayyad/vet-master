@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import Fetch from '../components/Fetch';
-import Cookies from "universal-cookie";
-import { useEffect } from 'react';
+import firstFetch from '../components/firstFetch';
+import { myContext } from '../context';
+import { useContext } from 'react';
+
+
 // 09125844121 vet
 // 09128458202 vet
 // 09121111111 farmer
@@ -12,31 +14,24 @@ import { useEffect } from 'react';
 const Login = () => {
   const [userName,setuserName] = useState('')
   const [password,setpassword] = useState('')
-  const [data,setdata] = useState({role:''})
   const [error,setError]=useState('')
   const [onLoad,setOnLoad]=useState(false)
+  const {setAccess}=useContext(myContext)
   const navigate =useNavigate()
-  const cookies = new Cookies()
+
 
   const login =async()=>{
     if(userName.trim()&& password.trim()){
       setOnLoad(true)
     const body={ "phone_number": userName, password }
-    const token=false
     const method='POST'
     const api='/api/auth/token/'
-    Fetch(body,token,setdata,method,api,navigate,setOnLoad,setError)
+    firstFetch(body,method,api,navigate,setOnLoad,setError,setAccess)
     }
     else{
       setError('نام کاربری و رمز عبور را وارد کنید')
     } 
   }
-  useEffect(()=>{
-    if(data.role === 'VET' ){ navigate(`/NavV/HomePageV/${data.id}`)}
-    if(data.role === "FARMER" ){ navigate(`/NavF/HomePage/${data.id}`)}
-    if(data.access){ cookies.set('access',data.access,{maxAge:172800})}
-    if(data.refresh){ cookies.set('refresh',data.refresh,{maxAge:172800})}
-  },[data])
 return (
 <div className='p-10'>
   <div className="center">

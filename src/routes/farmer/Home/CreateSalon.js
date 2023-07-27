@@ -52,9 +52,8 @@ const CreateSalon = ({ setshow, id, setadd, add }) => {
 
 return (
 <>
-<div onClick={()=> setshow(false)} className="backdrop"></div>
-  <div className="center ">
-    <div className="z-40 bg-white rounded-xl p-8 px-14 fixed top-[9vh] ">
+<div onClick={(e)=> e.target.id == 'outside' && setshow(false)} id='outside' className=" bg-black z-30  bg-opacity-30 inset-0 flex fixed   justify-center items-center">
+    <div className="z-40 bg-white rounded-xl  w-[368px] box-content  p-8 px-14 ">
       <div className="flex justify-between w-full gap-7 items-center ">
         <div className="w-20">
           <h4 className="mt-1"> نوع مرغ </h4>

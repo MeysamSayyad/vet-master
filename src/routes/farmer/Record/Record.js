@@ -11,9 +11,11 @@ import Weight from './Weight'
 import WeightEgg from './WeightEgg'
 import Beak from './Beak'
 
+
+
 const Record = () => {
   const {epoch} = useContext(myContext)
-
+ 
 return (
 <div className=''>
   <Loss />
@@ -29,6 +31,7 @@ return (
   <Ration />
   <LightClock />
   <Beak />
+ 
 </div>
 )}
 export default Record

@@ -54,34 +54,7 @@ const HomePage = () => {
   }
 
   
-  const chart ={
-    labels : [],
-    datasets: [
-      {
-        label: '',
-        data: [],
-        // data: {count:50, min: -100, 10: 100},
-        backgroundColor: [
-          'rgba(111 255 241)',
-          // 'rgba(115 155 244)',
-        ],
-        borderColor: [
-          'rgb(111 255 241)',
-        ],
-        borderWidth: 1,
-        // borderSkipped:'bottom',
-
-        // base:10
-        // barPercentage: 1.3 // فاصله ستون ها
-        // barThickness: 75, // ضخامت ستون ها
-        // inflateAmount:10, // ضخامت ستون ها
-        // grouped:false
-        hoverBackgroundColor:['rgba(111 25 241)'],
-        hoverBorderWidth:0,
-        // indexAxis:'y'
-      },
-    ]
-  }
+ 
   
 return (
 <div className="">

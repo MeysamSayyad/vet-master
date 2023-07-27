@@ -14,7 +14,7 @@ const DailyRate = ({id, navigate}) => {
         data: data.daily_rate_list,
         // data: {count:50, min: -100, 10: 100},
         backgroundColor: [
-          "#1984c5","#f6c85f",'#ca472f'
+          "#1984c5"
           // 'rgba(115 155 244)',
         ],
         

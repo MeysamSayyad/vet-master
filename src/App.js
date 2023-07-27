@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route, useParams, useNavigate, Navigate } from "react-router-dom";
 import Cookies from "universal-cookie";
+import { myContext } from "./context";
 
 import Login from "./routes/Login";
 import HomePageV from "./routes/vet/HomePageV";
@@ -41,10 +42,11 @@ import V_SeedV from "./routes/vet/ViewV/V_SeedV";
 
 import View from "./routes/farmer/View";
 import NotFound from "./NotFound";
+import { useContext } from "react";
 
 function App() {
-const cookies=new Cookies()
-const access=cookies.get('access') 
+const {access}=useContext(myContext)
+
 
   return <div className="" dir="rtl">
     <BrowserRouter>

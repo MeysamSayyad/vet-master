@@ -68,9 +68,9 @@ return (
         </div>
       </div>
       <div className="flex justify-center mt-7 ">
-        <Link className='info_btn text-black' to={`SalonID/${_id}/${param}/View`}> نمایش اطلاعات </Link>
-        <Link className={data.is_active?'info_btn text-black':'hidden'} to={`SalonID/${_id}/${param}/Record`}> ثبت اطلاعات  </Link>
-        <Link className='info_btn text-black' to={`SalonID/${_id}/${param}/NavO`}> پیشنهادات </Link>
+        <Link className='info_btn text-black' to={`SalonId/${_id}/${param}/View`}> نمایش اطلاعات </Link>
+        <Link className={data.is_active?'info_btn text-black':'hidden'} to={`SalonId/${_id}/${param}/Record`}> ثبت اطلاعات  </Link>
+        <Link className='info_btn text-black' to={`SalonId/${_id}/${param}/NavO`}> پیشنهادات </Link>
         <button className={data.is_active?'info_btn text-red-500':'hidden'} onClick={ok}> اتمام دوره پرورش </button>
       </div>
     </div>}

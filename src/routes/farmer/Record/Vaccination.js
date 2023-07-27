@@ -9,8 +9,8 @@ import Vaccine from '../../../components/option/Vaccine'
 const Vaccination = () => {
   const [date,setdate] = useState('')
   const [value,setvalue] = useState('')
-  const [use, setuse] = useState('EYE_DROP')
-  const [name, setname] = useState('NEWCASTLE')
+  const [use, setuse] = useState('')
+  const [name, setname] = useState('')
   const [show, setshow] = useState(false)
   const [data,setdata] = useState([])
   const [herd_age, setherd_age] = useState('')
@@ -52,8 +52,8 @@ return (
         <h5 className="-m-2">طریقه مصرف</h5>
         <h5 className="-m-2">تاریخ</h5>
 
-        <select onChange={e=>setname(e.target.value)}><Vaccine /> </select>
-        <select onChange={e=>setuse(e.target.value)}><Use /> </select>
+        <select value={name} onChange={e=>setname(e.target.value)}><Vaccine /> </select>
+        <select value={use} onChange={e=>setuse(e.target.value)}><Use /> </select>
         <DatePickerF setdate={setdate} value={value} setvalue={setvalue} />
       </div>
       <div className="flex mr-2">
