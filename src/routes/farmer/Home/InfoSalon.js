@@ -39,7 +39,7 @@ const InfoSalon = ({setshow2, EpochId,_id }) => {
       setupdate(!update)
     }
   }
-
+console.log(data)
 return (
 <>
 <div onClick={()=> setshow2(false)} className=" bg-opacity-30 inset-0 w-screen h-screen fixed flex justify-center items-center bg-black z-10">
@@ -53,7 +53,8 @@ return (
           <h4 className="mt-2"> نژاد گله :</h4>
           <h4 className="mt-2"> نام گله مادر :</h4>
           <h4 className="mt-2"> نوع مرغ :</h4>
-          <h4 className="mt-2"> تعداد کل پرنده :</h4>
+          <h4 className="mt-2">تعداد آغازین پرنده ها :</h4>
+          <h4 className="mt-2">تعداد کنونی پرنده ها :</h4>
           <h4 className="mt-2"> سن گله :</h4>
           <h4 className="mt-2"> مکان سالن :</h4>
         </div>
@@ -62,6 +63,7 @@ return (
           <p className="mt-2">{data.herd_breed} </p>
           <p className="mt-2">{data.parent_herd_name} </p>
           <p className="mt-2">{data.hen_type === 'LAYING'?' مرغ تخمگذار ':' مرغ گوشتی '}</p>
+          <p className="mt-2">{data.initial_hen_count} </p>
           <p className="mt-2">{data.current_hen_count} </p>
           <p className="mt-2">{data.herd_age} </p>
           <p className="mt-2">{data.location} </p>

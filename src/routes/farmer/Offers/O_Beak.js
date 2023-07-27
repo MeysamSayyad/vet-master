@@ -7,6 +7,7 @@ import StatusT from '../../../components/en_to_fa/StatusT'
 
 const O_Beak = () => {
   const [data,setdata] = useState([])
+  const [loading,setLoading]=useState(true)
   const navigate =useNavigate()
   const {epoch} = useContext(myContext)
 
@@ -15,11 +16,12 @@ const O_Beak = () => {
     const token=true
     const method='GET'
     const api=`/api/v1/beak-trimming/suggestions/?epoch_id=${epoch.id}`
-    Fetch(body,token,setdata,method,api,navigate)
+    Fetch(body,token,setdata,method,api,navigate,setLoading)
   },[])
 
-if(data.length === 0)return <h1 className="text">پیشنهادی وجود ندارد</h1>
-return (
+
+return loading ? <div className='flex justify-center items-center'> <div className=' border-2 border-gray-700  w-8 h-8 border-r-transparent animate-spin  rounded-full '> </div></div> : 
+data.length === 0 ? <h1 className="text"> اطلاعاتی هنوز ثبت نشده</h1>:(
 <>
   <h2 className=" text-center text-2xl mb-4"> تاریخ های پیشنهادی دامپزشک برای نوک چینی </h2>
 

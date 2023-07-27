@@ -7,6 +7,7 @@ import StatusT from '../../../components/en_to_fa/StatusT'
 
 const O_Ration = () => {
   const [data,setdata] = useState([])
+  const [loading,setLoading]=useState(true)
   const navigate =useNavigate()
   const EpochId = useParams().EpochId
 
@@ -15,11 +16,12 @@ const O_Ration = () => {
     const token=true
     const method='GET'
     const api=`/api/v1/ration/suggestions/?epoch_id=${EpochId}`
-    Fetch(body,token,setdata,method,api,navigate) 
+    Fetch(body,token,setdata,method,api,navigate,setLoading) 
   },[])
 
-if(data.length === 0)return <h1 className="text"> پیشنهادی وجود ندارد</h1>
-return (
+
+return loading ? <div className='flex justify-center items-center'> <div className=' border-2 border-gray-700  w-8 h-8 border-r-transparent animate-spin  rounded-full '> </div></div> : 
+data.length === 0 ? <h1 className="text"> اطلاعاتی هنوز ثبت نشده</h1>:(
 <>
   <h2 className=" text-center text-2xl mb-4"> جیره های پیشنهادی دامپزشک </h2>
 

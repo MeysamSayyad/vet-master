@@ -9,17 +9,19 @@ const V_VaccinationV = () => {
   const [data,setdata] = useState([])
   const navigate =useNavigate()
   const epoch_id = useParams().EpochId
+  const [loading,setLoading]=useState(true)
   
   useEffect(()=>{
     const body=undefined
     const token=true
     const method='GET'
     const api=`/api/v1/vaccination/?epoch_id=${epoch_id}`
-    Fetch(body,token,setdata,method,api,navigate)
+    Fetch(body,token,setdata,method,api,navigate,setLoading)
   },[])
   
-if(data.length === 0)return <h1 className="text"> اطلاعاتی هنوز ثبت نشده</h1>
-return (
+
+return loading ? <div className='flex justify-center items-center'> <div className=' border-2 border-gray-700  w-8 h-8 border-r-transparent animate-spin  rounded-full '> </div></div> : 
+data.length === 0 ? <h1 className="text"> اطلاعاتی هنوز ثبت نشده</h1>:(
 <div className="flex justify-center">
   <div className="flex justify-center flex-col text-center">
     {data.map(i=>

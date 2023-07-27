@@ -8,6 +8,7 @@ import StatusT from '../../../components/en_to_fa/StatusT'
 
 const O_Vaccination = () => {
   const [data,setdata] = useState([])
+  const [loading,setLoading]=useState(true)
   const navigate =useNavigate()
   const epoch_id = useParams().EpochId
   
@@ -16,11 +17,12 @@ const O_Vaccination = () => {
     const token=true
     const method='GET'
     const api=`/api/v1/vaccination/suggestions/?epoch_id=${epoch_id}`
-    Fetch(body,token,setdata,method,api,navigate)
+    Fetch(body,token,setdata,method,api,navigate,setLoading)
   },[])
   
-if(data.length === 0)return <h1 className="text"> پیشنهادی وجود ندارد</h1>
-return (
+
+return loading ? <div className='flex justify-center items-center'> <div className=' border-2 border-gray-700  w-8 h-8 border-r-transparent animate-spin  rounded-full '> </div></div> : 
+data.length === 0 ? <h1 className="text"> اطلاعاتی هنوز ثبت نشده</h1>:(
 <>
   <h2 className=" text-center text-2xl mb-4"> واکسیناسیون پیشنهادی دامپزشک </h2>
   <div className='center'>
