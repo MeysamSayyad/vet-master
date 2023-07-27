@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React,{ useState, useEffect, useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Fetch from '../../../components/Fetch'

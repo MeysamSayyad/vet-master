@@ -8,7 +8,7 @@
   input {@apply rounded border p-1 px-2 text-center w-[220px] }
   select {@apply rounded border p-1 px-2 text-center w-[220px] } 
   .bold {@apply font-bold}
-  .center {@apply flex justify-center}
+  .center {@apply flex justify-center items-center}
   .btn-g {@apply bg-[#00DA1C] text-white w-20 rounded-lg p-1 text-sm }
   .btn-r {@apply bg-[#dc592d] text-white w-20 rounded-lg p-1 text-sm }
   .nav {@apply p-1 mx-2 }

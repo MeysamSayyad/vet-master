@@ -71,7 +71,7 @@ return (
             <h4 className="">مکان سالن:</h4>
             <h4 className="">{i.location} </h4>
           </div>
-     )
+        )
         :<h2 className='my-3 text-lg '>سالنی برای نمایش وجود ندارد</h2>
       }
     </div>
