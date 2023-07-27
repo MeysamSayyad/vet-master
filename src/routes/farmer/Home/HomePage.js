@@ -65,7 +65,7 @@ return (
       {
         data.length > 0?
         data.map(i => 
-          <div style={SalonId==i.id ? {borderWidth:'1px',borderColor:'black'}:undefined} key={i.id} onClick={()=>{navToSalon(i.id,i.name)}} className=" cursor-pointer rounded-lg p-4 px-7 ml-5 mt-4 grid grid-cols-2 text-center gap-2 bg-slate-200" >
+          <div style={SalonId==i.id ? {borderWidth:'1.5px',borderColor:'grey',boxShadow:'0px 2px 3px 1px grey'}:undefined} key={i.id} onClick={()=>{navToSalon(i.id,i.name)}} className=" cursor-pointer rounded-lg p-4 px-7 ml-5 mt-4 grid grid-cols-2 text-center gap-2 bg-slate-200" >
             <h4 className=""> نام سالن:</h4>
             <h4 className=""> {i.name} </h4>
             <h4 className="">مکان سالن:</h4>
