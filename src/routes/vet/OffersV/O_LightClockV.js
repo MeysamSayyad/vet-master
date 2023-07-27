@@ -7,6 +7,7 @@ import StatusT from '../../../components/en_to_fa/StatusT'
 
 const O_LightClockV = () => {
   const [data,setdata] = useState([])
+  const [loading,setLoading]=useState(true)
   const navigate =useNavigate()
   const EpochId = useParams().EpochId
   const {updateG} = useContext(myContext)
@@ -16,11 +17,12 @@ const O_LightClockV = () => {
     const token=true
     const method='GET'
     const api=`/api/v1/lighting/suggestions/?epoch_id=${EpochId}`
-    Fetch(body,token,setdata,method,api,navigate) 
+    Fetch(body,token,setdata,method,api,navigate, setLoading) 
   },[updateG])
 
-if(data.length === 0)return <h1 className="text"> پیشنهادی هنوز ثبت نشده</h1>
-return (
+return loading ? <div className='flex justify-center items-center'> <div className=' border-2 border-gray-700  w-8 h-8 border-r-transparent animate-spin  rounded-full '> </div></div> : 
+data.length === 0 ? <h1 className="text"> پیشنهادی هنوز ثبت نشده</h1> :
+(
 <div className="flex justify-center text-center">
   <div className="flex flex-col">
     {data.map(i=><div key={i.id} className="border-2 rounded-xl 2xl:w-[50vw] m-2 p-6 px-10 w-[68vw]  mb-4">
