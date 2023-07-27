@@ -7,6 +7,7 @@ import Gregorian_to_jalali from '../../../components/Gregorian_to_jalali'
 
 const O_BeakV = () => {
   const [data,setdata] = useState([])
+  const [loading,setLoading]=useState(true)
   const navigate = useNavigate()
   const id = useParams().EpochId
   const {updateG} = useContext(myContext)
@@ -16,11 +17,12 @@ const O_BeakV = () => {
     const token=true
     const method='GET'
     const api=`/api/v1/beak-trimming/suggestions/?epoch_id=${id}`
-    Fetch(body,token,setdata,method,api,navigate)
+    Fetch(body,token,setdata,method,api,navigate, setLoading)
   },[updateG])
 
-if(data.length === 0)return <h1 className="text"> پیشنهادی هنوز ثبت نشده</h1>
-return (
+return loading ? <div className='flex justify-center items-center'> <div className=' border-2 border-gray-700  w-8 h-8 border-r-transparent animate-spin  rounded-full '> </div></div> : 
+data.length === 0 ? <h1 className="text"> پیشنهادی هنوز ثبت نشده</h1> :
+(
 <div className="flex justify-center text-center">
   <div className="flex flex-col">
   {data.map(i=>

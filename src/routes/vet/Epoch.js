@@ -37,8 +37,8 @@ data.length === 0 ? <h1 className="text">دوره ای وجود ندارد</h1> 
         </div>
         <div>
           <h5 className="mb-1">{i.start_date} </h5>
-          <h5 className="mb-1">{i.end_date?'i.end_date':'در حال پرورش'} </h5>
-          <h5 className="">{i.hen_type} </h5>
+          <h5 className="mb-1">{i.end_date? i.end_date :'در حال پرورش'} </h5>
+          <h5 className="">{i.hen_type === 'LAYING'?' مرغ تخمگذار ':' مرغ گوشتی '}</h5>
         </div>
       </div>
       )}
