@@ -1,30 +1,31 @@
-import React, { useContext } from 'react'
+import React, { useEffect,useContext } from 'react'
 import { myContext } from '../../context'
-import { NavLink, Outlet, useLocation, useParams } from 'react-router-dom'
+import { NavLink, Outlet, useLocation, useNavigate, useParams } from 'react-router-dom'
 import { Bar } from 'react-chartjs-2'
+import Fetch from '../../components/Fetch'
+import { useState } from 'react'
 
 const View = () => {
   const {epoch} = useContext(myContext)
+  const [data,setdata]=useState([])
+  const navigate=useNavigate()
   const params=useParams()
   const location=useLocation()
+ console.log(data)
 
   const chart ={
-    labels : [],
+    labels : data.herd_age_list,
     datasets: [
       {
-        label: '',
-        data: [
-          
-        ],
+        label: 'شمار',
+        data: data.count_list,
         // data: {count:50, min: -100, 10: 100},
         backgroundColor: [
-          'rgba(111 255 241)',
+          "#1984c5"
           // 'rgba(115 155 244)',
         ],
-        borderColor: [
-          'rgb(111 255 241)',
-        ],
-        borderWidth: 1,
+        
+        
         // borderSkipped:'bottom',
 
         // base:10
@@ -32,12 +33,38 @@ const View = () => {
         // barThickness: 75, // ضخامت ستون ها
         // inflateAmount:10, // ضخامت ستون ها
         // grouped:false
-        hoverBackgroundColor:['rgba(111 25 241)'],
+        hoverBackgroundColor:['#054658'],
         hoverBorderWidth:0,
+        borderRadius:3
         // indexAxis:'y'
       },
+      {
+        label: 'کاتاف',
+        data: data.cutoff_list,
+        backgroundColor: [
+          // 'rgba(111 255 241)',
+          "#F45050"
+        ],
+        borderRadius:3,
+        hoverBackgroundColor:['#054658'],
+      }
     ]
   }
+  const options ={
+    responsive: true,
+    
+    scales: {
+      x: {stacked: true },
+      y: {stacked: true }     
+    }
+	}
+  useEffect(()=>{
+    const body=undefined
+    const token=true
+    const method='GET'
+    const api=`/api/v1/loss/daily-count/?epoch_id=${params.EpochId}`
+    Fetch(body,token,setdata,method,api,navigate)
+  },[])
 
 return (
   <div className='flex gap-10'>
@@ -56,11 +83,11 @@ return (
     <NavLink to={'V_EndCourse'} className={({isActive}) => isActive? 'active':'not_active'}> داده های آخر دوره </NavLink> 
   </nav>
 
-  <div className="w-full ">
- { location.pathname== `/NavF/HomePage/${params.id}/SalonId/${params.SalonId}/EpochId/${params.EpochId}/View` && <div className="w-[60%] ">
-      <Bar data={chart} />
+  <div className="w-full  ">
+ { location.pathname== `/NavF/HomePage/${params.id}/SalonId/${params.SalonId}/EpochId/${params.EpochId}/View` && <div className="w-[60%] mx-auto ">
+ <h2 className="bold text-xl text-center m-4">نمودار سن-تعداد تلفات  </h2>
+      <Bar data={chart} options={options} />
       <br />
-      <Bar data={chart} />
     </div>}
     <Outlet/>
   </div>

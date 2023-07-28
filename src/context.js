@@ -6,7 +6,7 @@ export const myContext = createContext()
 const Context =(props)=>{
   const cookies=new Cookies()
   const [epoch,setepoch] = useState({})
-  const [salonName,setsalonName] = useState('')
+  const [salonName,setsalonName] = useState(()=> localStorage.salonName ? localStorage.salonName:'')
   const [farmerName,setfarmerName] = useState('')
   const [access,setAccess]=useState(()=> cookies.get('access') ? cookies.get('access'):'')
   const [updateG,setupdateG] = useState(false)

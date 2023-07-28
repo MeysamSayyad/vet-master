@@ -37,9 +37,10 @@ const Weight = () => {
   },[date])
 
   const save =async()=>{
-   let beginningArr=beginning.map((item)=>item.value)
-   let middleArr=middle.map((item)=>item.value)
-   let endArr=end.map((item)=>item.value)
+   let beginningArr=beginning.map((item)=>((item.value*1).toFixed(3))*1)
+   let middleArr=middle.map((item)=>((item.value*1).toFixed(3))*1)
+   let endArr=end.map((item)=>((item.value*1).toFixed(3))*1)
+   console.log(beginningArr)
     const body={
       epoch_id, 
       data:{beginning:beginningArr, middle:middleArr, end:endArr},
