@@ -13,7 +13,9 @@ const View = () => {
     datasets: [
       {
         label: '',
-        data: [],
+        data: [
+          
+        ],
         // data: {count:50, min: -100, 10: 100},
         backgroundColor: [
           'rgba(111 255 241)',

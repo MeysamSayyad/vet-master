@@ -37,7 +37,7 @@ data.length === 0 ? <h1 className="text"> اطلاعاتی هنوز ثبت نش�
         <div>{i.data.map((i,inx)=> <h6 key={inx} className="mx-2"><RationT ration={i.name} /> </h6>)}</div>
         <div>{i.data.map((i,inx)=> <h6 key={inx} className="mx-2">{i.amount} </h6>)}</div>
         <h6 className='mx-2'>{Gregorian_to_jalali(i.date)} </h6>
-        <p className="mt-2"><StatusT status={i.status} /> </p>
+        <div className="mt-2"><StatusT status={i.status} /> </div>
       </div>
 
       <div className="flex justify-between -mb-[32px] mt-2 w-[102%] ">

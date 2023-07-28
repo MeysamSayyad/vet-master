@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React,{ useState, useEffect, useContext } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import Fetch from '../../../components/Fetch'
 import { myContext } from '../../../context'
 import Gregorian_to_jalali from '../../../components/Gregorian_to_jalali'
@@ -10,13 +10,13 @@ const O_Beak = () => {
   const [data,setdata] = useState([])
   const [loading,setLoading]=useState(true)
   const navigate =useNavigate()
-  const {epoch} = useContext(myContext)
+  const EpochId=useParams().EpochId
 
   useEffect(()=>{
     const body=undefined
     const token=true
     const method='GET'
-    const api=`/api/v1/beak-trimming/suggestions/?epoch_id=${epoch.id}`
+    const api=`/api/v1/beak-trimming/suggestions/?epoch_id=${EpochId}`
     Fetch(body,token,setdata,method,api,navigate,setLoading)
   },[])
 
@@ -27,8 +27,8 @@ data.length === 0 ? <h1 className="text"> اطلاعاتی هنوز ثبت نش�
   <h2 className=" text-center text-2xl mb-4"> تاریخ های پیشنهادی دامپزشک برای نوک چینی </h2>
 
   <div className="flex justify-center flex-col text-center">
-    {data.map(i =>
-      <div className="border-2 rounded-xl xl:w-[30vw] w-[40vw] m-4 p-3.5 px-7 max-w-[800px] mx-auto ">
+    {data.map((i,index) =>
+      <div key={index} className="border-2 rounded-xl xl:w-[30vw] w-[40vw] m-4 p-3.5 px-7 max-w-[800px] mx-auto ">
         {/* <div className="flex justify-end -mt-7 ">
           <div className="border-2 rounded-full text-sm text-slate-600 px-4 pt-0.5 w-min">
             {i.status}
@@ -43,7 +43,7 @@ data.length === 0 ? <h1 className="text"> اطلاعاتی هنوز ثبت نش�
           <div>
             <p className="my-2">{i.herd_age} </p>
             <p className="my-2">{Gregorian_to_jalali(i.suggested_at)} </p>
-            <p className="mt-2"><StatusT status={i.status} /> </p>
+            <div className="mt-2"><StatusT status={i.status} /> </div>
           </div>
         </div>
         <div className="flex justify-between -mb-[30px] ">
