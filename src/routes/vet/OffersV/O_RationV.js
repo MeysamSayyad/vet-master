@@ -5,6 +5,7 @@ import Fetch from '../../../components/Fetch'
 import Gregorian_to_jalali from '../../../components/Gregorian_to_jalali'
 import RationT from '../../../components/en_to_fa/RationT'
 import StatusT from '../../../components/en_to_fa/StatusT'
+import { Btndel } from '../../../components/BtnDel'
 
 const O_RationV = () => {
   const [data,setdata] = useState([])
@@ -26,7 +27,10 @@ data.length === 0 ? <h1 className="text"> پیشنهادی هنوز ثبت نش�
 (
 <div className='flex flex-col text-center mt-4 '>
   {data.map(i=>
-    <div key={i.id} className="border-2 rounded-3xl m-2 p-4 md:px-12 px-4 w-4/5 mb-6 mx-auto ">
+    <div key={i.id} className="border-2 rounded-3xl m-2 p-4 md:px-12 px-4 w-4/5 mb-6 mx-auto relative">
+      <div className='absolute right-4 top-12'>
+        <Btndel/>
+      </div>
       <div className="grid grid-cols-4 text-center gap-4">
         <h5 className="my-2 border-l border-[#707070] "> نوع جیره </h5>
         <h5 className="my-2 border-l border-[#707070] "> مقدار </h5>

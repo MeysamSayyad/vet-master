@@ -1,15 +1,15 @@
-import React, { useState, useEffect } from 'react'
-import { Link, useParams, useNavigate } from 'react-router-dom'
-import Fetch from '../../components/Fetch'
-import InfoSalon from './InfoSalonV'
+import React, { useState, useEffect } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
+import Fetch from '../../components/Fetch';
+import InfoSalon from './InfoSalonV';
 
 const Epoch = () => {
-  const [data,setdata] = useState([])
-  const [show,setshow] = useState(false)
-  const [loading,setLoading]=useState(true)
-  const [EpochId,setEpochId] = useState('')
-  const navigate =useNavigate()
-  const id = useParams().salonId
+  const [data,setdata] = useState([]);
+  const [show,setshow] = useState(false);
+  const [loading,setLoading]=useState(true);
+  const [EpochId,setEpochId] = useState('');
+  const navigate =useNavigate();
+  const id = useParams().salonId;
 
   useEffect(()=>{
     const body=undefined
@@ -17,9 +17,8 @@ const Epoch = () => {
     const method='GET'
     const api=`/api/v1/epochs/?salon_id=${id}`
     Fetch(body,token,setdata,method,api,navigate, setLoading)
-  },[id])
+  },[id]);
 
-// if(data.length === 0) return <h1 className="text">دوره ای وجود ندارد</h1>
 return loading ? <div className='flex justify-center items-center'> <div className=' border-2 border-gray-700  w-8 h-8 border-r-transparent animate-spin  rounded-full '> </div></div> : 
 data.length === 0 ? <h1 className="text">دوره ای وجود ندارد</h1> :
 (

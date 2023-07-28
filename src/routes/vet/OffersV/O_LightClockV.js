@@ -4,6 +4,7 @@ import { useNavigate, useParams } from 'react-router-dom'
 import Fetch from '../../../components/Fetch'
 import Gregorian_to_jalali from '../../../components/Gregorian_to_jalali'
 import StatusT from '../../../components/en_to_fa/StatusT'
+import { Btndel } from '../../../components/BtnDel'
 
 const O_LightClockV = () => {
   const [data,setdata] = useState([])
@@ -25,7 +26,10 @@ data.length === 0 ? <h1 className="text"> پیشنهادی هنوز ثبت نش�
 (
 <div className="flex justify-center text-center">
   <div className="flex flex-col">
-    {data.map(i=><div key={i.id} className="border-2 rounded-xl 2xl:w-[50vw] m-2 p-6 px-10 w-[68vw]  mb-4">
+    {data.map(i=><div key={i.id} className="border-2 rounded-xl 2xl:w-[50vw] m-2 p-6 px-10 w-[68vw]  mb-4 relative">
+      <div className='absolute right-4 top-12'>
+        <Btndel/>
+      </div>
       <div className="grid grid-cols-6 gap-1 mb-4">
         <h3 className="my-2 border-l border-[#707070] "> تاریخ </h3>
         <h3 className="my-2 border-l border-[#707070] "> رنگ نور </h3>

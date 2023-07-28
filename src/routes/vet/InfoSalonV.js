@@ -22,9 +22,7 @@ const InfoSalon = ({setshow, EpochId }) => {
     const api=`/api/v1/epochs/detail/?epoch_id=${EpochId}`
     Fetch(body,token,setdata,method,api,navigate)
   },[update])
-  
   if (data !== ''){setepoch(data)}
-
 return (
 <>
 <div onClick={()=> setshow(false)} className="backdrop"></div>

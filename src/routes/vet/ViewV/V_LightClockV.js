@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from 'react'
-import { useParams,useNavigate } from 'react-router-dom'
+import { useParams,useNavigate, useLocation  } from 'react-router-dom'
 import Fetch from '../../../components/Fetch'
 import Gregorian_to_jalali from '../../../components/Gregorian_to_jalali'
 import { Btndel } from '../../../components/BtnDel'
 
 const V_LightClockV = () => {
-  const [data,setdata] = useState([])
-  const navigate =useNavigate()
-  const [loading,setLoading]=useState(true)
-  const id = useParams().EpochId
+  const [data,setdata] = useState([]);
+  const navigate =useNavigate();
+  const [loading,setLoading]=useState(true);
+  const id = useParams().EpochId;
+  const Location = useLocation();
 
   useEffect(()=>{
     const body=undefined
@@ -23,7 +24,11 @@ return loading ? <div className='flex justify-center items-center'> <div classNa
 <div className="flex flex-col text-center">
   {data.map(i=>
     <div key={i.id} className="border-2 flex flex-row items-center rounded-3xl m-2 p-4 md:px-12 px-4 ">
-      <Btndel/>
+      {Location.pathname.includes("NavF")  ?
+        <Btndel/>
+      :
+      ""
+      }
       <div className="grid grid-cols-5 w-full text-center gap-4">
         <h5 className="my-2 border-l border-[#707070]">تاریخ</h5>
         <h5 className="my-2 border-l border-[#707070]">رنگ نور</h5>
