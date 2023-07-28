@@ -7,6 +7,7 @@ import Gregorian_to_jalali from '../../../components/Gregorian_to_jalali'
 import UseT from '../../../components/en_to_fa/UseT'
 import VacccineT from '../../../components/en_to_fa/VacccineT'
 import StatusT from '../../../components/en_to_fa/StatusT'
+import { Btndel } from '../../../components/BtnDel'
 
 const O_VaccinationV = () => {
   const [data,setdata] = useState([])
@@ -29,7 +30,10 @@ data.length === 0 ? <h1 className="text"> پیشنهادی هنوز ثبت نش�
 <div className="flex justify-center">
   <div className="flex flex-col text-center">
     {data.map(i=>
-    <div key={i.id} className="border-2 rounded-3xl m-2 mb-4 p-5 md:px-14 px-4 max-w-[700px] ">
+    <div key={i.id} className="border-2 rounded-3xl m-2 mb-4 p-5 md:px-14 px-4 max-w-[700px] relative">
+      <div className='absolute right-4 top-10'>
+        <Btndel/>
+      </div>
       <div className="grid grid-cols-5 text-center mb-4">
         <h5 className="mb-2 border-l px-2">نام واکسن</h5>
         <h5 className="mb-2 border-l px-2">طریقه مصرف</h5>

@@ -24,8 +24,11 @@ data.length === 0 ? <h1 className="text"> اطلاعاتی هنوز ثبت نش�
 <div className="center">
   <div className="flex flex-col text-center">
     {data.map((i,index) => 
-      <div key={index} className="border-2 rounded-3xl flex flex-row gap-1 m-2 p-5 md:px-24 px-4 max-w-[700px] ">
-        <Btndel/>
+      <div key={index} className="border-2 rounded-3xl flex flex-row gap-1 m-2 p-5 md:px-24 px-4 max-w-[700px]">
+        <div className='pl-4'>
+          <Btndel/>
+        </div>
+        
         <h2 className="">
         نوک چینی در تاریخ <span className='mx-1' dir='ltr'>{Gregorian_to_jalali(i.date)}</span> انجام شد 
         </h2>

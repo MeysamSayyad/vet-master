@@ -70,7 +70,7 @@ return (
         / سالن ها 
       </Link> */}
 
-      <Link to={`/NavV/HomePageV/${id}/userId/${params.userId}`} className='ads_bar'>
+      <Link to={`/NavV/HomePageV/${id}/userId/${params.userId}/salonId/${params.salonId}`} className='ads_bar'>
         {params.salonId?`/ سالن ${salonName}`:''}
       </Link>
 
