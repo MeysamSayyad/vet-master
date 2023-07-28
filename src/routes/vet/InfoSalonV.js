@@ -46,7 +46,7 @@ return (
           <p className="mt-2">{data.salon_name}</p>
           <p className="mt-2">{data.herd_breed} </p>
           <p className="mt-2">{data.parent_herd_name} </p>
-          <p className="mt-2">{data.hen_type}</p>
+          <p className="mt-2">{data.hen_type === 'LAYING'?' مرغ تخمگذار ':' مرغ گوشتی '}</p>
           <p className="mt-2">{data.initial_hen_count} </p>
           <p className="mt-2">{data.current_hen_count} </p>
           <p className="mt-2">{data.herd_age} </p>

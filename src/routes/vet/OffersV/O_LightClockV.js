@@ -34,7 +34,7 @@ data.length === 0 ? <h1 className="text"> پیشنهادی هنوز ثبت نش�
         <h3 className="my-2 border-l border-[#707070] "> ساعات روشنایی </h3>
         <h3 className="my-2 "> وضعیت </h3>
 
-        <p className="mx-2">{Gregorian_to_jalali(i.suggested_at)}</p>
+        <p className="mx-2">{Gregorian_to_jalali(i.date)}</p>
         <p className="mx-2">{i.light_color} </p>
         <p className="mx-2">{i.light_intensity} </p>
         <p className="mx-2">{i.total_lighting_hours} </p>
@@ -45,7 +45,7 @@ data.length === 0 ? <h1 className="text"> پیشنهادی هنوز ثبت نش�
       </div>
       
       <div className="flex justify-between -mb-10 w-[102%] ">
-        <div className="border-2 rounded-full text-sm bg-white px-4 pt-0.5 -mr-4 "> تاریخ ثبت {Gregorian_to_jalali(i.date)} </div>
+        <div className="border-2 rounded-full text-sm bg-white px-4 pt-0.5 -mr-4 "> تاریخ ثبت {Gregorian_to_jalali(i.suggested_at)} </div>
       </div>
     </div>
     )}
