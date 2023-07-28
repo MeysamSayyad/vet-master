@@ -34,17 +34,16 @@ data.length === 0 ? <h1 className="text"> اطلاعاتی هنوز ثبت نش�
             {i.status}
           </div>
         </div> */}
-        <div className="mb-4 grid grid-cols-3">
-          <div>
+        <div className="mb-4 grid grid-cols-3 grid-rows-2 ">
+          
             <h4 className="my-2">تاریخ</h4>
             <h4 className="my-2">سن</h4>
             <h3 className="my-2"> وضعیت </h3>
-          </div>
-          <div>
-            <p className="my-2">{i.herd_age} </p>
+          
             <p className="my-2">{Gregorian_to_jalali(i.suggested_at)} </p>
+            <p className="my-2">{i.herd_age} </p>
             <div className="mt-2"><StatusT status={i.status} /> </div>
-          </div>
+          
         </div>
         <div className="flex justify-between -mb-[30px] ">
           <div className="border-2 rounded-full text-sm bg-white px-4 pt-0.5 "> تاریخ ثبت {Gregorian_to_jalali(i.date)}</div>
