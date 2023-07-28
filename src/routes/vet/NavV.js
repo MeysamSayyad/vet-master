@@ -13,7 +13,8 @@ const NavV = () => {
   const navigate =useNavigate()
   const params = useParams()
   const id = params.id
-  const EpochId = params.EpochId
+  
+  const EpochId = params.EpochId;
   const param = `HomePageV/${params.id}/userId/${params.userId}/salonId/${params.salonId}/EpochId/${params.EpochId}`
 
   useEffect(()=>{
@@ -62,15 +63,15 @@ return (
     </div>
     
     <div className="px-10 mt-2 text-[17px] ">
-    {/* <Link to={`/NavV/HomePageV/${id}`} className='ads_bar'>{params.id?`آقا/خانم ${farmerName}`:''} </Link> */}
-    {/* <Link to={`/NavV/HomePageV/${id}`} className='ads_bar'> مرغدار ها </Link>
+    <Link to={`/NavV/HomePageV/${id}`} className='ads_bar'>{params.id?`  ${farmerName}`:''} </Link>
+    {/* <Link to={`/NavV/HomePageV/${id}`} className='ads_bar'> مرغدار ها </Link> }
 
       <Link to={`/NavV/HomePageV/${id}/userId/${params.userId}`} className='ads_bar'>
         / سالن ها 
       </Link> */}
 
       <Link to={`/NavV/HomePageV/${id}/userId/${params.userId}`} className='ads_bar'>
-        {salonName?`/ سالن ${salonName}`:''}
+        {params.salonId?`/ سالن ${salonName}`:''}
       </Link>
 
       <div className={params.EpochId?"ads_barr inline-block":'hidden'}>/ دوره {`${epoch.is_active?' فعال ':'غیر فعال'}`}</div>

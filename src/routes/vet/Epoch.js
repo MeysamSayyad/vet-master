@@ -19,7 +19,6 @@ const Epoch = () => {
     Fetch(body,token,setdata,method,api,navigate, setLoading)
   },[id])
 
-// if(data.length === 0) return <h1 className="text">دوره ای وجود ندارد</h1>
 return loading ? <div className='flex justify-center items-center'> <div className=' border-2 border-gray-700  w-8 h-8 border-r-transparent animate-spin  rounded-full '> </div></div> : 
 data.length === 0 ? <h1 className="text">دوره ای وجود ندارد</h1> :
 (
