@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react'
 import Fetch from '../../../../components/Fetch'
-import Chart from 'chart.js/auto';
+
 import { Bar } from 'react-chartjs-2';
 
 const DailyCount = ({id, navigate}) => {
@@ -61,8 +61,8 @@ const DailyCount = ({id, navigate}) => {
   },[])
 
 return (
-<div>
-  <h2 className="bold text-xl text-center m-4">نمودار سن-تعداد تلفات  </h2>
+<div className=' w-[70%]'>
+  <h2 className="bold text-xl  text-center m-4">نمودار سن-تعداد تلفات  </h2>
   <Bar data={chart} options={options}/>
 </div>
 )}

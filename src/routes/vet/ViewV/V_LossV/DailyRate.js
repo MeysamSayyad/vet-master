@@ -52,7 +52,7 @@ const DailyRate = ({id, navigate}) => {
   },[])
 
 return (
-<div>
+<div className=' w-[70%]'>
   <h2 className="bold text-xl text-center m-4">نمودار سن-درصد تلفات  </h2>
   <Bar data={chart} options={options}/>
 </div>

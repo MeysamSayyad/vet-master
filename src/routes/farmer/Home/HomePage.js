@@ -1,8 +1,6 @@
 import React, { useState,useEffect,useContext } from 'react'
 import Fetch from '../../../components/Fetch'
 import { useNavigate, Link, useParams } from "react-router-dom";
-import Chart from 'chart.js/auto';
-import { Bar } from 'react-chartjs-2';
 import { myContext } from '../../../context'
 import Salon from './Salon';
 import { Loading } from '../../../components/Loading';
@@ -45,10 +43,12 @@ const HomePage = () => {
     if(_id==SalonId){
       navigate(`/NavF/HomePage/${id}`)
       setsalonName('')
+      localStorage.removeItem('salonName')
     }
     else{
       navigate(`/NavF/HomePage/${id}/SalonId/${_id}`)
       setsalonName(name)
+      localStorage.salonName=name
     }
     _id != SalonId && setLoading(true)
   }

@@ -8,7 +8,7 @@ const V_LossV = () => {
   const navigate=useNavigate()
 
 return (
-<div className=' '>
+<div className='flex justify-center flex-col items-center'>
   <DailyCount id={id} navigate={navigate} />
   <br />
   <DailyRate id={id} navigate={navigate} />

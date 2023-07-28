@@ -37,9 +37,10 @@ const Weight = () => {
   },[date])
 
   const save =async()=>{
-   let beginningArr=beginning.map((item)=>item.value)
-   let middleArr=middle.map((item)=>item.value)
-   let endArr=end.map((item)=>item.value)
+   let beginningArr=beginning.map((item)=>((item.value*1).toFixed(3))*1)
+   let middleArr=middle.map((item)=>((item.value*1).toFixed(3))*1)
+   let endArr=end.map((item)=>((item.value*1).toFixed(3))*1)
+   console.log(beginningArr)
     const body={
       epoch_id, 
       data:{beginning:beginningArr, middle:middleArr, end:endArr},
@@ -63,7 +64,7 @@ return (
       <div dir='rtl' className="flex justify-start items-center flex-wrap  ">
       
         {beginning.map((i)=>
-          <input key={i.id} className='w-20 mx-2.5 my-1.5' value={i.value} onChange={e => {setbeginning((perv)=>perv.map((item)=> {return {...item, value :item.id == i.id ? e.target.value:item.value}})); setupdate(!update); }} type='number' />
+          <input dir='ltr' key={i.id} className='w-20 mx-2.5 my-1.5' value={i.value} onChange={e => {setbeginning((perv)=>perv.map((item)=> {return {...item, value :item.id == i.id ? e.target.value:item.value}})); setupdate(!update); }} type='number' />
           )}
           <span onClick={()=>{setbeginning([...beginning,{id:Date.now(),value:''}])}} className=' text-xl text-slate-700 cursor-pointer hover:opacity-60 active:opacity-100 '>&#43;</span>
       </div>
@@ -72,7 +73,7 @@ return (
       <div dir='rtl' className="flex items-center justify-start flex-wrap  ">
       
         {middle.map((i)=>
-          <input key={i.id} className='w-20 mx-2.5 my-1.5' value={i.value} onChange={e => {setmiddle((perv)=>perv.map((item)=> {return {...item, value :item.id == i.id ? e.target.value:item.value}})); setupdate(!update); }} type="number" />
+          <input dir='ltr' key={i.id} className='w-20 mx-2.5 my-1.5' value={i.value} onChange={e => {setmiddle((perv)=>perv.map((item)=> {return {...item, value :item.id == i.id ? e.target.value:item.value}})); setupdate(!update); }} type="number" />
           )}
           <span onClick={()=>{setmiddle([...middle,{id:Date.now(),value:''}])}} className=' text-xl text-slate-700 cursor-pointer hover:opacity-60 active:opacity-100 '>&#43;</span>
       </div>
@@ -81,7 +82,7 @@ return (
       <div dir='rtl' className="flex justify-start items-center flex-wrap  ">
       
         {end.map((i)=>
-          <input key={i.id} className='w-20 mx-2.5 my-1.5' value={i.value} onChange={e => {setend((perv)=>perv.map((item)=> {return {...item, value :item.id == i.id ? e.target.value:item.value}})); setupdate(!update); }} type="number" />
+          <input dir='ltr' key={i.id} className='w-20 mx-2.5 my-1.5' value={i.value} onChange={e => {setend((perv)=>perv.map((item)=> {return {...item, value :item.id == i.id ? e.target.value:item.value}})); setupdate(!update); }} type="number" />
           )}
           <span onClick={()=>{setend([...end,{id:Date.now(),value:''}])}} className=' text-xl text-slate-700 cursor-pointer hover:opacity-60 active:opacity-100 '>&#43;</span>
       </div>
