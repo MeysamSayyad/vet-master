@@ -39,9 +39,9 @@ const InfoSalon = ({setshow2, EpochId,_id }) => {
       setupdate(!update)
     }
   }
-console.log(data)
+
 return (
-<>
+
 <div onClick={()=> setshow2(false)} className=" bg-opacity-30 inset-0 w-screen h-screen fixed flex justify-center items-center bg-black z-10">
   
     <div className="z-40 bg-white rounded-xl min-h-[408px] flex items-center  justify-center min-w-[696px] p-8 px-14 fixed top-[10vh] ">
@@ -79,6 +79,5 @@ return (
       
     </div>
   </div>
-</>
 )}
 export default InfoSalon
