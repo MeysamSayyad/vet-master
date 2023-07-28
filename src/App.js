@@ -57,8 +57,8 @@ const {access}=useContext(myContext)
 
         <Route path='/NavF' element={access ?<NavF/>:<Navigate to={'/'}/>} >
           <Route path="HomePage/:id" element={<HomePage />} >
-          <Route path="SalonId/:SalonId" element={<></>} />
-            </Route>
+            <Route path="SalonId/:SalonId" element={<></>} />
+          </Route>
           
           <Route path="HomePage/:id/SalonId/:SalonId/EpochId/:EpochId/Record" element={<Record />} />
 
@@ -85,9 +85,11 @@ const {access}=useContext(myContext)
         </Route>
 
         <Route path='/NavV' element={access ? <NavV/>:<Navigate to={'/'}/>} >
-          <Route path="HomePageV/:id" element={<HomePageV />} />
-          <Route path="HomePageV/:id/userId/:userId" element={<Salons />} />
-          <Route path="HomePageV/:id/userId/:userId/salonId/:salonId" element={<Epoch />} />
+          <Route path="HomePageV/:id" element={<HomePageV />}>
+            <Route path="userId/:userId" element={<></>}>
+              <Route path="salonId/:salonId" element={<></>} />
+            </Route>
+          </Route>
 
           <Route path="HomePageV/:id/userId/:userId/salonId/:salonId/EpochId/:EpochId/OffersV" element={<OffersV />} >
             <Route path="O_BeakV" element={<O_BeakV />} />
