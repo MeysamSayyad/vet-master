@@ -50,6 +50,33 @@ const View = () => {
       }
     ]
   }
+  const chart2 ={
+    labels : '',
+    datasets: [
+      {
+        label: '',
+        data: [],
+        // data: {count:50, min: -100, 10: 100},
+        backgroundColor: [
+          "#1984c5"
+          // 'rgba(115 155 244)',
+        ],
+        
+        
+        // borderSkipped:'bottom',
+
+        // base:10
+        // barPercentage: 1.3 // فاصله ستون ها
+        // barThickness: 75, // ضخامت ستون ها
+        // inflateAmount:10, // ضخامت ستون ها
+        // grouped:false
+        hoverBackgroundColor:['#054658'],
+        hoverBorderWidth:0,
+        borderRadius:3
+        // indexAxis:'y'
+      },
+    ]
+  }
   const options ={
     responsive: true,
     
@@ -88,6 +115,8 @@ return (
  <h2 className="bold text-xl text-center m-4">نمودار سن-تعداد تلفات  </h2>
       <Bar data={chart} options={options} />
       <br />
+     <h2 className=' text-center bold text-xl'>میانگین وزن مرغ-سن</h2> 
+      <Bar data={chart2}/>
     </div>}
     <Outlet/>
   </div>

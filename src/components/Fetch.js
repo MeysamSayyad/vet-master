@@ -1,11 +1,11 @@
 import Cookies from "universal-cookie";
 
-const Fetch = (body,token,setdata,method,api,navigate,setLoad,setError) => {
+const Fetch = async(body,token,setdata,method,api,navigate,setLoad,setError) => {
   const cookies = new Cookies()
   const access = cookies.get('access')
   const refresh = cookies.get('refresh')
 
-    fetch(`${process.env.REACT_APP_BASE_URL}${api}`,{
+   await fetch(`${process.env.REACT_APP_BASE_URL}${api}`,{
       method,
       headers: token?
       {
@@ -25,7 +25,7 @@ const Fetch = (body,token,setdata,method,api,navigate,setLoad,setError) => {
       }
       // console.log(res);
       console.log(res)
-      return res.json()
+      return  method == 'POST' ? res : res.json()
     })
     .then(data => {
       

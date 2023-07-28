@@ -61,8 +61,8 @@ const DailyCount = ({id, navigate}) => {
   },[])
 
 return (
-<div>
-  <h2 className="bold text-xl text-center m-4">نمودار سن-تعداد تلفات  </h2>
+<div className=' w-[70%]'>
+  <h2 className="bold text-xl  text-center m-4">نمودار سن-تعداد تلفات  </h2>
   <Bar data={chart} options={options}/>
 </div>
 )}
