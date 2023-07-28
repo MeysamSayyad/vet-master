@@ -4,6 +4,7 @@ import Fetch from '../../../components/Fetch'
 import Gregorian_to_jalali from '../../../components/Gregorian_to_jalali'
 import VacccineT from '../../../components/en_to_fa/VacccineT'
 import UseT from '../../../components/en_to_fa/UseT'
+import { Btndel } from '../../../components/BtnDel'
 
 const V_VaccinationV = () => {
   const [data,setdata] = useState([])
@@ -24,9 +25,10 @@ return loading ? <div className='flex justify-center items-center'> <div classNa
 data.length === 0 ? <h1 className="text"> اطلاعاتی هنوز ثبت نشده</h1>:(
 <div className="flex justify-center">
   <div className="flex justify-center flex-col text-center">
-    {data.map(i=>
-      <div className="border-2 rounded-3xl xl:w-[60vw] m-2 p-5 md:px-14 px-4 ">
-        <div className="grid grid-cols-4 text-center gap-4">
+    {data.map((i,index)=>
+      <div key={index} className="border-2 rounded-3xl flex justify-center items-center flex-row xl:w-[60vw] m-2 p-5 md:px-14 px-4 ">
+        <Btndel/>
+        <div className="grid grid-cols-4 w-full text-center gap-4">
           <h5 className="-m-2 border-l px-1 ">نام واکسن</h5>
           <h5 className="-m-2 border-l px-1 ">طریقه مصرف</h5>
           <h5 className="-m-2 border-l px-1 ">سن</h5>

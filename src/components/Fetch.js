@@ -24,6 +24,7 @@ const Fetch = (body,token,setdata,method,api,navigate,setLoad,setError) => {
       setError && setError('نام کاربری یا رمز عبور اشتباه است')
       }
       // console.log(res);
+      console.log(res)
       return res.json()
     })
     .then(data => {
