@@ -27,8 +27,8 @@ data.length === 0 ? <h1 className="text"> اطلاعاتی هنوز ثبت نش�
   <h2 className=" text-center text-2xl mb-4"> واکسیناسیون پیشنهادی دامپزشک </h2>
   <div className='center'>
     <div className="flex flex-col text-center">
-      {data.map(i=>
-      <div className="border-2 rounded-xl w-[65vw] m-2 p-3.5 px-7 max-w-[800px] mb-4">
+      {data.map((i,index)=>
+      <div key={index} className="border-2 rounded-xl w-[65vw] m-2 p-3.5 px-7 max-w-[800px] mb-4">
         <div className="grid grid-cols-5 ">
           <h3 className=" border-l px-1"> نام واکسن </h3>
           <h3 className=" border-l px-1"> طریقه مصرف </h3>
@@ -40,7 +40,7 @@ data.length === 0 ? <h1 className="text"> اطلاعاتی هنوز ثبت نش�
           <h6 className="mt-2"><UseT use={i.how_to_use} /> </h6>
           <h6 className="mt-2">{i.herd_age} </h6>
           <h6 className="mt-2">{Gregorian_to_jalali(i.suggested_at)} </h6>
-          <p className="mt-2"><StatusT status={i.status} /> </p>
+          <div className="mt-2"><StatusT status={i.status} /> </div>
         </div>
         {/* <p className="text-right mt-4">llllllllllll</p> <br /> */}
         <div className="flex justify-between -mb-[30px] w-[100%] ">
