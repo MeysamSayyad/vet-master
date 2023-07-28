@@ -35,7 +35,7 @@ data.length === 0 ? <h1 className="text"> پیشنهادی هنوز ثبت نش�
       <div>
         <h2 className="text-lg text-orange-500"> {i.herd_age} روزگی </h2>
         <h2 className="">
-          نوک چینی در تاریخ {Gregorian_to_jalali(i.suggested_at)}
+          پیشنهاد نوک چینی در تاریخ {Gregorian_to_jalali(i.suggested_at)}
           <span className={i.status ==='DONE'?'text-green-500 bold':'hidden'}> انجام شد </span>
           <span className={i.status === 'REJECTED'?'text-red-600 bold':'hidden'}> انجام نشد </span>
           <span className={i.status === 'PENDING'?'text-yellow-400 bold':'hidden'}> در انتظار انجام است </span>

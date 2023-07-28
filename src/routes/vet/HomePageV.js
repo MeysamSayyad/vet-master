@@ -33,8 +33,7 @@ const HomePageV = () => {
          {data.map(i => 
          <Link key={i.id} to={`userId/${i.id}`} onClick={()=> setfarmerName(`${i.first_name} ${i.last_name}`)}
           style={userId==i.id ? {borderWidth:'1.5px',borderColor:'grey',boxShadow:'0px 2px 3px 1px grey'}:undefined}
-          className="border-2 py-6 px-3 w-56 h-28 rounded-xl bg-slate-100 shadow-md center items-center">
-            خانم/آقای 
+          className="border-2 py-6 px-3 w-56 h-28 rounded-xl bg-slate-100 shadow-md center items-center">  
             {i.first_name} {i.last_name}
          </Link>
          )}

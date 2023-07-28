@@ -53,7 +53,7 @@ return (
       </div>
       <div className="flex justify-center mt-7 ">
         <Link className='info_btn text-black' to={`userId/${userId}/salonId/${salonId}/EpochId/${EpochId}/ViewV`}> نمایش اطلاعات </Link>
-        <Link className='info_btn text-black' to={`userId/${userId}/salonId/${salonId}/EpochId/${EpochId}/OffersV`}> پیشنهادات </Link>
+        <Link className='info_btn text-black' to={`userId/${userId}/salonId/${salonId}/EpochId/${EpochId}/OffersV/O_VaccinationV`}> پیشنهادات </Link>
       </div>
     </div>
   </div>

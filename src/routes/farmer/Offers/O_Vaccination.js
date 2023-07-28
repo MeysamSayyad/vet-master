@@ -39,12 +39,12 @@ data.length === 0 ? <h1 className="text"> اطلاعاتی هنوز ثبت نش�
           <h6 className="mt-2"><VacccineT vacccine={i.name} /> </h6>
           <h6 className="mt-2"><UseT use={i.how_to_use} /> </h6>
           <h6 className="mt-2">{i.herd_age} </h6>
-          <h6 className="mt-2">{Gregorian_to_jalali(i.suggested_at)} </h6>
+          <h6 className="mt-2">{Gregorian_to_jalali(i.date)} </h6>
           <div className="mt-2"><StatusT status={i.status} /> </div>
         </div>
         {/* <p className="text-right mt-4">llllllllllll</p> <br /> */}
         <div className="flex justify-between -mb-[30px] w-[100%] ">
-          <div className="border-2 rounded-full text-sm bg-white px-4 pt-0.5 "> تاریخ ثبت {Gregorian_to_jalali(i.date)} </div>
+          <div className="border-2 rounded-full text-sm bg-white px-4 pt-0.5 "> تاریخ ثبت {Gregorian_to_jalali(i.suggested_at)} </div>
           <div className="">
             <button className='btn-r w-5 rounded-full box-content	 border-2 mx-1'>×</button>
             <button className='btn-g w-5 rounded-full box-content	 border-2'>✓</button>
