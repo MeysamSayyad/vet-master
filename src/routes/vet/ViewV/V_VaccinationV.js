@@ -1,5 +1,5 @@
 import React,{ useState, useEffect } from 'react'
-import { useNavigate, useParams } from 'react-router-dom'
+import { useNavigate, useParams, useLocation } from 'react-router-dom'
 import Fetch from '../../../components/Fetch'
 import Gregorian_to_jalali from '../../../components/Gregorian_to_jalali'
 import VacccineT from '../../../components/en_to_fa/VacccineT'
@@ -11,6 +11,7 @@ const V_VaccinationV = () => {
   const navigate =useNavigate()
   const epoch_id = useParams().EpochId
   const [loading,setLoading]=useState(true)
+  const Location = useLocation();
   
   useEffect(()=>{
     const body=undefined
@@ -27,7 +28,11 @@ data.length === 0 ? <h1 className="text"> اطلاعاتی هنوز ثبت نش�
   <div className="flex justify-center flex-col text-center">
     {data.map((i,index)=>
       <div key={index} className="border-2 rounded-3xl flex justify-center items-center flex-row xl:w-[60vw] m-2 p-5 md:px-14 px-4 ">
+        {Location.pathname.includes("NavF")  ?
         <Btndel/>
+        :
+        ""
+        }
         <div className="grid grid-cols-4 w-full text-center gap-4">
           <h5 className="-m-2 border-l px-1 ">نام واکسن</h5>
           <h5 className="-m-2 border-l px-1 ">طریقه مصرف</h5>
