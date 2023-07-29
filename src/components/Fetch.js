@@ -1,10 +1,25 @@
 import Cookies from "universal-cookie";
 
-const Fetch = async(body,token,setdata,method,api,navigate,setLoad,setError) => {
+const Fetch = async(body,token,setdata,method,api,navigate,setLoad,setError,setUpdate) => {
   const cookies = new Cookies()
   const access = cookies.get('access')
   const refresh = cookies.get('refresh')
-
+  const refreshToken=async()=>{
+    fetch(`${process.env.REACT_APP_BASE_URL}/api/auth/token/refresh/`,{
+      method:'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({refresh})
+    })
+    .then(res=>{
+      if(res.status === 401){ navigate('/') }
+      // if(res.status === 200){request()}
+      return res.json()
+    })
+    .then(data=>{
+      if(data){cookies.set('access',data.access,{ path: '/' })}
+      console.log(data);
+    })
+  }
    await fetch(`${process.env.REACT_APP_BASE_URL}${api}`,{
       method,
       headers: token?
@@ -30,29 +45,15 @@ const Fetch = async(body,token,setdata,method,api,navigate,setLoad,setError) => 
     .then(data => {
       
       console.log(data);
-      setdata(data)
+     setdata && setdata(data)
     })
     .finally(data=>{
       setLoad && setLoad(false)
+      setUpdate && setUpdate(perv=> !perv)
     })
   // }
   // request()
 
-  const refreshToken=async()=>{
-    fetch(`${process.env.REACT_APP_BASE_URL}/api/auth/token/refresh/`,{
-      method:'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({refresh})
-    })
-    .then(res=>{
-      if(res.status === 401){ navigate('/') }
-      // if(res.status === 200){request()}
-      return res.json()
-    })
-    .then(data=>{
-      if(data){cookies.set('access',data.access)}
-      console.log(data);
-    })
-  }
+  
 }
 export default Fetch

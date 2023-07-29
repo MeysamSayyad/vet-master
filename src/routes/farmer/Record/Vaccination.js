@@ -25,12 +25,15 @@ const Vaccination = () => {
   },[date])
   
   const save =async()=>{
-    const body={ epoch_id, herd_age, date, name, how_to_use: use}
+    if(value &&  use && name){
+      const body={ epoch_id, herd_age, date, name, how_to_use: use}
     const token=true
     const method='POST'
     const api=`/api/v1/vaccination/`
     Fetch(body,token,setdata,method,api,navigate)
     putOff()
+    }
+    
   }
 
   function putOff(){

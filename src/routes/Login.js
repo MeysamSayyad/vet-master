@@ -1,9 +1,10 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import React, { useEffect, useState } from 'react'
+import { useLocation, useNavigate } from 'react-router-dom'
 import firstFetch from '../components/firstFetch';
 import { myContext } from '../context';
 import { useContext } from 'react';
+import Cookies from 'universal-cookie';
 
 
 // 09125844121 vet
@@ -19,7 +20,17 @@ const Login = () => {
   const [onLoad,setOnLoad]=useState(false)
   const {setAccess}=useContext(myContext)
   const navigate =useNavigate()
+  const cookies=new Cookies()
+  const location=useLocation()
 
+  useEffect(()=>{
+    if(location.pathname =='/'){
+      setAccess('')
+cookies.remove('access',{path:'/NavF'})
+cookies.remove('access',{path:'/NavV'})
+    }
+
+  },[])
 
   const login =async()=>{
     if(userName.trim()&& password.trim()){

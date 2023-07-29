@@ -5,7 +5,22 @@ const firstFetch = (body,method,api,navigate,setLoad,setError,setAccess) => {
   const cookies = new Cookies()
   const access = cookies.get('access')
   const refresh = cookies.get('refresh')
-
+  const refreshToken=async()=>{
+    fetch(`${process.env.REACT_APP_BASE_URL}/api/auth/token/refresh/`,{
+      method:'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({refresh})
+    })
+    .then(res=>{
+      if(res.status === 401){ navigate('/') }
+      // if(res.status === 200){request()}
+      return res.json()
+    })
+    .then(data=>{
+      if(data){cookies.set('access',data.access)}
+      console.log(data);
+    })
+  }
 
     fetch(`${process.env.REACT_APP_BASE_URL}${api}`,{
       method,
@@ -25,10 +40,10 @@ const firstFetch = (body,method,api,navigate,setLoad,setError,setAccess) => {
     })
     .then(data => {
        
-        data.access && setAccess(data.access); cookies.set('access',data.access,console.log(data.access))
+        data.access && setAccess(data.access); data.role === 'VET' ? cookies.set('access',data.access,{ path: '/NavV' }):cookies.set('access',data.access,{ path: '/NavF' })
          if(data.role === 'VET' ){ navigate(`/NavV/HomePageV/${data.id}`)}
         if(data.role === "FARMER" ){ navigate(`/NavF/HomePage/${data.id}`)}
-        if(data.refresh){ cookies.set('refresh',data.refresh)}
+        if(data.refresh){ cookies.set('refresh',data.refresh,{ path: '/NavF' })}
      
     })
     .finally(data=>{
@@ -36,21 +51,6 @@ const firstFetch = (body,method,api,navigate,setLoad,setError,setAccess) => {
     })
   // }
   // request()
-  const refreshToken=async()=>{
-    fetch(`${process.env.REACT_APP_BASE_URL}/api/auth/token/refresh/`,{
-      method:'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({refresh})
-    })
-    .then(res=>{
-      if(res.status === 401){ navigate('/') }
-      // if(res.status === 200){request()}
-      return res.json()
-    })
-    .then(data=>{
-      if(data){cookies.set('access',data.access)}
-      console.log(data);
-    })
-  }
+ 
 }
 export default firstFetch
