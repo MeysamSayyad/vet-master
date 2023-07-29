@@ -22,7 +22,7 @@ const Ration = () => {
   const {access,refresh}=useContext(myContext)
   
   useEffect(()=>{
-    if(date){HerdAge(setherd_age,date,EpochId)}
+    if(date){HerdAge(setherd_age,date,EpochId,access)}
   },[date])
 
   console.log(herd_age);

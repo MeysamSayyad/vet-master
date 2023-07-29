@@ -19,7 +19,7 @@ const Beak = () => {
   const {access,refresh}=useContext(myContext)
 
   useEffect(()=>{
-    if(date){HerdAge(setherd_age,date,id)}
+    if(date){HerdAge(setherd_age,date,id,access)}
   },[date])
 
   const save =async()=>{

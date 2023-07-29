@@ -14,17 +14,17 @@ const R_LightClockV = ({setshow}) => {
   const [light_intensity, setlight_intensity] = useState('')
   const [light_color, setlight_color] = useState('')
   const [hours, sethours] = useState([{start_time:'',end_time:''}])
-  const {updateG,setupdateG} = useContext(myContext)
+  const {updateG,setupdateG,access,refresh} = useContext(myContext)
 
   const location = useLocation().pathname
   const params = useParams()
   const param = `/NavV/HomePageV/${params.id}/userId/${params.userId}/salonId/${params.salonId}/EpochId/${params.EpochId}/OffersV`
   const EpochId = useParams().EpochId
   const navigate =useNavigate()
-  const {access,refresh}=useContext(myContext)
+ 
 
   useEffect(()=>{
-    if(date){HerdAge(setherd_age,date,EpochId)}
+    if(date){HerdAge(setherd_age,date,EpochId,access)}
   },[date])
 
   const save =async()=>{

@@ -26,7 +26,7 @@ const R_VaccinationV = ({setshow}) => {
   const param = `/NavV/HomePageV/${params.id}/userId/${params.userId}/salonId/${params.salonId}/EpochId/${params.EpochId}/OffersV`
 
   useEffect(()=>{
-    if(date){HerdAge(setherd_age,date,EpochId)}
+    if(date){HerdAge(setherd_age,date,EpochId,access)}
   },[date])
 
   const save =async()=>{

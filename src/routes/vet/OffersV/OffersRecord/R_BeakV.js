@@ -21,7 +21,7 @@ const R_BeakV = ({setshow}) => {
   const {updateG,setupdateG,access,refresh} = useContext(myContext)
 
   useEffect(()=>{
-    if(date){HerdAge(setherd_age,date,EpochId)}
+    if(date){HerdAge(setherd_age,date,EpochId,access)}
   },[date])
 
   const save =async()=>{

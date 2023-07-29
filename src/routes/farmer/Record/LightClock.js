@@ -32,7 +32,7 @@ const LightClock = () => {
   }
 
   useEffect(()=>{
-    if(date){HerdAge(setherd_age,date,EpochId)}
+    if(date){HerdAge(setherd_age,date,EpochId,access)}
   },[date])
 
   const save =async()=>{

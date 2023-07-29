@@ -23,7 +23,7 @@ const {access,refresh}=useContext(myContext)
   const epoch_id = useParams().EpochId
 
   useEffect(()=>{
-    if(date){HerdAge(setherd_age,date,epoch_id)}
+    if(date){HerdAge(setherd_age,date,epoch_id,access)}
   },[date])
   
   const save =async()=>{

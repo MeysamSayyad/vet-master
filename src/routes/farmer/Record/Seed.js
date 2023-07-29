@@ -26,10 +26,10 @@ const Seed = () => {
   }
   useEffect(()=>{
     
-    date && HerdAge(setStartAge,date,params.EpochId)
+    date && HerdAge(setStartAge,date,params.EpochId,access)
   },[date])
   useEffect(()=>{
-   date2 && HerdAge(setEndAge,date2,params.EpochId)
+   date2 && HerdAge(setEndAge,date2,params.EpochId,access)
   },[date2])
   const save =async()=>{
     if(valueEnd.dayOfBeginning - valueStart.dayOfBeginning >0 && date && date2){
