@@ -6,7 +6,7 @@ import BtnEnd from '../../components/BtnEnd'
 import Cookies from "universal-cookie";
 
 const NavF = () => {
-  const {epoch,salonName,setepoch} = useContext(myContext)
+  const {epoch,salonName,setepoch,access,refresh} = useContext(myContext)
   const [data,setdata] = useState([])
   const navigate =useNavigate()
   const id = useParams().id
@@ -14,16 +14,15 @@ const NavF = () => {
   const params = useParams()
   const param = `HomePage/${params.id}/SalonId/${params.SalonId}/EpochId/${params.EpochId}`
   const cookies = new Cookies()
-  const access = cookies.get('access')
 
 
   useEffect(()=>{
+    
     const body=undefined
     const token=true
     const method='GET'
     const api=`/api/v1/user-info/`
-    Fetch(body,token,setdata,method,api,navigate)
-
+    Fetch(body,token,setdata,method,api,navigate,undefined,undefined,undefined,access,refresh)
    if(EpochId){
     fetch(`${process.env.REACT_APP_BASE_URL}/api/v1/epochs/detail/?epoch_id=${EpochId}`,{
       headers:{
@@ -33,7 +32,7 @@ const NavF = () => {
     })
     .then(res=>res.json())
     .then(data=>{setepoch(data);})
-   } 
+   }
   },[])
 
 return (

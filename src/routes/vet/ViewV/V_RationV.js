@@ -4,6 +4,8 @@ import Fetch from '../../../components/Fetch'
 import Gregorian_to_jalali from '../../../components/Gregorian_to_jalali'
 import RationT from '../../../components/en_to_fa/RationT'
 import { Btndel } from '../../../components/BtnDel'
+import { useContext } from 'react'
+import { myContext } from '../../../context'
 
 const V_RationV = () => {
   const [data,setdata] = useState([])
@@ -11,13 +13,14 @@ const V_RationV = () => {
   const epoch_id = useParams().EpochId
   const [loading,setLoading]=useState(true)
   const Location = useLocation();
+  const {access,refresh}=useContext(myContext)
   
   useEffect(()=>{
     const body=undefined
     const token=true
     const method='GET'
     const api=`/api/v1/ration/?epoch_id=${epoch_id}`
-    Fetch(body,token,setdata,method,api,navigate,setLoading)
+    Fetch(body,token,setdata,method,api,navigate,setLoading,undefined,undefined,access,refresh)
   },[])
 
 return loading ? <div className='flex justify-center items-center'> <div className=' border-2 border-gray-700  w-8 h-8 border-r-transparent animate-spin  rounded-full '> </div></div> : 

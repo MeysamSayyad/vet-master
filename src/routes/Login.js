@@ -14,6 +14,7 @@ import Cookies from 'universal-cookie';
 // password 123
 
 const Login = () => {
+  const {setRefresh}=useContext(myContext)
   const [userName,setuserName] = useState('')
   const [password,setpassword] = useState('')
   const [error,setError]=useState('')
@@ -38,7 +39,7 @@ cookies.remove('access',{path:'/NavV'})
     const body={ "phone_number": userName, password }
     const method='POST'
     const api='/api/auth/token/'
-    firstFetch(body,method,api,navigate,setOnLoad,setError,setAccess)
+    firstFetch(body,method,api,navigate,setOnLoad,setError,setAccess,setRefresh)
     }
     else{
       setError('نام کاربری و رمز عبور را وارد کنید')

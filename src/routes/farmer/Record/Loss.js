@@ -3,6 +3,8 @@ import Fetch from '../../../components/Fetch'
 import HerdAge from '../../../components/HerdAge';
 import { useParams, useNavigate, Link } from 'react-router-dom'
 import DatePickerF from '../../../components/DatePickerF';
+import { useContext } from 'react';
+import { myContext } from '../../../context';
 
 const Loss = () => {
   const [date, setdate] = useState('')
@@ -15,9 +17,10 @@ const Loss = () => {
   const params = useParams()
   const EpochId = params.EpochId
   const param = `/NavF/HomePage/${params.id}/SalonId/${params.SalonId}/EpochId/${EpochId}/View`
+  const {access,refresh}=useContext(myContext)
 
   useEffect(()=>{
-    if(date){HerdAge(setherd_age,date,EpochId)}
+    if(date){HerdAge(setherd_age,date,EpochId,access)}
   },[date])
 
   function putOff(){
@@ -32,7 +35,7 @@ const Loss = () => {
     const token=true
     const method='POST'
     const api=`/api/v1/loss/`
-    Fetch(body,token,setdata,method,api,navigate)
+    Fetch(body,token,setdata,method,api,navigate,undefined,undefined,undefined,access,refresh)
     putOff()
   }
   

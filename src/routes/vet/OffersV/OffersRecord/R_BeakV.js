@@ -18,10 +18,10 @@ const R_BeakV = ({setshow}) => {
   const EpochId = useParams().EpochId
   const params = useParams()
   const param = `/NavV/HomePageV/${params.id}/userId/${params.userId}/salonId/${params.salonId}/EpochId/${params.EpochId}/OffersV`
-  const {updateG,setupdateG} = useContext(myContext)
+  const {updateG,setupdateG,access,refresh} = useContext(myContext)
 
   useEffect(()=>{
-    if(date){HerdAge(setherd_age,date,EpochId)}
+    if(date){HerdAge(setherd_age,date,EpochId,access)}
   },[date])
 
   const save =async()=>{
@@ -29,7 +29,7 @@ const R_BeakV = ({setshow}) => {
     const token=true
     const method='POST'
     const api=`/api/v1/beak-trimming/suggestions/`
-    Fetch(body,token,setdata,method,api,navigate)
+    Fetch(body,token,setdata,method,api,navigate,undefined,undefined,undefined,access,refresh)
     setTimeout(() => {setupdateG(!updateG)}, 1000); 
     setshow(false)
   }

@@ -11,13 +11,14 @@ const O_Beak = () => {
   const [loading,setLoading]=useState(true)
   const navigate =useNavigate()
   const EpochId=useParams().EpochId
+  const {access,refresh}=useContext(myContext)
 
   useEffect(()=>{
     const body=undefined
     const token=true
     const method='GET'
     const api=`/api/v1/beak-trimming/suggestions/?epoch_id=${EpochId}`
-    Fetch(body,token,setdata,method,api,navigate,setLoading)
+    Fetch(body,token,setdata,method,api,navigate,setLoading,undefined,undefined,access,refresh)
   },[])
 
 

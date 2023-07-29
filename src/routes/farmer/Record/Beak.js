@@ -3,6 +3,8 @@ import Fetch from '../../../components/Fetch'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import HerdAge from '../../../components/HerdAge'
 import DatePickerF from '../../../components/DatePickerF';
+import { useContext } from 'react';
+import { myContext } from '../../../context';
 
 const Beak = () => {
   const [date, setdate] = useState('')
@@ -14,9 +16,10 @@ const Beak = () => {
   const id = useParams().EpochId
   const params = useParams()
   const param = `/NavF/HomePage/${params.id}/SalonId/${params.SalonId}/EpochId/${params.EpochId}/View`
+  const {access,refresh}=useContext(myContext)
 
   useEffect(()=>{
-    if(date){HerdAge(setherd_age,date,id)}
+    if(date){HerdAge(setherd_age,date,id,access)}
   },[date])
 
   const save =async()=>{
@@ -24,7 +27,7 @@ const Beak = () => {
     const token=true
     const method='POST'
     const api=`/api/v1/beak-trimming/`
-    Fetch(body,token,setdata,method,api,navigate)
+     Fetch(body,token,setdata,method,api,navigate,undefined,undefined,undefined,access,refresh)
     putOff()
   }
 

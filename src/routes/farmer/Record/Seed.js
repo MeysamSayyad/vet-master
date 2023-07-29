@@ -3,6 +3,8 @@ import DatePickerF from '../../../components/DatePickerF';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import Fetch from '../../../components/Fetch';
 import HerdAge from '../../../components/HerdAge';
+import { useContext } from 'react';
+import { myContext } from '../../../context';
 
 const Seed = () => {
   const [date, setdate] = useState('')
@@ -17,16 +19,17 @@ const Seed = () => {
   const [valueEnd,setvalueEnd]=useState('')
   const params = useParams()
   const param = `/NavF/HomePage/${params.id}/SalonId/${params.SalonId}/EpochId/${params.EpochId}/View`
+  const {access,refresh}=useContext(myContext)
   function putOff(){
     setvalueStart('');setdate('');setnumber('');setvalueEnd('')
     setshow(false)
   }
   useEffect(()=>{
     
-    date && HerdAge(setStartAge,date,params.EpochId)
+    date && HerdAge(setStartAge,date,params.EpochId,access)
   },[date])
   useEffect(()=>{
-   date2 && HerdAge(setEndAge,date2,params.EpochId)
+   date2 && HerdAge(setEndAge,date2,params.EpochId,access)
   },[date2])
   const save =async()=>{
     if(valueEnd.dayOfBeginning - valueStart.dayOfBeginning >0 && date && date2){
@@ -34,7 +37,7 @@ const Seed = () => {
     const token=true
     const method='POST'
     const api=`/api/v1/feed/`
-    Fetch(body,token,setdata,method,api,navigate)
+    Fetch(body,token,setdata,method,api,navigate,undefined,undefined,undefined,access,refresh)
     putOff()
     }
     else{

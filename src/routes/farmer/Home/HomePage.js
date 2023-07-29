@@ -7,7 +7,7 @@ import { Loading } from '../../../components/Loading';
 
 
 const HomePage = () => {
-  const {setsalonName} = useContext(myContext)
+  const {setsalonName,access,refresh} = useContext(myContext)
   const [show,setshow] = useState(false)
   const [name,setname] = useState('')
   const [location,setlocation] = useState('')
@@ -18,14 +18,17 @@ const HomePage = () => {
   const navigate =useNavigate()
   const id = useParams().id
   const SalonId=useParams().SalonId
+  
   useEffect(()=>{
     const body=undefined
     const token=true
     const method='GET'
     const api=`/api/v1/salons/?farmer_id=${id}`
     setLoading(true)
-    Fetch(body,token,setdata,method,api,navigate,setLoading)
+    Fetch(body,token,setdata,method,api,navigate,setLoading,undefined,undefined,access,refresh)
   },[update,add])
+  
+
 
   const addSalon=async()=>{
     const body = { name, location, farmer: id }

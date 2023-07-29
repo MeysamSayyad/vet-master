@@ -6,10 +6,15 @@ import Cookies from "universal-cookie";
 
 const NavV = () => {
   const [data,setdata] = useState([])
+<<<<<<< HEAD
   const location=useLocation();
   const {epoch,salonName,setepoch,farmerName} = useContext(myContext)
   const cookies = new Cookies()
   const access = cookies.get('access')
+=======
+  const {epoch,salonName,setepoch,farmerName,access,refresh} = useContext(myContext)
+  
+>>>>>>> 4ec5d38eff1b1ac5b1ed84239e0a03c5cd4208ae
   
   const navigate =useNavigate()
   const params = useParams()
@@ -23,7 +28,7 @@ const NavV = () => {
     const token=true
     const method='GET'
     const api=`/api/v1/user-info/`
-    Fetch(body,token,setdata,method,api,navigate)
+    Fetch(body,token,setdata,method,api,navigate,undefined,undefined,undefined,access,refresh)
 
     fetch(`${process.env.REACT_APP_BASE_URL}/api/v1/epochs/detail/?epoch_id=${EpochId}`,{
       headers:{

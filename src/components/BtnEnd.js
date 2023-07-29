@@ -5,7 +5,7 @@ import Fetch from './Fetch'
 
 const BtnEnd = () => {
 
-  const {epoch,setepoch} = useContext(myContext)
+  const {epoch,setepoch,access,refresh} = useContext(myContext)
   const [data,setdata] = useState('')
   const [update,setupdate] = useState(false)
   const navigate =useNavigate()
@@ -18,7 +18,7 @@ const BtnEnd = () => {
     const api=`/api/v1/epochs/end/`
     
     if(window.confirm(' آیا از این کار اطمینان دارید این عمل غیر قابل بازگشت است')) {
-      Fetch(body,token,setdata,method,api,navigate)
+      Fetch(body,token,setdata,method,api,navigate,undefined,undefined,undefined,access,refresh)
       epoch.end_date = 'now'
       setupdate(!update)
     }

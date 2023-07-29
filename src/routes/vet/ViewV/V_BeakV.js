@@ -3,6 +3,8 @@ import { Link, useParams, useNavigate, useLocation } from 'react-router-dom'
 import Fetch from '../../../components/Fetch'
 import Gregorian_to_jalali from '../../../components/Gregorian_to_jalali'
 import { Btndel } from '../../../components/BtnDel';
+import { useContext } from 'react';
+import { myContext } from '../../../context';
 
 const V_BeakV = () => {
   const [data,setdata] = useState([])
@@ -10,13 +12,14 @@ const V_BeakV = () => {
   const navigate =useNavigate()
   const id = useParams().EpochId
   const Location = useLocation();
+  const {access,refresh}=useContext(myContext)
 
   useEffect(()=>{
     const body=undefined
     const token=true
     const method='GET'
     const api=`/api/v1/beak-trimming/suggestions/?epoch_id=${id}`
-    Fetch(body,token,setdata,method,api,navigate,setLoading)
+    Fetch(body,token,setdata,method,api,navigate,setLoading,undefined,undefined,access,refresh)
   },[])
 
 

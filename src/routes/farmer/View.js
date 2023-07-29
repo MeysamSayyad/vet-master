@@ -6,7 +6,7 @@ import Fetch from '../../components/Fetch'
 import { useState } from 'react'
 
 const View = () => {
-  const {epoch} = useContext(myContext)
+  const {epoch,access,refresh} = useContext(myContext)
   const [data,setdata]=useState([])
   const navigate=useNavigate()
   const params=useParams()
@@ -90,7 +90,7 @@ const View = () => {
     const token=true
     const method='GET'
     const api=`/api/v1/loss/daily-count/?epoch_id=${params.EpochId}`
-    Fetch(body,token,setdata,method,api,navigate)
+    Fetch(body,token,setdata,method,api,navigate,undefined,undefined,undefined,access,refresh)
   },[])
 
 return (

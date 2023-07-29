@@ -5,6 +5,8 @@ import DatePickerF from '../../../components/DatePickerF';
 import Fetch from '../../../components/Fetch'
 import Use from '../../../components/option/Use'
 import Vaccine from '../../../components/option/Vaccine'
+import { useContext } from 'react';
+import { myContext } from '../../../context';
 
 const Vaccination = () => {
   const [date,setdate] = useState('')
@@ -16,12 +18,12 @@ const Vaccination = () => {
   const [herd_age, setherd_age] = useState('')
   const params = useParams()
   const param = `/NavF/HomePage/${params.id}/SalonId/${params.SalonId}/EpochId/${params.EpochId}/View`
-  
+const {access,refresh}=useContext(myContext)
   const navigate =useNavigate()
   const epoch_id = useParams().EpochId
 
   useEffect(()=>{
-    if(date){HerdAge(setherd_age,date,epoch_id)}
+    if(date){HerdAge(setherd_age,date,epoch_id,access)}
   },[date])
   
   const save =async()=>{
@@ -30,7 +32,7 @@ const Vaccination = () => {
     const token=true
     const method='POST'
     const api=`/api/v1/vaccination/`
-    Fetch(body,token,setdata,method,api,navigate)
+    Fetch(body,token,setdata,method,api,navigate,undefined,undefined,undefined,access,refresh)
     putOff()
     }
     

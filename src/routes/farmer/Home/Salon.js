@@ -7,8 +7,11 @@ import CreateSalon from './CreateSalon'
 import { Cookies } from 'react-cookie'
 import Chart from 'chart.js/auto';
 import { Bar } from 'react-chartjs-2';
+import { useContext } from 'react'
+import { myContext } from '../../../context'
 
 const Salon = ({setLoading}) => {
+  const {access,refresh}=useContext(myContext)
   const [show,setshow] = useState(false)
   const [show2,setshow2] = useState(false)
   const [data,setdata] = useState([])
@@ -28,7 +31,7 @@ const Salon = ({setLoading}) => {
     const token=true
     const method='GET'
     const api=`/api/v1/epochs/?salon_id=${_id}`
-    Fetch(body,token,setdata,method,api,navigate,setLoading)
+    Fetch(body,token,setdata,method,api,navigate,setLoading,undefined,undefined,access,refresh)
   },[update,add,_id])
 
   const chart ={
