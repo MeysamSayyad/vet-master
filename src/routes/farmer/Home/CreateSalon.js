@@ -4,6 +4,8 @@ import React, { useEffect, useState } from 'react'
 import Fetch from '../../../components/Fetch'
 import DatePickerF from '../../../components/DatePickerF'
 import { useNavigate } from 'react-router-dom'
+import { useContext } from 'react'
+import { myContext } from '../../../context'
 
 const CreateSalon = ({ setshow, id, setadd, add }) => {
   const ndate = new Date();
@@ -22,6 +24,7 @@ const CreateSalon = ({ setshow, id, setadd, add }) => {
   const [lastNum,setlastNum] = useState('')
   const [data,setdata] = useState([])
   const navigate =useNavigate()
+  const {access,refresh}=useContext(myContext)
 
   useEffect(()=>{
     setfirstNum('')
@@ -44,7 +47,7 @@ const CreateSalon = ({ setshow, id, setadd, add }) => {
     const method='POST'
     const api=`/api/v1/epochs/create/`
     if(date&&type&&race&&name&&lastNum){
-      Fetch(body,token,setdata,method,api,navigate)
+      Fetch(body,token,setdata,method,api,navigate,undefined,undefined,undefined,access,refresh)
       setshow(false);setadd(add+1)
       setTimeout(() => {
         setadd(add+10)

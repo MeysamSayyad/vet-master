@@ -10,7 +10,7 @@ import Salons from './Salons';
 const HomePageV = () => {
    const [data,setdata] = useState([]);
    const [loading,setLoading]=useState(true)
-   const {setfarmerName} = useContext(myContext);
+   const {setfarmerName,access,refresh} = useContext(myContext);
    const navigate =useNavigate();
    const id = useParams().id;
    const userId = useParams().userId
@@ -20,7 +20,7 @@ const HomePageV = () => {
       const token=true
       const method='GET'
       const api=`/api/v1/farmers/?vet_id=${id}`
-      Fetch(body,token,setdata,method,api,navigate,setLoading )
+      Fetch(body,token,setdata,method,api,navigate,setLoading,undefined,undefined,access,refresh)
       },[])
 
    return loading ? <div className='flex justify-center items-center'> <div className=' border-2 border-gray-700  w-8 h-8 border-r-transparent animate-spin  rounded-full '> </div></div> : 

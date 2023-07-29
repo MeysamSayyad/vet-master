@@ -23,6 +23,7 @@ const R_RationV = ({setshow}) => {
   const param = `/NavV/HomePageV/${params.id}/userId/${params.userId}/salonId/${params.salonId}/EpochId/${params.EpochId}/OffersV`
   const navigate =useNavigate()
   const EpochId = useParams().EpochId
+  const{access,refresh}=useContext(myContext)
 
   useEffect(()=>{
     if(date){HerdAge(setherd_age,date,EpochId)}
@@ -33,7 +34,7 @@ const R_RationV = ({setshow}) => {
     const token=true
     const method='POST'
     const api=`/api/v1/ration/suggestions/`
-    Fetch(body,token,setdata,method,api,navigate);
+    Fetch(body,token,setdata,method,api,navigate,undefined,undefined,undefined,access,refresh)
     setTimeout(() => {setupdateG(!updateG)}, 1000); 
     putOff()
   }

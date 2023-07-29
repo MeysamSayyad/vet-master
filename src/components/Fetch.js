@@ -1,10 +1,9 @@
 import Cookies from "universal-cookie";
 
-const Fetch = async(body,token,setdata,method,api,navigate,setLoad,setError,setUpdate) => {
+const Fetch = async(body,token,setdata,method,api,navigate,setLoad,setError,setUpdate,access,refresh) => {
   const cookies = new Cookies()
 
-  const access = cookies.get('access')
-  const refresh = cookies.get('refresh')
+
   const refreshToken=async()=>{
    await fetch(`${process.env.REACT_APP_BASE_URL}/api/auth/token/refresh/`,{
       method:'POST',

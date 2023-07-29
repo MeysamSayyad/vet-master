@@ -11,14 +11,14 @@ const O_LightClockV = () => {
   const [loading,setLoading]=useState(true)
   const navigate =useNavigate()
   const EpochId = useParams().EpochId
-  const {updateG} = useContext(myContext)
+  const {updateG,access,refresh} = useContext(myContext)
 
   useEffect(()=>{
     const body=undefined
     const token=true
     const method='GET'
     const api=`/api/v1/lighting/suggestions/?epoch_id=${EpochId}`
-    Fetch(body,token,setdata,method,api,navigate, setLoading) 
+    Fetch(body,token,setdata,method,api,navigate,setLoading,undefined,undefined,access,refresh)
   },[updateG])
 
 return loading ? <div className='flex justify-center items-center'> <div className=' border-2 border-gray-700  w-8 h-8 border-r-transparent animate-spin  rounded-full '> </div></div> : 

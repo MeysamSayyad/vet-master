@@ -5,6 +5,8 @@ import Gregorian_to_jalali from '../../../components/Gregorian_to_jalali'
 import VacccineT from '../../../components/en_to_fa/VacccineT'
 import UseT from '../../../components/en_to_fa/UseT'
 import { Btndel } from '../../../components/BtnDel'
+import { useContext } from 'react'
+import { myContext } from '../../../context'
 
 const V_VaccinationV = () => {
   const [data,setdata] = useState([])
@@ -12,13 +14,14 @@ const V_VaccinationV = () => {
   const epoch_id = useParams().EpochId
   const [loading,setLoading]=useState(true)
   const Location = useLocation();
+  const {access,refresh}=useContext(myContext)
   
   useEffect(()=>{
     const body=undefined
     const token=true
     const method='GET'
     const api=`/api/v1/vaccination/?epoch_id=${epoch_id}`
-    Fetch(body,token,setdata,method,api,navigate,setLoading)
+    Fetch(body,token,setdata,method,api,navigate,setLoading,undefined,undefined,access,refresh)
   },[])
   
 

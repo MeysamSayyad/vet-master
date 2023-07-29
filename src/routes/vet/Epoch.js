@@ -2,12 +2,15 @@ import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import Fetch from '../../components/Fetch';
 import InfoSalon from './InfoSalonV';
+import { useContext } from 'react';
+import { myContext } from '../../context';
 
 const Epoch = () => {
   const [data,setdata] = useState([]);
   const [show,setshow] = useState(false);
   const [loading,setLoading]=useState(true);
   const [EpochId,setEpochId] = useState('');
+  const {access,refresh}=useContext(myContext)
   const navigate =useNavigate();
   const id = useParams().salonId;
 
@@ -16,7 +19,7 @@ const Epoch = () => {
     const token=true
     const method='GET'
     const api=`/api/v1/epochs/?salon_id=${id}`
-    Fetch(body,token,setdata,method,api,navigate, setLoading)
+    Fetch(body,token,setdata,method,api,navigate,setLoading,undefined,undefined,access,refresh)
   },[id]);
 
 return loading ? <div className='flex justify-center items-center'> <div className=' border-2 border-gray-700  w-8 h-8 border-r-transparent animate-spin  rounded-full '> </div></div> : 

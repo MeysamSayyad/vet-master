@@ -1,8 +1,10 @@
 import React,{ useState,useEffect } from 'react'
 import Fetch from '../../../components/Fetch'
+import { myContext } from '../../../context';
 import HerdAge from '../../../components/HerdAge';
 import { useParams, useNavigate, Link } from 'react-router-dom'
 import DatePickerF from '../../../components/DatePickerF';
+import { useContext } from 'react';
 
 const LightClock = () => {
   const [update,setupdate] = useState(false)
@@ -18,6 +20,7 @@ const LightClock = () => {
   const params = useParams()
   const EpochId = useParams().EpochId
   const param = `/NavF/HomePage/${params.id}/SalonId/${params.SalonId}/EpochId/${EpochId}/View`
+  const {access,refresh}=useContext(myContext)
   
   function putOff(){
     setvalue('');
@@ -37,7 +40,7 @@ const LightClock = () => {
     const token=true
     const method='POST'
     const api=`/api/v1/lighting/`
-    Fetch(body,token,setdata,method,api,navigate)
+    Fetch(body,token,setdata,method,api,navigate,undefined,undefined,undefined,access,refresh)
     putOff()
   }
 

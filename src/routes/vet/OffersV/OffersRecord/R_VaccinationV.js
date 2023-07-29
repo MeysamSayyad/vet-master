@@ -17,7 +17,7 @@ const R_VaccinationV = ({setshow}) => {
   const [herd_age, setherd_age] = useState('')
   const [use, setuse] = useState('EYE_DROP')
   const [name, setname] = useState('NEWCASTLE')
-  const {updateG,setupdateG} = useContext(myContext)
+  const {updateG,setupdateG,access,refresh} = useContext(myContext)
 
   const location = useLocation().pathname
   const navigate =useNavigate()
@@ -34,7 +34,7 @@ const R_VaccinationV = ({setshow}) => {
     const token=true
     const method='POST'
     const api=`/api/v1/vaccination/suggestions/`
-    Fetch(body,token,setdata,method,api,navigate);
+    Fetch(body,token,setdata,method,api,navigate,undefined,undefined,undefined,access,refresh)
     setTimeout(() => {setupdateG(!updateG)}, 1000); 
     setshow(false)
   }

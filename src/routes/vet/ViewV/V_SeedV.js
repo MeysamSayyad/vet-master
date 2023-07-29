@@ -2,18 +2,21 @@ import React,{useEffect, useState} from 'react'
 import Fetch from '../../../components/Fetch'
 import { AgChartsReact } from 'ag-charts-react';
 import { useNavigate, useParams } from 'react-router-dom';
+import { useContext } from 'react';
+import { myContext } from '../../../context';
 const V_SeedV = () => {
 const [loading,setLoading]=useState(true)
 const [data,setdata]=useState([])
 const params=useParams()
 const navigate=useNavigate()
 const [options, setOptions] = useState({})
+const {access,refresh}=useContext(myContext)
   useEffect(()=>{
     const body=undefined
     const token=true
     const method='GET'
     const api=`/api/v1/feed/?epoch_id=${params.EpochId}`
-    Fetch(body,token,setdata,method,api,navigate,setLoading)
+    Fetch(body,token,setdata,method,api,navigate,setLoading,undefined,undefined,access,refresh)
   },[])
   useEffect(()=>{
     if(data.length >0){
@@ -63,7 +66,7 @@ setOptions(
         type: 'number',
         position: 'bottom',
         title: { text: 'سن',fontSize:16 },
-        tick: { interval: 1 },
+        tick: { interval: 3 },
         min:0
       },
       {

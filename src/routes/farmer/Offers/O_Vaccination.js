@@ -5,6 +5,8 @@ import Gregorian_to_jalali from '../../../components/Gregorian_to_jalali'
 import UseT from '../../../components/en_to_fa/UseT'
 import VacccineT from '../../../components/en_to_fa/VacccineT'
 import StatusT from '../../../components/en_to_fa/StatusT'
+import { useContext } from 'react'
+import { myContext } from '../../../context'
 
 const O_Vaccination = () => {
   const [data,setdata] = useState([])
@@ -12,13 +14,14 @@ const O_Vaccination = () => {
   const [loading,setLoading]=useState(true)
   const navigate =useNavigate()
   const epoch_id = useParams().EpochId
-  
+  const {access,refresh}=useContext(myContext)
+
   useEffect(()=>{
     const body=undefined
     const token=true
     const method='GET'
     const api=`/api/v1/vaccination/suggestions/?epoch_id=${epoch_id}`
-    Fetch(body,token,setdata,method,api,navigate,setLoading)
+    Fetch(body,token,setdata,method,api,navigate,setLoading,undefined,undefined,access,refresh)
   },[update])
   
   const decline =(id)=>{
@@ -30,7 +33,7 @@ const O_Vaccination = () => {
     const token=true
     const method='POST'
     const api='/api/v1/vaccination/suggestions/decline/'
-    Fetch(body,token,undefined,method,api,navigate,setLoading,undefined,setUpdate)
+    Fetch(body,token,undefined,method,api,navigate,setLoading,undefined,setUpdate,access,refresh)
     
   }
   const acceptsuggest=(id)=>{
@@ -42,7 +45,7 @@ const O_Vaccination = () => {
     const token=true
     const method='POST'
     const api='/api/v1/vaccination/suggestions/accept/'
-    Fetch(body,token,undefined,method,api,navigate,setLoading,undefined,setUpdate)
+    Fetch(body,token,undefined,method,api,navigate,setLoading,undefined,setUpdate,access,refresh)
   }
 
 return loading ? <div className='flex justify-center items-center'> <div className=' border-2 border-gray-700  w-8 h-8 border-r-transparent animate-spin  rounded-full '> </div></div> : 

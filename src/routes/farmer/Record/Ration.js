@@ -4,6 +4,8 @@ import HerdAge from '../../../components/HerdAge';
 import { useParams, useNavigate, Link } from 'react-router-dom'
 import RationOption from '../../../components/option/Ration'
 import DatePickerF from '../../../components/DatePickerF';
+import { useContext } from 'react';
+import { myContext } from '../../../context';
 
 const Ration = () => {
   const [show, setshow] = useState(false)
@@ -17,6 +19,7 @@ const Ration = () => {
   const navigate =useNavigate()
   const params = useParams()
   const param = `/NavF/HomePage/${params.id}/SalonId/${params.SalonId}/EpochId/${params.EpochId}/View`
+  const {access,refresh}=useContext(myContext)
   
   useEffect(()=>{
     if(date){HerdAge(setherd_age,date,EpochId)}
@@ -28,7 +31,7 @@ const Ration = () => {
     const token=true
     const method='POST'
     const api=`/api/v1/ration/`
-    Fetch(body,token,setdata,method,api,navigate)
+    Fetch(body,token,setdata,method,api,navigate,undefined,undefined,undefined,access,refresh)
     putOff()
   }
 

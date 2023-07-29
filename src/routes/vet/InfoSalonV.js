@@ -4,7 +4,7 @@ import Fetch from '../../components/Fetch'
 import { useNavigate, Link , useParams } from 'react-router-dom'
 
 const InfoSalon = ({setshow, EpochId }) => {
-  const {setepoch} = useContext(myContext)
+  const {setepoch,access,refresh} = useContext(myContext)
   const [data,setdata] = useState('')
   const [update,setupdate] = useState(false)
   const navigate =useNavigate()
@@ -20,7 +20,7 @@ const InfoSalon = ({setshow, EpochId }) => {
     const token=true
     const method='GET'
     const api=`/api/v1/epochs/detail/?epoch_id=${EpochId}`
-    Fetch(body,token,setdata,method,api,navigate)
+    Fetch(body,token,setdata,method,api,navigate,undefined,undefined,undefined,access,refresh)
   },[update])
   if (data !== ''){setepoch(data)}
 return (

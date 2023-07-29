@@ -11,14 +11,14 @@ const Salons = () => {
   const navigate =useNavigate()
   const id = useParams().userId;
   const salonId = useParams().salonId;
-  const {setsalonName} = useContext(myContext);
+  const {setsalonName,access,refresh} = useContext(myContext);
 
   useEffect(()=>{
     const body=undefined
     const token=true
     const method='GET'
     const api=`/api/v1/salons/?farmer_id=${id}`
-    Fetch(body,token,setdata,method,api,navigate, setLoading)
+    Fetch(body,token,setdata,method,api,navigate,setLoading,undefined,undefined,access,refresh)
   },[id])
 
 return loading ? <div className='flex justify-center items-center'> <div className=' border-2 border-gray-700  w-8 h-8 border-r-transparent animate-spin  rounded-full '> </div></div> : 

@@ -21,6 +21,7 @@ const R_LightClockV = ({setshow}) => {
   const param = `/NavV/HomePageV/${params.id}/userId/${params.userId}/salonId/${params.salonId}/EpochId/${params.EpochId}/OffersV`
   const EpochId = useParams().EpochId
   const navigate =useNavigate()
+  const {access,refresh}=useContext(myContext)
 
   useEffect(()=>{
     if(date){HerdAge(setherd_age,date,EpochId)}
@@ -31,7 +32,7 @@ const R_LightClockV = ({setshow}) => {
     const token=true
     const method='POST'
     const api=`/api/v1/lighting/suggestions/`
-    if(value&&light_color&&light_intensity){Fetch(body,token,setdata,method,api,navigate); setshow(false)}
+    if(value&&light_color&&light_intensity){Fetch(body,token,setdata,method,api,navigate,undefined,undefined,undefined,access,refresh); setshow(false)}
     setTimeout(() => {setupdateG(!updateG)}, 1000); 
   }
 

@@ -4,7 +4,7 @@ import Fetch from '../../../components/Fetch'
 import { useNavigate, Link } from 'react-router-dom'
 
 const InfoSalon = ({setshow2, EpochId,_id }) => {
-  const {epoch,setepoch} = useContext(myContext)
+  const {epoch,setepoch,access,refresh} = useContext(myContext)
   const [data,setdata] = useState('')
   const [loading,setLoading]=useState(true)
   const [update,setupdate] = useState(false)
@@ -20,7 +20,7 @@ const InfoSalon = ({setshow2, EpochId,_id }) => {
     const token=true
     const method='GET'
     const api=`/api/v1/epochs/detail/?epoch_id=${EpochId}`
-    Fetch(body,token,setdata,method,api,navigate,setLoading)
+    Fetch(body,token,setdata,method,api,navigate,setLoading,undefined,undefined,access,refresh)
   },[update])
   useEffect(()=>{
     if (data !== ''){setepoch(data)}
@@ -35,7 +35,7 @@ const InfoSalon = ({setshow2, EpochId,_id }) => {
     const api=`/api/v1/epochs/end/`
 
     if(window.confirm(' آیا از این کار اطمینان دارید این عمل غیر قابل بازگشت است')) {
-      Fetch(body,token,setdata,method,api,navigate)
+      Fetch(body,token,setdata,method,api,navigate,undefined,undefined,undefined,access,refresh)
       setupdate(!update)
     }
   }

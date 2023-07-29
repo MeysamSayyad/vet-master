@@ -3,19 +3,22 @@ import { useNavigate, useParams } from 'react-router-dom'
 import Fetch from '../../../components/Fetch'
 import Gregorian_to_jalali from '../../../components/Gregorian_to_jalali'
 import StatusT from '../../../components/en_to_fa/StatusT'
+import { useContext } from 'react'
+import { myContext } from '../../../context'
 
 const O_LightClock = () => {
   const [data,setdata] = useState([])
   const [loading,setLoading]=useState(true)
   const navigate =useNavigate()
   const EpochId = useParams().EpochId
+  const {access,refresh}=useContext(myContext)
 
   useEffect(()=>{
     const body=undefined
     const token=true
     const method='GET'
     const api=`/api/v1/lighting/suggestions/?epoch_id=${EpochId}`
-    Fetch(body,token,setdata,method,api,navigate,setLoading) 
+    Fetch(body,token,setdata,method,api,navigate,setLoading,undefined,undefined,access,refresh)
   },[])
 
 

@@ -3,6 +3,8 @@ import { useParams, useNavigate, Link } from 'react-router-dom'
 import Fetch from '../../../components/Fetch'
 import HerdAge from '../../../components/HerdAge';
 import DatePickerF from '../../../components/DatePickerF';
+import { useContext } from 'react';
+import { myContext } from '../../../context';
 
 const Weight = () => {
   const [show, setshow] = useState(false)
@@ -18,6 +20,7 @@ const Weight = () => {
   const param = `/NavF/HomePage/${params.id}/SalonId/${params.SalonId}/EpochId/${params.EpochId}/View`
   const navigate =useNavigate()
   const epoch_id = useParams().EpochId
+  const {access,refresh}=useContext(myContext)
 
   useEffect(()=>{
    
@@ -50,7 +53,7 @@ const Weight = () => {
     const token=true
     const method='POST'
     const api=`/api/v1/hen-weight/`
-    Fetch(body,token,setdata,method,api,navigate)
+    Fetch(body,token,setdata,method,api,navigate,undefined,undefined,undefined,access,refresh)
     putOff()
   }
 

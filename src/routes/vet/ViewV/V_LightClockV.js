@@ -3,6 +3,8 @@ import { useParams,useNavigate, useLocation  } from 'react-router-dom'
 import Fetch from '../../../components/Fetch'
 import Gregorian_to_jalali from '../../../components/Gregorian_to_jalali'
 import { Btndel } from '../../../components/BtnDel'
+import { useContext } from 'react'
+import { myContext } from '../../../context'
 
 const V_LightClockV = () => {
   const [data,setdata] = useState([]);
@@ -10,13 +12,14 @@ const V_LightClockV = () => {
   const [loading,setLoading]=useState(true);
   const id = useParams().EpochId;
   const Location = useLocation();
+  const {access,refresh}=useContext(myContext)
 
   useEffect(()=>{
     const body=undefined
     const token=true
     const method='GET'
     const api=`/api/v1/lighting/?epoch_id=${id}`
-    Fetch(body,token,setdata,method,api,navigate,setLoading)
+    Fetch(body,token,setdata,method,api,navigate,setLoading,undefined,undefined,access,refresh)
   },[])
 
 

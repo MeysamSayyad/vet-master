@@ -7,7 +7,7 @@ import { Loading } from '../../../components/Loading';
 
 
 const HomePage = () => {
-  const {setsalonName} = useContext(myContext)
+  const {setsalonName,access,refresh} = useContext(myContext)
   const [show,setshow] = useState(false)
   const [name,setname] = useState('')
   const [location,setlocation] = useState('')
@@ -25,7 +25,7 @@ const HomePage = () => {
     const method='GET'
     const api=`/api/v1/salons/?farmer_id=${id}`
     setLoading(true)
-    Fetch(body,token,setdata,method,api,navigate,setLoading)
+    Fetch(body,token,setdata,method,api,navigate,setLoading,undefined,undefined,access,refresh)
   },[update,add])
   
 

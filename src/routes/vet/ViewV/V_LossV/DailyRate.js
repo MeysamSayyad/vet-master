@@ -2,9 +2,11 @@ import React, { useState, useEffect, useContext } from 'react'
 import Fetch from '../../../../components/Fetch'
 import Chart from 'chart.js/auto';
 import { Bar } from 'react-chartjs-2';
+import { myContext } from '../../../../context';
 
 const DailyRate = ({id, navigate}) => {
   const [data,setdata] = useState({})
+  const {access,refresh}=useContext(myContext)
 
   const chart ={
     labels : data.herd_age_list,
@@ -48,7 +50,7 @@ const DailyRate = ({id, navigate}) => {
     const token=true
     const method='GET'
     const api=`/api/v1/loss/daily-rate/?epoch_id=${id}`
-    Fetch(body,token,setdata,method,api,navigate)
+    Fetch(body,token,setdata,method,api,navigate,undefined,undefined,undefined,access,refresh)
   },[])
 
 return (
