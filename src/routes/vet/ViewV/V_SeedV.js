@@ -8,8 +8,6 @@ const [data,setdata]=useState([])
 const params=useParams()
 const navigate=useNavigate()
 const [options, setOptions] = useState({})
-console.log(data)
-console.log(options)
   useEffect(()=>{
     const body=undefined
     const token=true
@@ -25,7 +23,11 @@ console.log(options)
       return {...item,amount:item.amount*1,mean:(item.start_age+ item.end_age)/2}
     })
     const bins=data.map((i)=> [i.start_age,i.end_age] )
-    console.log(bins)
+    const sortedBins=bins.sort(function(a, b) {
+      return a[0]-b[0] ;
+    });
+    console.log(sortedBins)
+    console.log(ndata)
 setOptions(
   {
     data:ndata
@@ -52,8 +54,8 @@ setOptions(
             fill: '#1984c5',
             fillOpacity:0.7
           }
-        }
-        
+        },
+        bins:sortedBins
       },
     ],
     axes: [
@@ -61,7 +63,7 @@ setOptions(
         type: 'number',
         position: 'bottom',
         title: { text: 'سن',fontSize:16 },
-        tick: { interval: 2 },
+        tick: { interval: 1 },
         min:0
       },
       {

@@ -18,6 +18,7 @@ const HomePage = () => {
   const navigate =useNavigate()
   const id = useParams().id
   const SalonId=useParams().SalonId
+  
   useEffect(()=>{
     const body=undefined
     const token=true
@@ -26,6 +27,8 @@ const HomePage = () => {
     setLoading(true)
     Fetch(body,token,setdata,method,api,navigate,setLoading)
   },[update,add])
+  
+
 
   const addSalon=async()=>{
     const body = { name, location, farmer: id }
