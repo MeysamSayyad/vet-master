@@ -15,8 +15,8 @@ const R_VaccinationV = ({setshow}) => {
   const [data,setdata] = useState([])
   const [value,setvalue] = useState('')
   const [herd_age, setherd_age] = useState('')
-  const [use, setuse] = useState('EYE_DROP')
-  const [name, setname] = useState('NEWCASTLE')
+  const [use, setuse] = useState('')
+  const [name, setname] = useState('')
   const {updateG,setupdateG} = useContext(myContext)
 
   const location = useLocation().pathname
@@ -28,6 +28,10 @@ const R_VaccinationV = ({setshow}) => {
   useEffect(()=>{
     if(date){HerdAge(setherd_age,date,EpochId)}
   },[date])
+
+  const changeSelect = ()=>{
+
+  }
 
   const save =async()=>{
     const body={ epoch_id:EpochId, herd_age, date, name, how_to_use:use }
@@ -46,8 +50,8 @@ return (
     <h5 className="h-min -m-2">طریقه مصرف</h5>
     <h5 className="h-min -m-2">تاریخ</h5>
 
-    <select className='h-min' onChange={e=>setname(e.target.value)}><Vaccine /> </select>
-    <select className='h-min' onChange={e=>setuse(e.target.value)}><Use /> </select>
+    <select className='h-min' onChange={e=>{e.target.value ? setname(e.target.value): setname("")}}><Vaccine /> </select>
+    <select className='h-min' onChange={e=>{e.target.value ? setuse(e.target.value): setuse("")}}><Use /> </select>
     <DatePickerV setdate={setdate} value={value} setvalue={setvalue} />
   </div>
   <div className="flex justify-end mt-10 w-[104%] ">

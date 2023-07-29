@@ -59,7 +59,7 @@ return (
     <tbody>
       {type.map((i,inx)=>      
         <tr key={inx} className="">
-          <td className="t_Ration"><select className='w-full' onChange={e=> {type[inx].name = e.target.value; settype(type); setupdate(!update)}} ><RationOption /> </select></td>
+          <td className="t_Ration"><select className='w-full' onChange={e=> {type[inx].name = e.target.value; setupdate(!update); e.target.value ? settype(e.target.value): settype("");}} ><RationOption /> </select></td>
           <td className="t_Ration">
             <input className='w-full ' value={i.amount} onChange={e=> {type[inx].amount = Number(e.target.value); settype(type); setupdate(!update)}} type="number" />
           </td>

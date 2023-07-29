@@ -1,11 +1,12 @@
 import React, { useEffect, useState, useContext } from 'react'
-import { NavLink,Link, Outlet, useParams,useNavigate } from 'react-router-dom'
+import { NavLink,Link, Outlet, useParams,useNavigate, useLocation } from 'react-router-dom'
 import Fetch from '../../components/Fetch'
 import { myContext } from '../../context'
 import Cookies from "universal-cookie";
 
 const NavV = () => {
   const [data,setdata] = useState([])
+  const location=useLocation();
   const {epoch,salonName,setepoch,farmerName} = useContext(myContext)
   const cookies = new Cookies()
   const access = cookies.get('access')
@@ -37,7 +38,6 @@ const NavV = () => {
 return (
 <>
   <div className="">
-
     <div className='bg-[#6FFFF1] flex justify-between items-center p-2'>
       <div className="flex items-center">
       <Link className='nav text-slate-700 bold bg-slate-50 rounded' to={`/NavV/HomePageV/${id}`} > 
@@ -45,8 +45,8 @@ return (
       </Link>
         <nav className={params.EpochId?"mx-6":'hidden'}>
           <NavLink 
-            className={({isActive}) => isActive? 'nav text-slate-700 bold bg-slate-50 rounded':'nav'} 
-            to={`${param}/OffersV`}
+            className={location.pathname.includes("/OffersV")? 'nav text-slate-700 bold bg-slate-50 rounded':'nav'} 
+            to={`${param}/OffersV/O_VaccinationV`}
             > پیشنهادات دامپزشک 
           </NavLink>
           <NavLink 

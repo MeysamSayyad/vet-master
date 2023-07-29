@@ -7,7 +7,7 @@ const Context =(props)=>{
   const cookies=new Cookies()
   const [epoch,setepoch] = useState({})
   const [salonName,setsalonName] = useState(()=> localStorage.salonName ? localStorage.salonName:'')
-  const [farmerName,setfarmerName] = useState('')
+  const [farmerName,setfarmerName] = useState(()=> localStorage.farmerName ? localStorage.farmerName:'')
   const [access,setAccess]=useState(()=> cookies.get('access') ? cookies.get('access'):'')
   const [updateG,setupdateG] = useState(false)
   

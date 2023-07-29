@@ -63,7 +63,7 @@ return (
           <h4 className=""> نام گله مادر </h4>
         </div>
         <div>
-          <select className="" onChange={e => settype(e.target.value)}> 
+          <select className="" onChange={e=>{e.target.value ? settype(e.target.value): settype("")}}> 
             <option value=""> </option>
             <option value="LAYING"> مرغ تخمگذار </option>
             <option value="BROILER"> مرغ گوشتی </option>

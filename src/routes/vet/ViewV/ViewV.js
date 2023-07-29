@@ -1,11 +1,13 @@
 import React, { useState ,useEffect } from 'react'
-import { NavLink, Outlet,useLocation, useParams } from 'react-router-dom'
+import { NavLink, Outlet,useLocation, useParams, useNavigate } from 'react-router-dom'
 import { Bar } from 'react-chartjs-2'
+import Fetch from "../../../components/Fetch"
 
 const ViewV = () => {
   const [data,setdata]=useState([]);
   const location=useLocation();
   const params=useParams();
+  const navigate=useNavigate()
 
   const chart ={
     labels : data.herd_age_list,
@@ -80,6 +82,15 @@ const ViewV = () => {
     }
 	}
 
+  useEffect(()=>{
+    const body=undefined
+    const token=true
+    const method='GET'
+    const api=`/api/v1/loss/daily-count/?epoch_id=${params.EpochId}`
+    Fetch(body,token,setdata,method,api,navigate)
+  },[])
+
+
 return (
   <div className='flex gap-10'>
   <nav className='border flex flex-col p-2 px-6 shadow-xl rounded-3xl text-center text-sm h-min'>
@@ -97,7 +108,7 @@ return (
   </nav>
 
   <div className="w-full ">
-  { location.pathname== `/NavF/HomePage/${params.id}/SalonId/${params.SalonId}/EpochId/${params.EpochId}/View` && <div className="w-[60%] mx-auto ">
+  { location.pathname== `/NavV/HomePageV/${params.id}/userId/${params.userId}/salonId/${params.salonId}/EpochId/${params.EpochId}/ViewV` && <div className="w-[60%] mx-auto ">
  <h2 className="bold text-xl text-center m-4">نمودار سن-تعداد تلفات  </h2>
       <Bar data={chart} options={options} />
       <br />

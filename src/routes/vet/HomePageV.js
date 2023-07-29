@@ -31,7 +31,7 @@ const HomePageV = () => {
       <div className="flex flex-col justify-start ml-12 flex-wrap gap-6 w-[300px] h-auto items-center">
          <span className="">مرغدار ها</span>
          {data.map(i => 
-         <Link key={i.id} to={`userId/${i.id}`} onClick={()=> setfarmerName(`${i.first_name} ${i.last_name}`)}
+         <Link key={i.id} to={`userId/${i.id}`} onClick={()=>{ setfarmerName(`${i.first_name} ${i.last_name}`); localStorage.farmerName= `${i.first_name} ${i.last_name}` }}
           style={userId==i.id ? {borderWidth:'1.5px',borderColor:'grey',boxShadow:'0px 2px 3px 1px grey'}:undefined}
           className="border-2 py-6 px-3 w-56 h-28 rounded-xl bg-slate-100 shadow-md center items-center">  
             {i.first_name} {i.last_name}

@@ -47,7 +47,7 @@ data.length === 0 ? <h1 className="text"> اطلاعاتی هنوز ثبت نش�
           <div className="mt-2"><StatusT status={i.status} /> </div>
         </div>
         <div className="flex justify-between -mb-10 w-[102%] ">
-          <div className="border-2 rounded-full text-sm bg-white px-4 pt-0.5 -mr-4 "> تاریخ ثبت </div>
+          <div className="border-2 rounded-full text-sm bg-white px-4 pt-0.5 -mr-4 "> تاریخ ثبت {Gregorian_to_jalali(i.suggested_at)}</div>
           <div className="">
           { i.status == 'PENDING' && <button className='btn-r w-5 rounded-full box-content	 border-2 mx-1'>×</button>}
             { i.status == 'PENDING' && <button className='btn-g w-5 rounded-full box-content	 border-2'>✓</button>}
