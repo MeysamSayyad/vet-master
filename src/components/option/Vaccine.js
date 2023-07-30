@@ -3,7 +3,7 @@ import React from 'react'
 const Vaccine = () => {
 return (
 <>
-  <option value="">  </option>
+  <option value=""></option> 
   <option value="MAREK"> مارک </option>
   <option value="NEWCASTLE">  نیوکاسل </option>
   <option value="NEWCASTLE_B1_STRAIN"> B1 </option>

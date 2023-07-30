@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React,{useEffect, useState} from 'react'
 import Fetch from '../../../components/Fetch'
 import { AgChartsReact } from 'ag-charts-react';

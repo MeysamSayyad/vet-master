@@ -1,11 +1,16 @@
-import React, { useState ,useEffect } from 'react'
-import { NavLink, Outlet,useLocation, useParams } from 'react-router-dom'
+import React, { useState ,useEffect, useContext } from 'react'
+import { NavLink, Outlet,useLocation, useParams, useNavigate } from 'react-router-dom'
 import { Bar } from 'react-chartjs-2'
+import Fetch from "../../../components/Fetch"
+import { myContext } from '../../../context'
 
 const ViewV = () => {
   const [data,setdata]=useState([]);
   const location=useLocation();
   const params=useParams();
+  const id = useParams().EpochId
+  const navigate=useNavigate();
+  const {access,refresh}= useContext(myContext);
 
   const chart ={
     labels : data.herd_age_list,
@@ -44,6 +49,22 @@ const ViewV = () => {
       }
     ]
   }
+
+  const options ={
+    responsive: true,
+    scales: {
+      x: {stacked: true },
+      y: {stacked: true }     
+    }
+	}
+
+  useEffect(()=>{
+    const body=undefined
+    const token=true
+    const method='GET'
+    const api=`/api/v1/loss/daily-count/?epoch_id=${id}`
+    Fetch(body,token,setdata,method,api,navigate,undefined,undefined,undefined,access,refresh)
+  },[])
   const chart2 ={
     labels : '',
     datasets: [
@@ -71,14 +92,14 @@ const ViewV = () => {
       },
     ]
   }
-  const options ={
-    responsive: true,
+  // const options ={
+  //   responsive: true,
     
-    scales: {
-      x: {stacked: true },
-      y: {stacked: true }     
-    }
-	}
+  //   scales: {
+  //     x: {stacked: true },
+  //     y: {stacked: true }     
+  //   }
+	// }
 
 return (
   <div className='flex gap-10'>
@@ -97,7 +118,7 @@ return (
   </nav>
 
   <div className="w-full ">
-  { location.pathname== `/NavF/HomePage/${params.id}/SalonId/${params.SalonId}/EpochId/${params.EpochId}/View` && <div className="w-[60%] mx-auto ">
+  { location.pathname== `/NavV/HomePageV/${params.id}/userId/${params.userId}/salonId/${params.salonId}/EpochId/${params.EpochId}/ViewV` && <div className="w-[60%] mx-auto ">
  <h2 className="bold text-xl text-center m-4">نمودار سن-تعداد تلفات  </h2>
       <Bar data={chart} options={options} />
       <br />

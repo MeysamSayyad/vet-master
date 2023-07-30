@@ -57,8 +57,8 @@ return (
         <h5 className="-m-2">طریقه مصرف</h5>
         <h5 className="-m-2">تاریخ</h5>
 
-        <select value={name} onChange={e=>setname(e.target.value)}><Vaccine /> </select>
-        <select value={use} onChange={e=>setuse(e.target.value)}><Use /> </select>
+        <select value={name} onChange={e=>{e.target.value ? setname(e.target.value): setname("")}}><Vaccine /> </select>
+        <select value={use} onChange={e=>{e.target.value ? setuse(e.target.value): setuse("")}}><Use /> </select>
         <DatePickerF setdate={setdate} value={value} setvalue={setvalue} />
       </div>
       <div className="flex mr-2">
