@@ -49,7 +49,7 @@ const R_RationV = ({setshow}) => {
   }
 
 return (
-<div className={location == `${param}/O_RationV`?'':'hidden'}>
+<div className={location == `${param}/O_RationV`?'h-[360px]':'hidden'}>
   <table className={location == `${param}/O_RationV`?'':'hidden'}>
     <thead>
       <tr className="">
@@ -60,7 +60,7 @@ return (
     <tbody>
       {type.map((i,inx)=>      
         <tr key={inx} className="">
-          <td className="t_Ration"><select className='w-full' onChange={e=> {type[inx].name = e.target.value; settype(type); setupdate(!update)}} ><RationOption /> </select></td>
+          <td className="t_Ration"><select className='w-full' onChange={e=> {type[inx].name = e.target.value; setupdate(!update);}} ><RationOption /> </select></td>
           <td className="t_Ration">
             <input className='w-full ' value={i.amount} onChange={e=> {type[inx].amount = Number(e.target.value); settype(type); setupdate(!update)}} type="number" />
           </td>
@@ -75,7 +75,7 @@ return (
   </div>
   <div className="flex justify-end w-full mt-4">
     <button className='btn-r mx-2' onClick={putOff}>انصراف</button>
-    <button className={type[0].amount&&type[0].name?'btn-g':'btn-g opacity-60'} onClick={save} disabled={type[0].amount&&type[0].name?false:true} >ثبت</button>
+    <button className={type[0].amount&&type[0].name&&value ?'btn-g':'btn-g opacity-60'} onClick={save} disabled={type[0].amount&&type[0].name&&value?false:true} >ثبت</button>
   </div>
 </div>
 )}

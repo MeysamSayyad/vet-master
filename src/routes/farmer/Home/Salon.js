@@ -60,7 +60,6 @@ const Salon = ({setLoading}) => {
 
 return (
 <div className="">
-
   <div className='flex  '>
     <div className=" border-slate-400 w-96 min-h-[90vh] ">
       <button className='text-slate-500 bold border-[1.5px] border-slate-500 p-2 px-6 mb-1  hover:bg-slate-500 transition-all hover:text-white rounded 'onClick={data.length>0?creact:()=>setshow(true)}> افزودن دوره پرورش </button> <br />
