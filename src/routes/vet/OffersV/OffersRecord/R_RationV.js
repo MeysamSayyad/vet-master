@@ -75,7 +75,7 @@ return (
   </div>
   <div className="flex justify-end w-full mt-4">
     <button className='btn-r mx-2' onClick={putOff}>انصراف</button>
-    <button className={type[0].amount&&type[0].name?'btn-g':'btn-g opacity-60'} onClick={save} disabled={type[0].amount&&type[0].name?false:true} >ثبت</button>
+    <button className={type[0].amount&&type[0].name&&value ?'btn-g':'btn-g opacity-60'} onClick={save} disabled={type[0].amount&&type[0].name&&value?false:true} >ثبت</button>
   </div>
 </div>
 )}
