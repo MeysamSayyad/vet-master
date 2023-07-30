@@ -27,9 +27,14 @@ const {access,refresh}=useContext(myContext)
       return {...item,amount:item.amount*1,mean:(item.start_age+ item.end_age)/2}
     })
     const bins=data.map((i)=> [i.start_age,i.end_age] )
-    const sortedBins=bins.sort(function(a, b) {
+    let sortedBins=bins.sort(function(a, b) {
       return a[0]-b[0] ;
     });
+    sortedBins=sortedBins.sort(function(a,b){
+      if(a[1]>b[1]){
+        return b[0]-a[0]
+      }
+    }).reverse()
     console.log(sortedBins)
     console.log(ndata)
 setOptions(

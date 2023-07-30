@@ -35,7 +35,7 @@ const HomePage = () => {
     const token = true
     const method = 'POST'
     const api = '/api/v1/salons/create/'
-    Fetch(body,token,setdata,method,api,navigate)
+    Fetch(body,token,setdata,method,api,navigate,undefined,undefined,undefined,access,refresh)
     setshow(false);setname('');setlocation('');setadd(add+1)
     setTimeout(() => {
       setupdate(add + 1)
