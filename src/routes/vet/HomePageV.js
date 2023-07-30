@@ -16,6 +16,7 @@ const HomePageV = () => {
    const userId = useParams().userId
 
    useEffect(()=>{
+      localStorage.farmerName = "";
       const body=undefined
       const token=true
       const method='GET'

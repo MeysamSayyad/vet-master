@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react'
 import Fetch from '../../../../components/Fetch'
-
 import { Bar } from 'react-chartjs-2';
 import { myContext } from '../../../../context';
 

@@ -1,13 +1,16 @@
-import React, { useState ,useEffect } from 'react'
+import React, { useState ,useEffect, useContext } from 'react'
 import { NavLink, Outlet,useLocation, useParams, useNavigate } from 'react-router-dom'
 import { Bar } from 'react-chartjs-2'
 import Fetch from "../../../components/Fetch"
+import { myContext } from '../../../context'
 
 const ViewV = () => {
   const [data,setdata]=useState([]);
   const location=useLocation();
   const params=useParams();
-  const navigate=useNavigate()
+  const id = useParams().EpochId
+  const navigate=useNavigate();
+  const {access,refresh}= useContext(myContext);
 
   const chart ={
     labels : data.herd_age_list,
@@ -46,6 +49,22 @@ const ViewV = () => {
       }
     ]
   }
+
+  const options ={
+    responsive: true,
+    scales: {
+      x: {stacked: true },
+      y: {stacked: true }     
+    }
+	}
+
+  useEffect(()=>{
+    const body=undefined
+    const token=true
+    const method='GET'
+    const api=`/api/v1/loss/daily-count/?epoch_id=${id}`
+    Fetch(body,token,setdata,method,api,navigate,undefined,undefined,undefined,access,refresh)
+  },[])
   const chart2 ={
     labels : '',
     datasets: [
@@ -73,23 +92,14 @@ const ViewV = () => {
       },
     ]
   }
-  const options ={
-    responsive: true,
+  // const options ={
+  //   responsive: true,
     
-    scales: {
-      x: {stacked: true },
-      y: {stacked: true }     
-    }
-	}
-
-  useEffect(()=>{
-    const body=undefined
-    const token=true
-    const method='GET'
-    const api=`/api/v1/loss/daily-count/?epoch_id=${params.EpochId}`
-    Fetch(body,token,setdata,method,api,navigate)
-  },[])
-
+  //   scales: {
+  //     x: {stacked: true },
+  //     y: {stacked: true }     
+  //   }
+	// }
 
 return (
   <div className='flex gap-10'>

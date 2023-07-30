@@ -15,15 +15,9 @@ const R_VaccinationV = ({setshow}) => {
   const [data,setdata] = useState([])
   const [value,setvalue] = useState('')
   const [herd_age, setherd_age] = useState('')
-<<<<<<< HEAD
   const [use, setuse] = useState('')
   const [name, setname] = useState('')
-  const {updateG,setupdateG} = useContext(myContext)
-=======
-  const [use, setuse] = useState('EYE_DROP')
-  const [name, setname] = useState('NEWCASTLE')
   const {updateG,setupdateG,access,refresh} = useContext(myContext)
->>>>>>> 4ec5d38eff1b1ac5b1ed84239e0a03c5cd4208ae
 
   const location = useLocation().pathname
   const navigate =useNavigate()

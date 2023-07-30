@@ -1,20 +1,15 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState, useContext } from 'react'
 import { NavLink,Link, Outlet, useParams,useNavigate, useLocation } from 'react-router-dom'
 import Fetch from '../../components/Fetch'
 import { myContext } from '../../context'
-import Cookies from "universal-cookie";
+
 
 const NavV = () => {
   const [data,setdata] = useState([])
-<<<<<<< HEAD
   const location=useLocation();
-  const {epoch,salonName,setepoch,farmerName} = useContext(myContext)
-  const cookies = new Cookies()
-  const access = cookies.get('access')
-=======
   const {epoch,salonName,setepoch,farmerName,access,refresh} = useContext(myContext)
   
->>>>>>> 4ec5d38eff1b1ac5b1ed84239e0a03c5cd4208ae
   
   const navigate =useNavigate()
   const params = useParams()
