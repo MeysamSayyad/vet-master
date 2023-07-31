@@ -4,7 +4,7 @@ import Fetch from '../../../components/Fetch'
 import { useNavigate, Link } from 'react-router-dom'
 
 const InfoSalon = ({setshow2, EpochId,_id }) => {
-  const {epoch,setepoch,access,refresh} = useContext(myContext)
+  const {setepoch,access,refresh} = useContext(myContext)
   const [data,setdata] = useState('')
   const [loading,setLoading]=useState(true)
   const [update,setupdate] = useState(false)
