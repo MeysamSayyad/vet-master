@@ -42,7 +42,7 @@ const R_LightClockV = ({setshow}) => {
   }
 
 return (
-<div className={location == `${param}/O_LightClockV`?'w-[870px] h-[300px]':'hidden'}>
+<div className={location == `${param}/O_LightClockV`?'':'hidden'}>
   <div className="grid grid-cols-3 text-center gap-4 ">
     <h5 className="-m-2">رنگ نور</h5>
     <h5 className="-m-2"> شدت نور </h5>
