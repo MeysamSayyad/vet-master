@@ -30,7 +30,7 @@ return (
   <Seed />
   <Ration />
   <LightClock />
-  <Beak />
+  {/* <Beak /> */}
  
 </div>
 )}

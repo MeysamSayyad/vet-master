@@ -1,9 +1,8 @@
 import React, { useState, useEffect, useContext } from 'react'
-import { NavLink, Link, useNavigate, Outlet, useParams } from 'react-router-dom'
+import { NavLink, Link, useNavigate, Outlet, useParams, useLocation } from 'react-router-dom'
 import Fetch from '../../components/Fetch'
 import { myContext } from '../../context'
 import BtnEnd from '../../components/BtnEnd'
-import Cookies from "universal-cookie";
 
 const NavF = () => {
   const {epoch,salonName,setepoch,access,refresh} = useContext(myContext)
@@ -13,7 +12,7 @@ const NavF = () => {
   const EpochId = useParams().EpochId
   const params = useParams()
   const param = `HomePage/${params.id}/SalonId/${params.SalonId}/EpochId/${params.EpochId}`
-  const cookies = new Cookies()
+  const location=useLocation();
 
 
   useEffect(()=>{
@@ -46,7 +45,7 @@ return (
         <nav className={EpochId?"mx-4":'hidden'}>
           <div className={epoch.is_active?"inline-block":'hidden'}><NavLink className={({isActive}) => isActive? 'activnav':'nav'} to={`${param}/Record`}>ثبت اطلاعات </NavLink></div>
           <NavLink className={({isActive}) => isActive? 'activnav':'nav'} to={`${param}/View`}>مشاهده اطلاعات </NavLink>
-          <NavLink className={({isActive}) => isActive? 'activnav':'nav'} to={`${param}/NavO`}>پیشنهادات دامپزشک </NavLink>
+          <NavLink className={location.pathname.includes("/NavO") ? 'nav text-slate-700 bold bg-slate-50 rounded':'nav'} to={`${param}/NavO/O_Vaccination`}>پیشنهادات دامپزشک </NavLink>
         </nav>
       </div>
       <div className="flex flex-col mx-4 ">

@@ -18,7 +18,7 @@ return (
       <NavLink to={'O_VaccinationV'} className={({isActive}) => isActive? 'active':'not_active'}> واکسیناسیون </NavLink> <hr />
       <NavLink to={'O_RationV'} className={({isActive}) => isActive? 'active':'not_active'}> جیره </NavLink> <hr />
       <NavLink to={'O_LightClockV'} className={({isActive}) => isActive? 'active':'not_active '}> ساعات روشنایی </NavLink> <hr />
-      <NavLink to={'O_BeakV'} className={({isActive}) => isActive? 'active':'not_active'}> نوک چینی </NavLink> <hr />
+      {/* <NavLink to={'O_BeakV'} className={({isActive}) => isActive? 'active':'not_active'}> نوک چینی </NavLink> <hr /> */}
       <NavLink to={'O_prescriptionV'} className={({isActive}) => isActive? 'active':'not_active'}> نسخه </NavLink> 
     </nav>
 
