@@ -32,7 +32,7 @@ const Seed = () => {
    date2 && HerdAge(setEndAge,date2,params.EpochId,access)
   },[date2])
   const save =async()=>{
-    if(valueEnd.dayOfBeginning - valueStart.dayOfBeginning >0 && date && date2){
+    if(valueEnd.dayOfBeginning - valueStart.dayOfBeginning >=0 && date && date2){
       const body={ epoch_id:params.EpochId,start_date:date, end_date: date2,start_age:startAge,end_age:endAge, amount:number*1 }
     const token=true
     const method='POST'

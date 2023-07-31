@@ -24,7 +24,7 @@ const {access,refresh}=useContext(myContext)
 
    
     const ndata=data.map((item)=>{
-      return {...item,amount:item.amount*1,mean:(item.start_age+ item.end_age)/2}
+      return {...item,amount:item.amount*1,mean:(item.end_age - 1)}
     })
     const bins=data.map((i)=> [i.start_age,i.end_age] )
     let sortedBins=bins.sort(function(a, b) {
@@ -39,7 +39,7 @@ const {access,refresh}=useContext(myContext)
     console.log(ndata)
 setOptions(
   {
-    data:ndata
+    data:ndata.length > 0 ? ndata:[]
       ,
       tooltip: {
         enabled: true,
@@ -64,7 +64,7 @@ setOptions(
             fillOpacity:0.7
           }
         },
-        bins:sortedBins
+        bins:sortedBins.length > 0 ? sortedBins:[[1,2],[2,4]]
       },
     ],
     axes: [
@@ -88,11 +88,11 @@ setOptions(
     
 // if(data.length === 0)return <h1 className="text"> اطلاعاتی هنوز ثبت نشده</h1>
 return loading ? <div className='flex justify-center items-center'> <div className=' border-2 border-gray-700  w-8 h-8 border-r-transparent animate-spin  rounded-full '> </div></div> : 
-data.length === 0 ? <h1 className="text"> اطلاعاتی هنوز ثبت نشده</h1>:(
+(
 
   <div>
     <h3 className=' text-center text-xl font-bold'>نمودار دان مصرفی -سن</h3>
-    {options.data  &&<AgChartsReact options={options} />}
+    {<AgChartsReact options={options} />}
   </div>
 )}
 export default V_SeedV
