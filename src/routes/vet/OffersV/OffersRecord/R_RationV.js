@@ -49,7 +49,7 @@ const R_RationV = ({setshow}) => {
   }
 
 return (
-<div className={location == `${param}/O_RationV`?'h-[360px]':'hidden'}>
+<div className={location == `${param}/O_RationV`?'':'hidden'}>
   <table className={location == `${param}/O_RationV`?'':'hidden'}>
     <thead>
       <tr className="">
