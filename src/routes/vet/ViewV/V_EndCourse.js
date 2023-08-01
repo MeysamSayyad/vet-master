@@ -37,7 +37,7 @@ return loading ? <div className='flex justify-center items-center'>
         <h4 className="mt-4 drop-shadow-sm"> شاخص تولیدی مرغ گوشتی :</h4>
       </div>
       <div dir='ltr' className="">
-        <p className="mt-4 drop-shadow-sm">{data.herd_survival_percentage} </p>
+        <p className="mt-4 drop-shadow-sm">{data.herd_survival_percentage} % </p>
         <p className="mt-4 drop-shadow-sm">{0} </p>
       </div>
     </div>

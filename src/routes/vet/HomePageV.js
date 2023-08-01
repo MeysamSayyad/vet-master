@@ -16,12 +16,12 @@ const HomePageV = () => {
    const userId = useParams().userId
 
    useEffect(()=>{
-      localStorage.farmerName = "";
       const body=undefined
       const token=true
       const method='GET'
       const api=`/api/v1/farmers/?vet_id=${id}`
       Fetch(body,token,setdata,method,api,navigate,setLoading,undefined,undefined,access,refresh)
+      localStorage.farmerName = "";
       },[])
 
    return loading ? <div className='flex justify-center items-center'> <div className=' border-2 border-gray-700  w-8 h-8 border-r-transparent animate-spin  rounded-full '> </div></div> : 
