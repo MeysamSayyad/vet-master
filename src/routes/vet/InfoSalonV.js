@@ -26,7 +26,7 @@ const InfoSalon = ({setshow, EpochId }) => {
 return (
 <>
 <div onClick={()=> setshow(false)} className="backdrop"></div>
-  <div className="center absolute right-0 left-0">
+  <div className="center absolute right-0 left-0"> 
     <div className="z-40 bg-white rounded-xl p-8 px-14 fixed top-[10vh]">
       <h1 className="text-3xl mx-28 mb-8 "> مشخصات سالن و دوره پرورش </h1>
       <div className="center gap-40">
