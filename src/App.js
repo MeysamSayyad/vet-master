@@ -63,7 +63,7 @@ const {access}=useContext(myContext)
           <Route path="HomePage/:id/SalonId/:SalonId/EpochId/:EpochId/Record" element={<Record />} />
 
           <Route path="HomePage/:id/SalonId/:SalonId/EpochId/:EpochId/View" element={<View />} >
-            <Route path="V_BeakV" element={<V_BeakV />} />
+            {/* <Route path="V_BeakV" element={<V_BeakV />} /> */}
             <Route path="V_EndCourse" element={<V_EndCourse />} />
             <Route path="V_LightClockV" element={<V_LightClockV />} />
             <Route path="V_LossV" element={<V_LossV />} />
@@ -76,7 +76,7 @@ const {access}=useContext(myContext)
           </Route>
 
           <Route path="HomePage/:id/SalonId/:SalonId/EpochId/:EpochId/NavO" element={<NavO />} >
-            <Route path="O_Beak" element={<O_Beak />} />
+            {/* <Route path="O_Beak" element={<O_Beak />} /> */}
             <Route path="O_LightClock" element={<O_LightClock />} />
             <Route path="O_Ration" element={<O_Ration />} />
             <Route path="O_Vaccination" element={<O_Vaccination />} />
@@ -92,14 +92,14 @@ const {access}=useContext(myContext)
           </Route>
 
           <Route path="HomePageV/:id/userId/:userId/salonId/:salonId/EpochId/:EpochId/OffersV" element={<OffersV />} >
-            <Route path="O_BeakV" element={<O_BeakV />} />
+            {/* <Route path="O_BeakV" element={<O_BeakV />} /> */}
             <Route path="O_LightClockV" element={<O_LightClockV />} />
             <Route path="O_RationV" element={<O_RationV />} />
             <Route path="O_VaccinationV" element={<O_VaccinationV />} />
             <Route path="O_prescriptionV" element={<O_prescriptionV />} />
           </Route>
           <Route path="HomePageV/:id/userId/:userId/salonId/:salonId/EpochId/:EpochId/ViewV" element={<ViewV />} >
-            <Route path="V_BeakV" element={<V_BeakV />} />
+            {/* <Route path="V_BeakV" element={<V_BeakV />} /> */}
             <Route path="V_EndCourse" element={<V_EndCourse />} />
             <Route path="V_InfoV" element={<V_InfoV />} />
             <Route path="V_LightClockV" element={<V_LightClockV />} />

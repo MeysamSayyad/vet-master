@@ -33,14 +33,17 @@ data.length === 0 ? <h1 className="text"> اطلاعاتی هنوز ثبت نش�
         :
         ""
         }
-        <div className="grid grid-cols-3 w-full text-center gap-4">
+        <div className="grid grid-cols-4 w-full text-center gap-4">
           <h5 className="my-2 border-l border-[#707070] "> نوع جیره </h5>
           <h5 className="my-2 border-l border-[#707070] "> مقدار </h5>
-          <h5 className="my-2 gap-0 ">تاریخ</h5>
+          <h5 className="my-2 gap-0 border-l border-[#707070]">تاریخ</h5>
+          <h5 className=' font-semibold my-2'>مجموع وزن جیره</h5>
+          
           
           <div>{i.data.map((i,index)=> <h6 key={index} className="mx-2">{<RationT ration={i.name} />} </h6>)}</div>
           <div>{i.data.map((i,index)=> <h6 key={index} className="mx-2">{i.amount} </h6>)}</div>
-          <h6 className='mx-2 flex flex-col '><div>{Gregorian_to_jalali(i.date)}</div><div className='flex flex-col justify-center  border-gray-300 border-t-[1px] gap-2 '><h5 className=' font-semibold'>مجموع وزن جیره</h5><p>{i.total_weight} کیلوگرم</p></div> </h6>
+          <h6 className='mx-2 flex flex-col '><div>{Gregorian_to_jalali(i.date)}</div> </h6>
+          <div className='flex flex-col justify-center gap-2 '><p>{i.total_weight} کیلوگرم</p></div>
         </div>
       </div>
     )}
