@@ -7,6 +7,7 @@ import RationT from '../../../components/en_to_fa/RationT'
 import StatusT from '../../../components/en_to_fa/StatusT'
 import { Btndel } from '../../../components/BtnDel'
 
+
 const O_RationV = () => {
   const [data,setdata] = useState([])
   const [loading,setLoading]=useState(true)
@@ -32,21 +33,21 @@ data.length === 0 ? <h1 className="text"> پیشنهادی هنوز ثبت نش�
         <Btndel/>
       </div>
       <div className="grid grid-cols-5 text-center gap-4">
-        <h5 className="my-2 border-l border-[#707070] "> نوع جیره </h5>
+        <h5 className="mt-2 mb-1 border-l border-[#707070] "> نوع جیره </h5>
         <h5 className="my-2 border-l border-[#707070] "> مقدار </h5>
         <h5 className="my-2 border-l border-[#707070] ">تاریخ</h5>
         <h5 className=' font-semibold my-2 border-l border-[#707070]'>مجموع وزن جیره</h5>
         <h3 className="my-2 "> وضعیت </h3>
 
-        <div>{i.data.map((i)=> <h6 className="mx-2"><RationT ration={i.name} /> </h6>)}</div>
-        <div>{i.data.map((i)=> <h6 className="mx-2">{i.amount} </h6>)}</div>
+        <div>{i.data.map((i)=> <h6 className="mx-2 mb-2" key={i.id}><RationT ration={i.name} /> </h6>)}</div>
+        <div>{i.data.map((i)=> <h6 className="mx-2" key={i.id}>{i.amount} </h6>)}</div>
         <h6 className='mx-2'>{Gregorian_to_jalali(i.date)} </h6>
-        <div className='flex flex-col justify-center gap-2 '><p>{i.total_weight} کیلوگرم</p></div>
-        <p className="mt-2"><StatusT status={i.status} /> </p>
+        <div className='flex flex-col gap-2 justify-start'><p>{i.total_weight} کیلوگرم</p></div>
+        <p className=""><StatusT status={i.status} /> </p>
       </div>
 
       <div className="flex justify-between -mb-[30px] w-[102%] ">
-        <div className="border-2 rounded-full text-sm bg-white px-4 pt-0.5 -mr-4 "> تاریخ ثبت {i.date} </div>
+        <div className="border-2 rounded-full text-sm bg-white px-4 pt-0.5 -mr-4 "> تاریخ ثبت {Gregorian_to_jalali(i.suggested_at)} </div>
       </div>
     </div>
   )}

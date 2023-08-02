@@ -43,7 +43,7 @@ data.length === 0 ? <h1 className="text"> اطلاعاتی هنوز ثبت نش�
           <div>{i.data.map((i,index)=> <h6 key={index} className="mx-2">{<RationT ration={i.name} />} </h6>)}</div>
           <div>{i.data.map((i,index)=> <h6 key={index} className="mx-2">{i.amount} </h6>)}</div>
           <h6 className='mx-2 flex flex-col '><div>{Gregorian_to_jalali(i.date)}</div> </h6>
-          <div className='flex flex-col justify-center gap-2 '><p>{i.total_weight} کیلوگرم</p></div>
+          <div className='flex flex-col  gap-2 '><p>{i.total_weight} کیلوگرم</p></div>
         </div>
       </div>
     )}

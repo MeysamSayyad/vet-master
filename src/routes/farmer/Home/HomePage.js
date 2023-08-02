@@ -63,12 +63,13 @@ return (
 <div className="">
   {loading && <Loading loading={loading} setLoading={setLoading}  />}
   <div className=' flex flex-row gap-[40px]  '>
-    <div className="border-l border-slate-400 w-96 min-h-[90vh]  ">
+    <div className="border-l border-slate-400 w-92 min-h-[90vh] pl-6">
       <button className='text-slate-500 bold border-[1.5px] border-slate-500 p-2 px-6 mb-1 hover:bg-slate-500 transition-all hover:text-white  rounded 'onClick={()=> setshow(true)}> افزودن سالن </button>
       {
         data.length > 0?
         data.map(i => 
-          <div style={SalonId==i.id ? {borderWidth:'1.5px',borderColor:'grey',boxShadow:'0px 2px 3px 1px grey'}:undefined} key={i.id} onClick={()=>{navToSalon(i.id,i.name)}} className=" cursor-pointer rounded-lg p-4 px-7 ml-5 mt-4 grid grid-cols-2 text-center gap-2 bg-slate-200" >
+          <div style={SalonId==i.id ? {borderWidth:'1.5px',borderColor:'grey',boxShadow:'0px 2px 3px 1px grey'}:undefined} key={i.id} 
+          onClick={()=>{navToSalon(i.id,i.name)}} className=" cursor-pointer rounded-lg py-4 ml-4 mt-4 grid grid-cols-2 text-center gap-2 bg-slate-200 w-[300px]" >
             <h4 className=""> نام سالن:</h4>
             <h4 className=""> {i.name} </h4>
             <h4 className="">مکان سالن:</h4>

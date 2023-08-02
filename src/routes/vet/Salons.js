@@ -28,7 +28,8 @@ data.length == 0 ? <h1 className="text">سالنی وجود ندارد</h1> :
   <div className='flex flex-col items-center'>
     <span className='mb-4'>سالن ها</span>
     {data.map(i=>
-      <Link to={`userId/${id}/salonId/${i.id}`}key={i.id} onClick={()=> setsalonName(`${i.name}`)} style={salonId==i.id ? {borderWidth:'1.5px',borderColor:'grey',boxShadow:'0px 2px 3px 1px grey'}:undefined} className="border px-8 py-3 rounded-xl m-2 bg-slate-50 shadow w-[30vw] text-center text-lg ">
+      <Link to={`userId/${id}/salonId/${i.id}`}key={i.id} onClick={()=> setsalonName(`${i.name}`)} style={salonId==i.id ? {borderWidth:'1.5px',borderColor:'grey',boxShadow:'0px 2px 3px 1px grey'}:undefined} 
+      className="border px-8 py-3 rounded-xl m-2 bg-slate-50 shadow w-[30vw] text-center text-lg ">
         {i.name}
       </Link>
     )}
