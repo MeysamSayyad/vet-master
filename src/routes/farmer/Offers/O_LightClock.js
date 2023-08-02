@@ -23,7 +23,7 @@ const O_LightClock = () => {
 
 
 return loading ? <div className='flex justify-center items-center'> <div className=' border-2 border-gray-700  w-8 h-8 border-r-transparent animate-spin  rounded-full '> </div></div> : 
-data.length === 0 ? <h1 className="text"> اطلاعاتی هنوز ثبت نشده</h1>:(
+data.length === 0 ? <h1 className="text"> پیشنهادی هنوز ثبت نشده است.</h1>:(
 <>
   <h2 className=" text-center text-2xl mb-4"> ساعات روشنایی پیشنهادی دامپزشک </h2>
 

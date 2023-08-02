@@ -4,7 +4,7 @@ const O_prescription = () => {
 
 return (
 <div>
-  <h1 className='text'> هنوز نسخه ای ثبت نشده</h1>
+  <h1 className='text'> نسخه ای هنوز  ثبت نشده است.</h1>
   
 </div>
 )}

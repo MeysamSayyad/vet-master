@@ -7,6 +7,7 @@ import RationT from '../../../components/en_to_fa/RationT'
 import StatusT from '../../../components/en_to_fa/StatusT'
 import { Btndel } from '../../../components/BtnDel'
 
+
 const O_RationV = () => {
   const [data,setdata] = useState([])
   const [loading,setLoading]=useState(true)
@@ -46,7 +47,7 @@ data.length === 0 ? <h1 className="text"> پیشنهادی هنوز ثبت نش�
       </div>
 
       <div className="flex justify-between -mb-[30px] w-[102%] ">
-        <div className="border-2 rounded-full text-sm bg-white px-4 pt-0.5 -mr-4 "> تاریخ ثبت {i.date} </div>
+        <div className="border-2 rounded-full text-sm bg-white px-4 pt-0.5 -mr-4 "> تاریخ ثبت {Gregorian_to_jalali(i.date)} </div>
       </div>
     </div>
   )}

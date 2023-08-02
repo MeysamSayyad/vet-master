@@ -30,7 +30,7 @@ return loading ? <div className='flex justify-center items-center'>
 <div className=' border-2 border-gray-700  w-8 h-8 border-r-transparent animate-spin  rounded-full '> </div></div>:(
 <div className="text-xl mt-4">
     {epoch.is_active ? 
-    "تا پایان دوره امکان مشاهده این قسمت امکان پذیر نمی باشد.":
+    "این قسمت فقط پس از انتهای دوره قابل مشاهده است.":
     <div className="center gap-60">
       <div className="">
         <h4 className="mt-4 drop-shadow-sm"> درصد ماندگاری گله :</h4>

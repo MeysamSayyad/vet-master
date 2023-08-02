@@ -4,6 +4,7 @@ import Fetch from '../../components/Fetch';
 import InfoSalon from './InfoSalonV';
 import { useContext } from 'react';
 import { myContext } from '../../context';
+import gregorian_to_jalali from '../../components/Gregorian_to_jalali';
 
 const Epoch = () => {
   const [data,setdata] = useState([]);
@@ -38,8 +39,8 @@ data.length === 0 ? <h1 className="text">دوره ای وجود ندارد</h1> 
           <h5 className=""> نوع مرغ : </h5>
         </div>
         <div>
-          <h5 className="mb-1">{i.start_date} </h5>
-          <h5 className="mb-1">{i.end_date? i.end_date :'در حال پرورش'} </h5>
+          <h5 className="mb-1">{gregorian_to_jalali(i.start_date)} </h5>
+          <h5 className="mb-1">{i.end_date? gregorian_to_jalali(i.end_date) :'در حال پرورش'} </h5>
           <h5 className="">{i.hen_type === 'LAYING'?' مرغ تخمگذار ':' مرغ گوشتی '}</h5>
         </div>
       </div>

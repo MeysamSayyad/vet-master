@@ -85,9 +85,9 @@ return (
       </div>
       <div className={started?"mt-8 flex justify-between items-center":'hidden'}>
         <div className=" ">
-          <h5 className={started == 'true'?"":'hidden'}>  تاریخ شروع پرورش : </h5>
-          <h5 className={started == 'true'?"mt-5":'hidden'}>تعداد کل پرنده در روز اول: </h5>
-          <h5 className={started == 'true'?"inline-block mt-5":'mt-2'}>تعداد کل پرنده در حال حاضر:</h5>
+          <h5 className={started == 'true'?"":'hidden'}>  تاریخ شروع پرورش  </h5>
+          <h5 className={started == 'true'?"mt-5":'hidden'}>تعداد کل پرنده در روز اول </h5>
+          <h5 className={started == 'true'?"inline-block mt-5":'mt-2'}>تعداد کل پرنده در حال حاضر</h5>
         </div>
         <div className="-ml-2">
           <div className={started == 'true'?"mr-2":'hidden'}><DatePickerF setdate={setdate} value={value} setvalue={setvalue} /></div>
