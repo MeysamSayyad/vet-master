@@ -38,7 +38,7 @@ const DailyRate = ({id, navigate}) => {
 
   const options ={
     responsive: true,
-    locale:'fa',
+   
     scales: {
       x: {stacked: true },
       y: {stacked: true }     

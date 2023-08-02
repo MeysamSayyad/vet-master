@@ -42,8 +42,11 @@ return loading ? <div className='flex justify-center items-center'> <div classNa
         <h6 className="">{i.light_color} </h6>
         <h6 className="">{i.light_intensity} </h6>
         <div className="flex flex-col">
-          {i.lighting_hours.map((i,index)=>
-            <div key={index} className="">{i.start_time} - {i.end_time} </div>
+          {i.lighting_hours.map((i,index)=>{
+          const changedstTime=i.start_time.split(':')
+          const changedendTime=i.end_time.split(':')
+          return  <div key={index} className="">{changedstTime[0]+':'+changedstTime[1]} - {changedendTime[0]+':'+changedendTime[1]} </div>
+          }
           )} 
         </div>
         <h6 className="">{i.total_lighting_hours} </h6>

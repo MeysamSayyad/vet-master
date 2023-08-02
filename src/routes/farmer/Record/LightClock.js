@@ -5,6 +5,9 @@ import HerdAge from '../../../components/HerdAge';
 import { useParams, useNavigate, Link } from 'react-router-dom'
 import DatePickerF from '../../../components/DatePickerF';
 import { useContext } from 'react';
+import TimePicker from 'react-time-picker';
+import 'react-time-picker/dist/TimePicker.css';
+import 'react-clock/dist/Clock.css';
 
 const LightClock = () => {
   const [update,setupdate] = useState(false)
@@ -15,7 +18,7 @@ const LightClock = () => {
   const [value,setvalue] = useState('')
   const [light_intensity, setlight_intensity] = useState('')
   const [light_color, setlight_color] = useState('')
-  const [hours, sethours] = useState([{start_time:'',end_time:''}])
+  const [hours, sethours] = useState([{start_time:null,end_time:null}])
   const navigate =useNavigate()
   const params = useParams()
   const EpochId = useParams().EpochId
@@ -66,9 +69,10 @@ return (
       {hours.map((i,inx)=>{
         return <div key={inx} className="w-full center my-4 ">
           <span className='mx-2'>از</span>
-          <input value={i.start_time} onChange={e=> {hours[inx].start_time = e.target.value; sethours(hours); setupdate(!update)}}  type="time" />
+          
+          <TimePicker className=' w-[170px] h-[30px]' renderSecondHand={false} value={i.start_time} format='mm:H' onChange={value=> { hours[inx].start_time = value; sethours(hours); setupdate(!update)}} />
           <span className='mx-2'>تا</span>
-          <input value={i.end_time} onChange={e=> {hours[inx].end_time = e.target.value; sethours(hours); setupdate(!update)}} type="time" />
+          <TimePicker  className=' w-[170px] h-[30px]' renderSecondHand={false} format='mm:H' value={i.end_time} onChange={value=> {hours[inx].end_time = value; sethours(hours); setupdate(!update)}} />
         </div>}
       )}
       <div className="center w-full -mt-4">
