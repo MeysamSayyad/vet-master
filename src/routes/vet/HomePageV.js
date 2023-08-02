@@ -13,7 +13,7 @@ const HomePageV = () => {
    const {setfarmerName,access,refresh} = useContext(myContext);
    const navigate =useNavigate();
    const id = useParams().id;
-   const userId = useParams().userId
+   const userId = useParams().userId;
 
    useEffect(()=>{
       const body=undefined
@@ -21,8 +21,11 @@ const HomePageV = () => {
       const method='GET'
       const api=`/api/v1/farmers/?vet_id=${id}`
       Fetch(body,token,setdata,method,api,navigate,setLoading,undefined,undefined,access,refresh)
-      localStorage.farmerName = "";
+      
       },[])
+      useEffect(()=>{
+         localStorage.farmerName = "";
+      })
 
    return loading ? <div className='flex justify-center items-center'> <div className=' border-2 border-gray-700  w-8 h-8 border-r-transparent animate-spin  rounded-full '> </div></div> : 
    data.length === 0 ? <h1 className="text">مرغداری وجود ندارد</h1>:

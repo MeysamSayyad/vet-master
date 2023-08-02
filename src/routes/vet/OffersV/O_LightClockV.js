@@ -26,29 +26,29 @@ data.length === 0 ? <h1 className="text"> پیشنهادی هنوز ثبت نش�
 (
 <div className="flex justify-center text-center">
   <div className="flex flex-col">
-    {data.map(i=><div key={i.id} className="border-2 rounded-xl 2xl:w-[50vw] m-2 p-6 px-10 w-[68vw]  mb-4 relative">
+    {data.map(i=><div key={i.id} className="border-2 rounded-xl m-2 p-6 px-10 w-[950px] h-[130px]  mb-4 relative">
       <div className='absolute right-4 top-12'>
         <Btndel/>
       </div>
       <div className="grid grid-cols-6 gap-1 mb-4">
-        <h3 className="my-2 border-l border-[#707070] "> تاریخ </h3>
-        <h3 className="my-2 border-l border-[#707070] "> رنگ نور </h3>
-        <h3 className="my-2 border-l border-[#707070] "> شدت نور </h3>
-        <h3 className="my-2 border-l border-[#707070] "> کل مدت روشنایی  </h3>
-        <h3 className="my-2 border-l border-[#707070] "> ساعات روشنایی </h3>
-        <h3 className="my-2 "> وضعیت </h3>
+        <h3 className="mt-2 mb-4 border-l border-[#707070] "> تاریخ </h3>
+        <h3 className="mt-2 mb-4 border-l border-[#707070] "> رنگ نور </h3>
+        <h3 className="mt-2 mb-4 border-l border-[#707070] "> شدت نور </h3>
+        <h3 className="mt-2 mb-4 border-l border-[#707070] "> کل مدت روشنایی  </h3>
+        <h3 className="mt-2 mb-4 border-l border-[#707070] "> ساعات روشنایی </h3>
+        <h3 className="mt-2 mb-4"> وضعیت </h3>
 
         <p className="mx-2">{Gregorian_to_jalali(i.date)}</p>
         <p className="mx-2">{i.light_color} </p>
         <p className="mx-2">{i.light_intensity} </p>
         <p className="mx-2">{i.total_lighting_hours} </p>
         <p className='mx-[6%] w-[88%] '>
-          {i.lighting_hours.map(i=><div className='text-sm'>{i.start_time}-{i.end_time} </div>)}
+          {i.lighting_hours.map(i=><div className='text-sm'>{i.start_time} - {i.end_time} </div>)}
         </p>
-        <p className="mt-2"><StatusT status={i.status} /> </p>
+        <p className=""><StatusT status={i.status} /> </p>
       </div>
       
-      <div className="flex justify-between -mb-10 w-[102%] ">
+      <div className="flex justify-between mt-4">
         <div className="border-2 rounded-full text-sm bg-white px-4 pt-0.5 -mr-4 "> تاریخ ثبت {Gregorian_to_jalali(i.suggested_at)} </div>
       </div>
     </div>
