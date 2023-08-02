@@ -43,7 +43,7 @@ data.length === 0 ? <h1 className="text"> پیشنهادی هنوز ثبت نش�
         <p className="mx-2">{i.light_intensity} </p>
         <p className="mx-2">{i.total_lighting_hours} </p>
         <p className='mx-[6%] w-[88%] '>
-          {i.lighting_hours.map(i=><div className='text-sm'>{i.start_time} - {i.end_time} </div>)}
+          {i.lighting_hours.map(i=><div className='text-sm' key={i.id}>{i.start_time} - {i.end_time} </div>)}
         </p>
         <p className=""><StatusT status={i.status} /> </p>
       </div>

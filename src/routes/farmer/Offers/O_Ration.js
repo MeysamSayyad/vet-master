@@ -32,16 +32,16 @@ data.length === 0 ? <h1 className="text"> پیشنهادی هنوز ثبت نش�
   {data.map(i=>
     <div key={i.id} className="border-2 rounded-3xl m-2 p-4 md:px-12 px-4 w-4/5 mb-6 mx-auto ">
       <div className="grid grid-cols-5 text-center gap-4">
-        <h5 className="my-2 border-l border-[#707070] "> نوع جیره </h5>
+        <h5 className="mt-2 border-l border-[#707070] "> نوع جیره </h5>
         <h5 className="my-2 border-l border-[#707070] "> مقدار </h5>
         <h5 className="my-2 border-l border-[#707070] ">تاریخ</h5>
-        <h5 className=' font-semibold my-2 border-l border-[#707070]'>مجموع وزن جیره</h5>
+        <h5 className=' font-semibold mt-2 border-l border-[#707070]'>مجموع وزن جیره</h5>
         <h3 className="my-2 "> وضعیت </h3>
 
-        <div>{i.data.map((i,inx)=> <h6 key={inx} className="mx-2"><RationT ration={i.name} /> </h6>)}</div>
+        <div>{i.data.map((i,inx)=> <h6 key={inx} className="mx-2 -mt-1"><RationT ration={i.name} /> </h6>)}</div>
         <div>{i.data.map((i,inx)=> <h6 key={inx} className="mx-2">{i.amount} </h6>)}</div>
         <h6 className='mx-2'>{Gregorian_to_jalali(i.date)} </h6>
-        <div className='flex flex-col justify-center gap-2 '><p>{i.total_weight} کیلوگرم</p></div>
+        <div className='flex flex-col justify-start gap-2 '><p>{i.total_weight} کیلوگرم</p></div>
         <div className="mt-2"><StatusT status={i.status} /> </div>
       </div>
 

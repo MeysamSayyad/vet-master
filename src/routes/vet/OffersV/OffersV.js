@@ -1,6 +1,7 @@
+/* eslint-disable react/jsx-pascal-case */
 import React, { useState,useContext } from 'react'
 import { NavLink, Outlet } from 'react-router-dom'
-import R_BeakV from './OffersRecord/R_BeakV'
+// import R_BeakV from './OffersRecord/R_BeakV'
 import R_VaccinationV from './OffersRecord/R_VaccinationV'
 import R_LightClockV from './OffersRecord/R_LightClockV'
 import R_RationV from './OffersRecord/R_RationV'
@@ -40,7 +41,7 @@ return (
         <R_VaccinationV setshow={setshow} />
         <R_RationV setshow={setshow} />
         <R_LightClockV setshow={setshow} />
-        <R_BeakV setshow={setshow} />
+        {/* <R_BeakV setshow={setshow} /> */}
         <R_prescriptionV setshow={setshow} />
       </div>
     </div>

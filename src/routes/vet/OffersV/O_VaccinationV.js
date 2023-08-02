@@ -43,11 +43,11 @@ data.length === 0 ? <h1 className="text"> پیشنهادی هنوز ثبت نش�
         <h6 className=""><VacccineT vacccine={i.name} /> </h6>
         <h6 className=""><UseT use={i.how_to_use} /> </h6>
         <h6 className="">{i.herd_age} </h6>
-        <h6 className="">{Gregorian_to_jalali(i.suggested_at)} </h6>
+        <h6 className="">{Gregorian_to_jalali(i.date)} </h6>
         <p className=""><StatusT status={i.status} /> </p>
       </div>
       <div className="flex -mb-[34px] ">
-        <div className="border-2 rounded-full text-sm bg-white px-4 pt-0.5 -mr-5 ">  تاریخ ثبت {Gregorian_to_jalali(i.date)} </div>
+        <div className="border-2 rounded-full text-sm bg-white px-4 pt-0.5 -mr-5 ">  تاریخ ثبت {Gregorian_to_jalali(i.suggested_at)} </div>
       </div>
     </div>
     )}
