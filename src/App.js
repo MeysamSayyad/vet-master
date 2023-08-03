@@ -34,7 +34,7 @@ import V_EndCourse from "./routes/vet/ViewV/V_EndCourse";
 import V_InfoV from "./routes/vet/ViewV/V_InfoV";
 import V_LightClockV from "./routes/vet/ViewV/V_LightClockV";
 import V_LossV from "./routes/vet/ViewV/V_LossV/V_LossV";
-import V_NumberEggV from "./routes/vet/ViewV/V_NumberEggV";
+// import V_NumberEggV from "./routes/vet/ViewV/V_NumberEggV";
 import V_RationV from "./routes/vet/ViewV/V_RationV";
 import V_VaccinationV from "./routes/vet/ViewV/V_VaccinationV";
 import V_WeightEggV from "./routes/vet/ViewV/V_WeightEggV";
@@ -67,7 +67,7 @@ const {access}=useContext(myContext)
             <Route path="V_EndCourse" element={<V_EndCourse />} />
             <Route path="V_LightClockV" element={<V_LightClockV />} />
             <Route path="V_LossV" element={<V_LossV />} />
-            <Route path="V_NumberEggV" element={<V_NumberEggV />} />
+            {/* <Route path="V_NumberEggV" element={<V_NumberEggV />} /> */}
             <Route path="V_RationV" element={<V_RationV />} />
             <Route path="V_VaccinationV" element={<V_VaccinationV />} />
             <Route path="V_WeightEggV" element={<V_WeightEggV />} />
@@ -104,7 +104,7 @@ const {access}=useContext(myContext)
             <Route path="V_InfoV" element={<V_InfoV />} />
             <Route path="V_LightClockV" element={<V_LightClockV />} />
             <Route path="V_LossV" element={<V_LossV />} />
-            <Route path="V_NumberEggV" element={<V_NumberEggV />} />
+            {/* <Route path="V_NumberEggV" element={<V_NumberEggV />} /> */}
             <Route path="V_RationV" element={<V_RationV />} />
             <Route path="V_VaccinationV" element={<V_VaccinationV />} />
             <Route path="V_WeightEggV" element={<V_WeightEggV />} />
