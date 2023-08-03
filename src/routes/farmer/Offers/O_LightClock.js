@@ -9,18 +9,43 @@ import { myContext } from '../../../context'
 const O_LightClock = () => {
   const [data,setdata] = useState([])
   const [loading,setLoading]=useState(true)
+  const [update,setUpdate]=useState(false)
   const navigate =useNavigate()
   const EpochId = useParams().EpochId
   const {access,refresh}=useContext(myContext)
 
-  useEffect(()=>{
+  useEffect(()=>{ 
+    !loading && setLoading(true)
     const body=undefined
     const token=true
     const method='GET'
     const api=`/api/v1/lighting/suggestions/?epoch_id=${EpochId}`
     Fetch(body,token,setdata,method,api,navigate,setLoading,undefined,undefined,access,refresh)
-  },[])
+  },[update])
 
+  const decline =(id)=>{
+    setLoading(true)
+    const body={
+      epoch_id:EpochId,
+      suggestion_id:id
+    }
+    const token=true
+    const method='POST'
+    const api='/api/v1/lighting/suggestions/decline/'
+    Fetch(body,token,undefined,method,api,navigate,setLoading,undefined,setUpdate,access,refresh)
+    
+  }
+  const acceptsuggest=(id)=>{
+    setLoading(true)
+    const body={
+      epoch_id:EpochId,
+      suggestion_id:id
+    }
+    const token=true
+    const method='POST'
+    const api='/api/v1/lighting/suggestions/accept/'
+    Fetch(body,token,undefined,method,api,navigate,setLoading,undefined,setUpdate,access,refresh)
+  }
 
 return loading ? <div className='flex justify-center items-center'> <div className=' border-2 border-gray-700  w-8 h-8 border-r-transparent animate-spin  rounded-full '> </div></div> : 
 data.length === 0 ? <h1 className="text"> اطلاعاتی هنوز ثبت نشده</h1>:(
@@ -52,8 +77,8 @@ data.length === 0 ? <h1 className="text"> اطلاعاتی هنوز ثبت نش�
         <div className="flex justify-between -mb-10 w-[102%] ">
           <div className="border-2 rounded-full text-sm bg-white px-4 pt-0.5 -mr-4 "> تاریخ ثبت {Gregorian_to_jalali(i.suggested_at)}</div>
           <div className="">
-          { i.status == 'PENDING' && <button className='btn-r w-5 rounded-full box-content	 border-2 mx-1'>×</button>}
-            { i.status == 'PENDING' && <button className='btn-g w-5 rounded-full box-content	 border-2'>✓</button>}
+          { i.status == 'PENDING' && <button onClick={()=>decline(i.id)} className='btn-r w-5 rounded-full box-content	 border-2 mx-1'>×</button>}
+            { i.status == 'PENDING' && <button onClick={()=>acceptsuggest(i.id)} className='btn-g w-5 rounded-full box-content	 border-2'>✓</button>}
           </div>
         </div>
       </div>

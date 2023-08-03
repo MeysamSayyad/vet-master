@@ -24,7 +24,7 @@ const {access,refresh}=useContext(myContext)
 
    
     const ndata=data.map((item)=>{
-      return {...item,amount:item.amount*1,mean:(item.end_age - 1)}
+      return {...item,amount:item.amount*1,mean:(item.end_age - 0.5)}
     })
     const bins=data.map((i)=> [i.start_age,i.end_age] )
     let sortedBins=bins.sort(function(a, b) {
