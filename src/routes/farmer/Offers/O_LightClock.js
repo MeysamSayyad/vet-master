@@ -47,34 +47,34 @@ const O_LightClock = () => {
     Fetch(body,token,undefined,method,api,navigate,setLoading,undefined,setUpdate,access,refresh)
   }
 
-return loading ? <div className='flex justify-center items-center'> <div className=' border-2 border-gray-700  w-8 h-8 border-r-transparent animate-spin  rounded-full '> </div></div> : 
-data.length === 0 ? <h1 className="text"> اطلاعاتی هنوز ثبت نشده</h1>:(
+return loading ? <div className='flex justify-center items-center '> <div className=' border-2 border-gray-700  w-8 h-8 border-r-transparent animate-spin  rounded-full '> </div></div> : 
+data.length === 0 ? <h1 className="text"> پیشنهادی هنوز ثبت نشده است.</h1>:(
 <>
   <h2 className=" text-center text-2xl mb-4"> ساعات روشنایی پیشنهادی دامپزشک </h2>
 
-  <div className="flex justify-center text-center">
+  <div className="flex justify-center text-center relative">
     <div className="flex flex-col">
       {data.map((i,index)=>
-      <div key={index} className="border-2 rounded-xl 2xl:w-[50vw] m-2 p-6 px-12 w-[68vw] mb-4 ">
+      <div key={index} className="border-2 rounded-xl w-[950px] h-[130px] m-2 p-6 px-12  mb-4 ">
             {/* {i.status == 'PENDING'?'در انتظار':i.status == 'DONE'?'انجام شده':'پذیرفته نشده'} */}
         <div className="grid grid-cols-6 mb-4">
-          <h3 className=" border-l px-1"> تاریخ </h3>
-          <h3 className=" border-l px-1"> رنگ نور </h3>
-          <h3 className=" border-l px-1"> شدت نور </h3>
-          <h3 className=" border-l px-1"> کل مدت روشنایی  </h3>
-          <h3 className=" border-l px-1"> ساعات روشنایی </h3>
+          <h3 className=" border-l px-2"> تاریخ </h3>
+          <h3 className=" border-l px-2"> رنگ نور </h3>
+          <h3 className=" border-l px-2"> شدت نور </h3>
+          <h3 className=" border-l px-2"> کل مدت روشنایی  </h3>
+          <h3 className=" border-l px-2"> ساعات روشنایی </h3>
           <h3 className=""> وضعیت </h3>
 
-          <p className="mt-2">{Gregorian_to_jalali(i.date)}</p>
-          <p className="mt-2">{i.light_color} </p>
-          <p className="mt-2">{i.light_intensity} </p>
-          <p className="mt-2">{i.total_lighting_hours} </p>
-          <div className='mt-2 mx-[6%] w-[88%] '>
-            {i.lighting_hours.map((i,index)=><div key={index} className='text-sm'>{i.start_time}-{i.end_time} </div>)}
+          <p className="mt-4">{Gregorian_to_jalali(i.date)}</p>
+          <p className="mt-4">{i.light_color} </p>
+          <p className="mt-4">{i.light_intensity} </p>
+          <p className="mt-4">{i.total_lighting_hours} </p>
+          <div className='mt-4 mx-[6%] w-[88%] '>
+            {i.lighting_hours.map((i,index)=><div key={index} className='text-sm'>{i.start_time} - {i.end_time} </div>)}
           </div>
-          <div className="mt-2"><StatusT status={i.status} /> </div>
+          <div className="mt-4"><StatusT status={i.status} /> </div>
         </div>
-        <div className="flex justify-between -mb-10 w-[102%] ">
+        <div className="flex justify-between mt-6">
           <div className="border-2 rounded-full text-sm bg-white px-4 pt-0.5 -mr-4 "> تاریخ ثبت {Gregorian_to_jalali(i.suggested_at)}</div>
           <div className="">
           { i.status == 'PENDING' && <button onClick={()=>decline(i.id)} className='btn-r w-5 rounded-full box-content	 border-2 mx-1'>×</button>}

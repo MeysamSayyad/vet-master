@@ -38,12 +38,12 @@ const Salon = ({setLoading}) => {
 return (
 <div className="">
   <div className='flex  '>
-    <div className=" border-slate-400 w-96 min-h-[90vh] ">
+    <div className=" border-slate-400 w-90 min-h-[90vh] ">
       <button className='text-slate-500 bold border-[1.5px] border-slate-500 p-2 px-6 mb-1  hover:bg-slate-500 transition-all hover:text-white rounded 'onClick={data.length>0?creact:()=>setshow(true)}> افزودن دوره پرورش </button> <br />
       {
         data.length === 0 ? <h2 className="text-lg my-3">هنوز دوره پرورشی وجود ندارد</h2>:
         data.map(i => <button key={i.id}
-        className={i.is_active?'card2':"card2 opacity-70" }
+        className={i.is_active?'bg-slate-200 rounded-lg text-right p-4 pr-7 pl-0 ml-5 mt-4 text-sm w-72 grid grid-cols-2 gap-6':"bg-slate-200 rounded-lg text-right p-4 pr-7 pl-0 ml-5 mt-4 text-sm w-72 grid grid-cols-2 gap-6 opacity-70" }
         onClick={()=>{setshow2(true);setEpochId(i.id)}}>
         <div>
           <h5 className="mb-1"> تاریخ آغاز دوره : </h5>

@@ -91,7 +91,7 @@ return loading ? <div className='flex justify-center items-center'> <div classNa
 (
 
   <div>
-    <h3 className=' text-center text-xl font-bold'>نمودار دان مصرفی -سن</h3>
+    <h3 className=' text-center text-xl font-bold'>نمودار میانگین دان مصرفی -سن</h3>
     {<AgChartsReact options={options} />}
   </div>
 )}

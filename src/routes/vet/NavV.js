@@ -63,7 +63,7 @@ return (
     </div>
     
     <div className="px-10 mt-2 text-[17px] ">
-    <Link to={`/NavV/HomePageV/${id}`} className='ads_bar'>{params.id?`  ${farmerName}`:''} </Link>
+    <Link to={`/NavV/HomePageV/${id}/userId/${params.userId}`} className='ads_bar'>{params.userId?`  ${farmerName}`:''} </Link>
     {/* <Link to={`/NavV/HomePageV/${id}`} className='ads_bar'> مرغدار ها </Link> }
 
       <Link to={`/NavV/HomePageV/${id}/userId/${params.userId}`} className='ads_bar'>
