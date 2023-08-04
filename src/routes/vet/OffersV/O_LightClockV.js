@@ -26,7 +26,7 @@ data.length === 0 ? <h1 className="text"> پیشنهادی هنوز ثبت نش�
 (
 <div className="flex justify-center text-center">
   <div className="flex flex-col">
-    {data.map(i=><div key={i.id} className="border-2 rounded-xl m-2 p-6 px-10 w-[950px] h-[130px]  mb-4 relative">
+    {data.map(i=><div key={i.id} className="border-2 rounded-xl m-2 p-6 px-10 w-[950px] h-[auto]  mb-4 relative">
       <div className='absolute right-4 top-12'>
         <Btndel/>
       </div>
@@ -48,7 +48,7 @@ data.length === 0 ? <h1 className="text"> پیشنهادی هنوز ثبت نش�
         <p className=""><StatusT status={i.status} /> </p>
       </div>
       
-      <div className="flex justify-between mt-4">
+      <div className="flex justify-between -mb-[37px] w-[102%]">
         <div className="border-2 rounded-full text-sm bg-white px-4 pt-0.5 -mr-4 "> تاریخ ثبت {Gregorian_to_jalali(i.suggested_at)} </div>
       </div>
     </div>
