@@ -40,6 +40,33 @@ const V_WeightV = () => {
       },
     ]
   }
+  const Fsrchart ={
+    labels : '',
+    datasets: [
+      {
+        label: '',
+        data: [],
+        // data: {count:50, min: -100, 10: 100},
+        backgroundColor: [
+          "#1984c5"
+          // 'rgba(115 155 244)',
+        ],
+        
+        borderWidth: 1,
+        // borderSkipped:'bottom',
+
+        // base:10
+        // barPercentage: 1.3 // فاصله ستون ها
+        // barThickness: 75, // ضخامت ستون ها
+        // inflateAmount:10, // ضخامت ستون ها
+        // grouped:false
+        hoverBackgroundColor:['#054658'],
+        hoverBorderWidth:0,
+        // indexAxis:'y'
+        borderRadius:5
+      },
+    ]
+  }
 
   const options ={
   
@@ -133,7 +160,7 @@ return (
 <div className=' flex flex-col items-center'>
   <section className=' flex gap-5 flex-row w-full '>
     <div className='w-[44%] flex flex-col gap-1 items-center'><span>سن-میانگین وزن مرغ</span><Bar data={chart} options={options}/></div>
-    <div className='w-[44%] flex flex-col gap-1 items-center'><span>سن-FCR</span><Bar data={chart}/></div>
+    <div className='w-[44%] flex flex-col gap-1 items-center'><span>سن-FCR</span><Bar data={Fsrchart} /></div>
   </section>
   <div className='flex flex-col items-center'>
   {<AgChartsReact options={newOptions} />}

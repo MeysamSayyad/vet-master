@@ -6,6 +6,7 @@ import { myContext } from '../../../context'
 
 const ViewV = () => {
   const [data,setdata]=useState([]);
+  const [secondData,setSecondData]=useState([])
   const location=useLocation();
   const params=useParams();
   const id = useParams().EpochId
@@ -63,21 +64,23 @@ const ViewV = () => {
     const token=true
     const method='GET'
     const api=`/api/v1/loss/daily-count/?epoch_id=${id}`
+    const newapi=`/api/v1/hen-weight/daily-average/?epoch_id=${id}`
     Fetch(body,token,setdata,method,api,navigate,undefined,undefined,undefined,access,refresh)
+    Fetch(body,token,setSecondData,method,newapi,navigate,undefined,undefined,undefined,access,refresh)
   },[])
   const chart2 ={
-    labels : '',
+    labels : secondData.herd_age_list,
     datasets: [
       {
-        label: '',
-        data: [],
+        label: 'میانگین وزن مرغ',
+        data: secondData.daily_average_list,
         // data: {count:50, min: -100, 10: 100},
         backgroundColor: [
           "#1984c5"
           // 'rgba(115 155 244)',
         ],
         
-        
+        borderWidth: 1,
         // borderSkipped:'bottom',
 
         // base:10
@@ -87,11 +90,19 @@ const ViewV = () => {
         // grouped:false
         hoverBackgroundColor:['#054658'],
         hoverBorderWidth:0,
-        borderRadius:3
         // indexAxis:'y'
+        borderRadius:5
       },
     ]
   }
+  const options2 ={
+    responsive: true,
+    
+    scales: {
+      x: {stacked: true },
+      y: {type:'logarithmic'}        
+    }
+	}
   // const options ={
   //   responsive: true,
     
@@ -123,7 +134,7 @@ return (
       <Bar data={chart} options={options} />
       <br />
      <h2 className=' text-center bold text-xl'>میانگین وزن مرغ-سن</h2> 
-      <Bar data={chart2}/>
+      <Bar data={chart2} options={options2}/>
     </div>}
     <Outlet/>
   </div>
