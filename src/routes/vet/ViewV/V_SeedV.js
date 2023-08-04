@@ -67,12 +67,13 @@ setOptions(
         bins:sortedBins.length > 0 ? sortedBins:[[1,2],[2,4]]
       },
     ],
+    navigator:{enabled:true},
     axes: [
       {
         type: 'number',
         position: 'bottom',
         title: { text: 'سن',fontSize:16 },
-        tick: { interval: 3 },
+        tick: { interval: 1 },
         min:0
       },
       {

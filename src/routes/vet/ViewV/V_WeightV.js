@@ -132,15 +132,16 @@ setOptions(
             fillOpacity:0.7
           }
         },
-        bins:sortedBins.length > 0 ? sortedBins:[[1,2],[2,4]]
+        bins:sortedBins.length > 0 ? sortedBins:[[1,2],[2,4]],
       },
     ],
+    navigator:{enabled:true},
     axes: [
       {
         type: 'number',
         position: 'bottom',
         title: { text: 'وزن مرغ',fontSize:16 },
-        tick: { interval: 3 },
+        tick: { interval: 1 },
         min:0
       },
       {
@@ -157,14 +158,14 @@ setOptions(
 
 // if(data.length === 0)return 
 return (
-<div className=' flex flex-col items-center'>
-  <section className=' flex gap-5 flex-row w-full '>
+<div className=' flex flex-col items-center justify-center'>
+  <section className=' flex gap-5 flex-row w-full justify-center '>
     <div className='w-[44%] flex flex-col gap-1 items-center'><span>سن-میانگین وزن مرغ</span><Bar data={chart} options={options}/></div>
     <div className='w-[44%] flex flex-col gap-1 items-center'><span>سن-FCR</span><Bar data={Fsrchart} /></div>
   </section>
-  <div className='flex flex-col items-center'>
+  <div className='flex flex-col  w-full'>
   {<AgChartsReact options={newOptions} />}
-  <span className=' flex flex-row gap-4'> { countdata.cv && <span className=' flex flex-row-reverse'>:CV
+  <span className=' flex flex-row gap-4 justify-center'> { countdata.cv && <span className=' flex flex-row-reverse'>:CV
   <p className=' hover:text-blue-500 cursor-default'>{countdata.cv}</p>
   </span>}{ countdata.total_weighed_hens && <span className=' flex flex-row' >تعداد مرغ وزن شده:<p className=' cursor-default inline hover:text-blue-400'>{countdata.total_weighed_hens}</p></span>}</span>
   </div>
