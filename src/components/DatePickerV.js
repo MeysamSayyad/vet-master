@@ -1,10 +1,11 @@
-import React from 'react'
+import React,{useEffect} from 'react'
 import DatePicker from "react-multi-date-picker"
 import persian from "react-date-object/calendars/persian"
 import persian_fa from "react-date-object/locales/persian_fa"
 import transition from "react-element-popper/animations/transition"
 import "react-multi-date-picker/styles/colors/teal.css"
 import Icon from 'react-multi-date-picker/components/icon'
+
 
 const DatePickerV = ({setdate,value,setvalue}) => {
   let jy=value.year
@@ -44,7 +45,11 @@ const DatePickerV = ({setdate,value,setvalue}) => {
     // return [gy, gm, gd];
     return setdate(`${gy}-${gm}-${gd}`)
   }
-  if(value.length !== 0){jalali_to_gregorian(jy,jm,jd)}
+  
+  useEffect(()=>{
+    if(value.length !== 0){jalali_to_gregorian(jy,jm,jd)}
+  },[value])
+ 
 
 return (
 <div dir='ltr' className='flex justify-between items-center border rounded w-[220px] mx-2'>

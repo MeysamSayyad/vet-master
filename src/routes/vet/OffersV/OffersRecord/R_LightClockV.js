@@ -4,6 +4,7 @@ import { useLocation, useParams, useNavigate } from 'react-router-dom'
 import HerdAge from '../../../../components/HerdAge';
 import Fetch from '../../../../components/Fetch'
 import DatePickerV from '../../../../components/DatePickerV';
+import TimePicker from 'react-time-picker';
 
 const R_LightClockV = ({setshow}) => {
   const [update,setupdate] = useState(false)
@@ -13,7 +14,7 @@ const R_LightClockV = ({setshow}) => {
   const [value,setvalue] = useState('')
   const [light_intensity, setlight_intensity] = useState('')
   const [light_color, setlight_color] = useState('')
-  const [hours, sethours] = useState([{start_time:'',end_time:''}])
+  const [hours, sethours] = useState([{start_time:null,end_time:null}])
   const {updateG,setupdateG,access,refresh} = useContext(myContext)
 
   const location = useLocation().pathname
@@ -37,7 +38,7 @@ const R_LightClockV = ({setshow}) => {
   }
 
   const plus =()=> {
-    hours.push({start_time:'',end_time:''})
+    hours.push({start_time:null,end_time:null})
     setupdate(!update)
   }
 
@@ -55,9 +56,9 @@ return (
   {hours.map((i,inx)=>{
     return <div key={inx} className="w-full center my-4 ">
       <span className='mx-2'>از</span>
-      <input value={i.start_time} onChange={e=> {hours[inx].start_time = e.target.value; sethours(hours); setupdate(!update)}} type="time" />
-      <span className='mx-2'>تا</span>
-      <input value={i.end_time} onChange={e=> {hours[inx].end_time = e.target.value; sethours(hours); setupdate(!update)}} type="time" />
+      <TimePicker className=' w-[170px] h-[30px]' renderSecondHand={false} value={i.start_time} format='m:H' onChange={value=> { hours[inx].start_time = value; sethours(hours); setupdate(!update)}} />
+          <span className='mx-2'>تا</span>
+          <TimePicker  className=' w-[170px] h-[30px]' renderSecondHand={false} format='m:H' value={i.end_time} onChange={value=> {hours[inx].end_time = value; sethours(hours); setupdate(!update)}} />
     </div>}
   )}
 

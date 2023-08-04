@@ -70,9 +70,9 @@ return (
         return <div key={inx} className="w-full center my-4 ">
           <span className='mx-2'>از</span>
           
-          <TimePicker className=' w-[170px] h-[30px]' renderSecondHand={false} value={i.start_time} format='mm:H' onChange={value=> { hours[inx].start_time = value; sethours(hours); setupdate(!update)}} />
+          <TimePicker className=' w-[170px] h-[30px]' renderSecondHand={false} value={i.start_time} format='m:H' onChange={value=> { hours[inx].start_time = value; sethours(hours); setupdate(!update)}} />
           <span className='mx-2'>تا</span>
-          <TimePicker  className=' w-[170px] h-[30px]' renderSecondHand={false} format='mm:H' value={i.end_time} onChange={value=> {hours[inx].end_time = value; sethours(hours); setupdate(!update)}} />
+          <TimePicker  className=' w-[170px] h-[30px]' renderSecondHand={false} format='m:H' value={i.end_time} onChange={value=> {hours[inx].end_time = value; sethours(hours); setupdate(!update)}} />
         </div>}
       )}
       <div className="center w-full -mt-4">
