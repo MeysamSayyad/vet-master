@@ -8,6 +8,7 @@ import { useState } from 'react'
 const View = () => {
   const {epoch,access,refresh} = useContext(myContext)
   const [data,setdata]=useState([])
+  const [secondData,setSecondData]=useState([])
   const navigate=useNavigate()
   const params=useParams()
   const location=useLocation()
@@ -51,18 +52,18 @@ const View = () => {
     ]
   }
   const chart2 ={
-    labels : '',
+    labels : secondData.herd_age_list,
     datasets: [
       {
-        label: '',
-        data: [],
+        label: 'میانگین وزن مرغ',
+        data: secondData.daily_average_list,
         // data: {count:50, min: -100, 10: 100},
         backgroundColor: [
           "#1984c5"
           // 'rgba(115 155 244)',
         ],
         
-        
+        borderWidth: 1,
         // borderSkipped:'bottom',
 
         // base:10
@@ -72,8 +73,8 @@ const View = () => {
         // grouped:false
         hoverBackgroundColor:['#054658'],
         hoverBorderWidth:0,
-        borderRadius:3
         // indexAxis:'y'
+        borderRadius:5
       },
     ]
   }
@@ -82,7 +83,15 @@ const View = () => {
     
     scales: {
       x: {stacked: true },
-      y: {stacked: true }     
+      y: {stacked:true}        
+    }
+	}
+  const options2 ={
+    responsive: true,
+    
+    scales: {
+      x: {stacked: true },
+      y: {type:'logarithmic'}        
     }
 	}
   useEffect(()=>{
@@ -90,7 +99,9 @@ const View = () => {
     const token=true
     const method='GET'
     const api=`/api/v1/loss/daily-count/?epoch_id=${params.EpochId}`
+    const newapi=`/api/v1/hen-weight/daily-average/?epoch_id=${params.EpochId}`
     Fetch(body,token,setdata,method,api,navigate,undefined,undefined,undefined,access,refresh)
+    Fetch(body,token,setSecondData,method,newapi,navigate,undefined,undefined,undefined,access,refresh)
   },[])
 
 return (
@@ -115,8 +126,8 @@ return (
  <h2 className="bold text-xl text-center m-4">نمودار سن-تعداد تلفات  </h2>
       <Bar data={chart} options={options} />
       <br />
-     <h2 className=' text-center bold text-xl'>میانگین وزن مرغ-سن</h2> 
-      <Bar data={chart2}/>
+     <h2 className=' text-center bold text-xl'>میانگین  سن-وزن مرغ</h2> 
+      <Bar data={chart2} options={options2}/>
     </div>}
     <Outlet/>
   </div>
