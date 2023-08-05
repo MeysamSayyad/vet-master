@@ -55,7 +55,7 @@ data.length === 0 ? <h1 className="text"> پیشنهادی هنوز ثبت نش�
   <div className="flex justify-center text-center relative">
     <div className="flex flex-col">
       {data.map((i,index)=>
-      <div key={index} className="border-2 rounded-xl w-[950px] h-[130px] m-2 p-6 px-12  mb-4 ">
+      <div key={index} className="border-2 rounded-xl w-[950px] h-auto m-2 p-6 px-12  mb-4 ">
             {/* {i.status == 'PENDING'?'در انتظار':i.status == 'DONE'?'انجام شده':'پذیرفته نشده'} */}
         <div className="grid grid-cols-6 mb-4">
           <h3 className=" border-l px-2"> تاریخ </h3>
@@ -74,7 +74,7 @@ data.length === 0 ? <h1 className="text"> پیشنهادی هنوز ثبت نش�
           </div>
           <div className="mt-4"><StatusT status={i.status} /> </div>
         </div>
-        <div className="flex justify-between mt-6">
+        <div className="flex justify-between -mb-[40px] w-[102%]">
           <div className="border-2 rounded-full text-sm bg-white px-4 pt-0.5 -mr-4 "> تاریخ ثبت {Gregorian_to_jalali(i.suggested_at)}</div>
           <div className="">
           { i.status == 'PENDING' && <button onClick={()=>decline(i.id)} className='btn-r w-5 rounded-full box-content	 border-2 mx-1'>×</button>}

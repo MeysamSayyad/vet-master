@@ -66,8 +66,9 @@ return (
         </div>
         
       </div>
-      {params.SalonId&& !params.EpochId &&<div className=' mt-2 mr-[225px]'>دوره های پرورش</div>}
+      {params.SalonId && !params.EpochId &&<div className=' mt-2 mr-[225px]'>دوره های پرورش</div>}
       {EpochId?<BtnEnd />:''}
+      {params.SalonId  && <div className=' mt-2 mr-[235px]'>جدول اطلاعات سالن</div>}
     </div>
   </div>
 
