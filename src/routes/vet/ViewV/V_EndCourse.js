@@ -40,7 +40,7 @@ return loading ? <div className='flex justify-center items-center'>
       <div dir='ltr' className="">
         <p className="mt-4 drop-shadow-sm">{data.herd_survival_percentage} % </p>
         <p className="mt-4 drop-shadow-sm">{data.total_loss_count} </p>
-        <p className="mt-4 drop-shadow-sm">{data.total_feed_amount} </p>
+        <p className="mt-4 drop-shadow-sm">{data.total_feed_amount ? data.total_feed_amount : 0 } Kg </p>
       </div>
     </div>
     }
