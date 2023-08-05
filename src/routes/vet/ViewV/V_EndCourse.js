@@ -34,11 +34,13 @@ return loading ? <div className='flex justify-center items-center'>
     <div className="center gap-60">
       <div className="">
         <h4 className="mt-4 drop-shadow-sm"> درصد ماندگاری گله :</h4>
-        <h4 className="mt-4 drop-shadow-sm"> شاخص تولیدی مرغ گوشتی :</h4>
+        <h4 className="mt-4 drop-shadow-sm"> جمع کل تلفات دوره تا کنون :</h4>
+        <h4 className="mt-4 drop-shadow-sm"> مجموع دان مصرف شده دوره :</h4>
       </div>
       <div dir='ltr' className="">
         <p className="mt-4 drop-shadow-sm">{data.herd_survival_percentage} % </p>
-        <p className="mt-4 drop-shadow-sm">{0} </p>
+        <p className="mt-4 drop-shadow-sm">{data.total_loss_count} </p>
+        <p className="mt-4 drop-shadow-sm">{data.total_feed_amount} </p>
       </div>
     </div>
     }

@@ -1,9 +1,10 @@
 import React, { useState,useEffect,useContext } from 'react'
 import Fetch from '../../../components/Fetch'
-import { useNavigate, Link, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { myContext } from '../../../context'
 import Salon from './Salon';
 import { Loading } from '../../../components/Loading';
+import { DataTable } from './DataTable';
 
 
 const HomePage = () => {
@@ -80,7 +81,8 @@ return (
       }
     </div>
     {/* 2 */}
-<div className=' flex-grow border-l'>{SalonId &&<Salon setLoading={setLoading} />}</div>
+    <div className=' w-[330px] border-l'>{SalonId &&<Salon setLoading={setLoading} />}</div>
+    <div className=''>{SalonId &&<DataTable setLoading={setLoading} />}</div>
   </div>
   {/* modul */}
   {
