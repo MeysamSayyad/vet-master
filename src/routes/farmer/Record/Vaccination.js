@@ -50,14 +50,14 @@ return (
 <div className='mb-6'>
   <button onClick={()=> setshow(!show)} className='btn'> واکسیناسیون </button>
   <div className={show?"flex ":'hidden'}>
-  <div className="btn-b"><Link className='flex items-center' to={`${param}/V_VaccinationV`}> مشاهده تاریخچه </Link></div>
+  <div className="btn-b"><Link className='flex items-center max-sm:text-[11px]' to={`${param}/V_VaccinationV`}> مشاهده تاریخچه </Link></div>
     <div className="card1">
-      <div className="grid grid-cols-3 text-center gap-4 mx-auto ">
-        <h5 className="-m-2">نام واکسن</h5>
-        <h5 className="-m-2">طریقه مصرف</h5>
-        <h5 className="-m-2">تاریخ</h5>
+      <div className="grid grid-cols-3 text-center lg:gap-4 gap-2 mx-auto items-center ">
+        <h5 className="-m-2 max-sm:text-[12px] max-sm:ml-2">نام واکسن</h5>
+        <h5 className="-m-2 max-sm:text-[12px] max-sm:ml-2">طریقه مصرف</h5>
+        <h5 className="-m-2 max-sm:text-[12px] max-sm:ml-2">تاریخ</h5>
 
-        <select value={name} onChange={e=>{e.target.value ? setname(e.target.value): setname("")}}><Vaccine /> </select>
+        <select value={name} onChange={e=>{e.target.value ? setname(e.target.value): setname("")}} className=' max-sm:w-5'><Vaccine /> </select>
         <select value={use} onChange={e=>{e.target.value ? setuse(e.target.value): setuse("")}}><Use /> </select>
         <DatePickerF setdate={setdate} value={value} setvalue={setvalue} />
       </div>

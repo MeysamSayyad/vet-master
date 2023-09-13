@@ -50,9 +50,9 @@ const DatePickerF = ({setdate,value,setvalue}) => {
  
 
 return (
-<div dir='ltr' className='flex justify-between items-center border rounded w-[220px] '>
+<div dir='ltr' className='flex justify-between items-center border rounded lg:w-[220px] w-20 max-sm:h-6 '>
   <DatePicker 
-    className='teal'
+    className='teal max-sm:!h-2 max-sm:!w-2'
     value
     onChange={(e)=>{setvalue(e)}}
     render={<Icon/>}
@@ -79,7 +79,7 @@ return (
       return props
     }}
   />
-  <div className={jy ?"text-center w-full ":'hidden'}>
+  <div className={jy ?"text-center w-full max-sm:text-[11px] ":'hidden'}>
     {jy}/{jm}/{jd}
   </div>
 

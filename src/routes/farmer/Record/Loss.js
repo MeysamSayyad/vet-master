@@ -43,17 +43,17 @@ return (
 <div className='mb-6'>
   <button onClick={()=> setshow(!show)} className='btn'> تلفات </button>
   <div className={show?"flex ":'hidden'}>
-    <div className="btn-b"><Link className='flex items-center' to={`${param}/V_LossV`}> مشاهده تاریخچه </Link></div>
+    <div className="btn-b"><Link className='flex items-center max-sm:text-[11px]' to={`${param}/V_LossV`}> مشاهده تاریخچه </Link></div>
     <div className="card1 ">
-      <div className="grid grid-cols-2 text-center gap-4 mx-auto ">
-        <h5 className="-m-2">تعداد تلفات</h5>
-        <h5 className="-m-2">تاریخ</h5>
-        <input className='' type="number" value={number} onChange={e => setnumber(e.target.value)} />
-        <DatePickerF setdate={setdate} value={value} setvalue={setvalue} />
+      <div className="grid grid-cols-2 text-center lg:gap-4 gap-2 mx-auto items-center ">
+        <h5 className="-m-2 max-sm:text-[12px] max-sm:ml-2">تعداد تلفات</h5>
+        <h5 className="-m-2 max-sm:text-[12px]">تاریخ</h5>
+        <input className=' max-sm:w-14 max-sm:h-5' type="number" value={number} onChange={e => setnumber(e.target.value)} />
+        <DatePickerF setdate={setdate} value={value} setvalue={setvalue}/>
       </div>
       <div className="flex justify-end ">
-        <button className='btn-r mx-2' onClick={putOff}>انصراف</button>
-        <button className={value?'btn-g':'btn-g opacity-60'} onClick={save} disabled={value?false:true} >ثبت</button>
+        <button className='btn-r lg:mx-2 mx-1 max-sm:w-10' onClick={putOff}>انصراف</button>
+        <button className={value?'btn-g max-sm:w-10':'btn-g opacity-60 max-sm:w-10'} onClick={save} disabled={value?false:true} >ثبت</button>
       </div>
     </div>
   </div>
