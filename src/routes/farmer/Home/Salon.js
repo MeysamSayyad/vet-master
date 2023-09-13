@@ -39,22 +39,24 @@ return (
 <div className="">
   <div className='flex  '>
     <div className=" border-slate-400 w-90 min-h-[90vh] ">
-      <button className='text-slate-500 bold border-[1.5px] border-slate-500 p-2 px-6 mb-1  hover:bg-slate-500 transition-all hover:text-white rounded 'onClick={data.length>0?creact:()=>setshow(true)}> افزودن دوره پرورش </button> <br />
+      <button className='text-slate-500 lg:bold font-semibold border-[1.5px] border-slate-500 p-2 lg:px-6 px-1 mb-1  hover:bg-slate-500 transition-all hover:text-white rounded 'onClick={data.length>0?creact:()=>setshow(true)}> افزودن دوره پرورش </button> <br />
       {
         data.length === 0 ? <h2 className="text-lg my-3">هنوز دوره پرورشی وجود ندارد</h2>:
         data.map(i => <button key={i.id}
-        className={i.is_active?'bg-slate-200 rounded-lg text-right p-4 pr-7 pl-0 ml-5 mt-4 text-sm w-72 grid grid-cols-2 gap-6':"bg-slate-200 rounded-lg text-right p-4 pr-7 pl-0 ml-5 mt-4 text-sm w-72 grid grid-cols-2 gap-6 opacity-70" }
+        className={i.is_active?'bg-slate-200 rounded-lg text-right p-1 lg:p-4 lg:pr-7 pr-1 pl-0 ml-2 lg:ml-5 mt-4 text-xs w-[182px] lg:w-72 items-center grid grid-cols-2 grid-rows-3 gap-1':"bg-slate-200 rounded-lg text-right p-1 lg:p-4 pr-1 lg:pr-7 pl-0 ml-2 lg:ml-5 mt-4 text-xs w-[182px] lg:w-72 grid grid-cols-2 gap-1 opacity-70" }
         onClick={()=>{setshow2(true);setEpochId(i.id)}}>
-        <div>
-          <h5 className="mb-1"> تاریخ آغاز دوره : </h5>
-          <h5 className="mb-1"> تاریخ پایان دوره : </h5>
-          <h5 className=""> نوع مرغ : </h5>
-        </div>
-        <div>
-          <h5 className="mb-1">{gregorian_to_jalali(i.start_date)} </h5>
-          <h5 className="mb-1">{i.is_active?' در حال پرورش ':gregorian_to_jalali(i.end_date)} </h5>
-          <h5 className="">{i.hen_type === 'LAYING'?' مرغ تخمگذار ':' مرغ گوشتی '} </h5>
-        </div>
+        
+          <h5 className="mb-1"> تاریخ آغاز دوره :</h5>
+          <h5 className="mb-1 w-[80%] ">{gregorian_to_jalali(i.start_date)} </h5>
+          <h5 className="mb-1"> تاریخ پایان دوره :</h5>
+          <h5 className="mb-1 w-[80%] text-xs ">{i.is_active?' در حال پرورش ':gregorian_to_jalali(i.end_date)} </h5>
+          <h5 className=""> نوع مرغ :</h5>
+          <h5 className="w-[80%] ">{i.hen_type === 'LAYING'?' مرغ تخمگذار ':' مرغ گوشتی '} </h5>
+        
+         
+         
+          
+        
       </button>
       )}
     </div>

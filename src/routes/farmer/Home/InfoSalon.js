@@ -42,12 +42,12 @@ const InfoSalon = ({setshow2, EpochId,_id }) => {
 
 return (
 <>
-<div onClick={()=> setshow2(false)} className=" bg-opacity-30 inset-0 w-screen h-screen fixed flex justify-center items-center bg-black z-10"></div>
-  <div className="z-40 bg-white rounded-xl min-h-[408px] flex items-center  justify-center min-w-[696px] p-8 px-14 fixed top-[10vh] ">
+<div id='modal' onClick={(e)=> e.target.id == 'modal' && setshow2(false)} className=" bg-opacity-30 inset-0  h-screen w-screen fixed flex justify-center items-center bg-black z-10">
+  <div  className="z-40 bg-white rounded-xl min-h-[408px] flex items-center  justify-center min-w-[40%] px-4 lg:p-8 lg:px-14 fixed top-[13vh] ">
     {loading ? <div className=' border-2 border-gray-700  w-8 h-8 border-r-transparent animate-spin  rounded-full '> </div>:
-    <div>
-      <h1 className="text-3xl mx-28 mb-8 "> مشخصات سالن و دوره پرورش </h1>
-      <div className="center gap-40">
+    <div className='flex flex-col justify-center'>
+      <h1 className="lg:text-3xl text-lg mx-auto mb-8 "> مشخصات سالن و دوره پرورش </h1>
+      <div className="center gap-4 lg:gap-40">
         <div className="">
           <h4 className="mt-2"> نام سالن :</h4>
           <h4 className="mt-2"> نژاد گله :</h4>
@@ -69,13 +69,14 @@ return (
           <p className="mt-2">{data.location} </p>
         </div>
       </div>
-      <div className="flex justify-center mt-7 ">
-        <Link className='info_btn text-black' to={`SalonId/${_id}/${param}/View`}> نمایش اطلاعات </Link>
-        <Link className={data.is_active?'info_btn text-black':'hidden'} to={`SalonId/${_id}/${param}/Record`}> ثبت اطلاعات  </Link>
-        <Link className='info_btn text-black' to={`SalonId/${_id}/${param}/NavO/O_Vaccination`}> پیشنهادات </Link>
-        <button className={data.is_active?'info_btn text-red-500':'hidden'} onClick={ok}> اتمام دوره پرورش </button>
+      <div className="flex justify-center text-xs px-2 lg:px-0 lg:text-base items-center mt-7 ">
+        <Link className='info_btn text-center text-black' to={`SalonId/${_id}/${param}/View`}> نمایش <span className=' hidden text-black lg:inline'>اطلاعات</span>  </Link>
+        <Link className={data.is_active?'info_btn text-center text-black':'hidden'} to={`SalonId/${_id}/${param}/Record`}> ثبت <span className=' hidden text-black lg:inline'>اطلاعات</span>   </Link>
+        <Link className='info_btn text-center text-black' to={`SalonId/${_id}/${param}/NavO/O_Vaccination`}> پیشنهادات </Link>
+        <button className={data.is_active?'info_btn text-center text-red-500':'hidden'} onClick={ok}>  اتمام دوره <span className=' text-red-500 hidden lg:inline'>پرورش</span> </button>
       </div>
     </div>}
+  </div>
   </div>
 </>
 )}

@@ -39,23 +39,24 @@ return (
   <div className=''>
     <div className="bg-[#6FFF7D] flex justify-between items-center p-2">
       <div className="flex items-center">
-        <NavLink className='nav text-slate-700 bold bg-slate-50 rounded' to={`/NavF/HomePage/${id}`}>
-          <img src="/img/home button.png" alt="" className="w-36 " />
+        <NavLink className='nav text-slate-700 bold rounded  bg-slate-50 w-auto ' to={`/NavF/HomePage/${id}`}>
+          <img src="/img/home button.png" alt="" className="w-28  bg-slate-50  lg:w-36 " />
         </NavLink>
+       
         <nav className={EpochId?"mx-4":'hidden'}>
           <div className={epoch.is_active?"inline-block":'hidden'}><NavLink className={({isActive}) => isActive? 'activnav':'nav'} to={`${param}/Record`}>ثبت اطلاعات </NavLink></div>
           <NavLink className={({isActive}) => isActive? 'activnav':'nav'} to={`${param}/View`}>مشاهده اطلاعات </NavLink>
           <NavLink className={location.pathname.includes("/NavO") ? 'nav text-slate-700 bold bg-slate-50 rounded':'nav'} to={`${param}/NavO/O_Vaccination`}>پیشنهادات دامپزشک </NavLink>
         </nav>
       </div>
-      <div className="flex flex-col mx-4 ">
+      <div className="flex flex-row-reverse items-center gap-2 lg:gap-0 lg:flex-col mx-1  lg:mx-4 ">
         <img src="/img/download (1).jfif" alt="" className="rounded-full w-12 h-10 mx-auto " />
         <h2 className="bold text-sm">{data.first_name} {data.last_name} </h2>
       </div>
     </div>
 
-    <div style={{justifyContent:params.SalonId && !EpochId ? 'start':'space-between'}} className="flex flex-row  items-center h-14 mb-2 ">
-      <div className="px-10 mt-2 text-lg ">
+    <div  style={{justifyContent:params.SalonId && !EpochId ? 'start':'space-between'}} className=" flex  flex-row px-3 gap-[10%] lg:gap-0 lg:px-0  lg:!justify-start items-center h-14 mb-2 ">
+      <div className="lg:px-10   lg:block mt-2 text-lg ">
         <Link to={`/NavF/HomePage/${id}`} className='ads_bar'>{params.id?' سالن ها ':''} </Link>
         <Link to={`/NavF/HomePage/${id}/SalonId/${params.SalonId}`} className='ads_bar'>
           {params.SalonId?`${salonName?`/ سالن ${salonName}`:''} `:''}
@@ -66,11 +67,11 @@ return (
         </div>
         
       </div>
-      {params.SalonId && !params.EpochId &&<div className=' mt-2 mr-[225px]'>دوره های پرورش</div>}
+      {params.SalonId && !params.EpochId &&<div className=' hidden lg:block mt-2 lg:ml-[80px] lg:mr-[225px]'>دوره های پرورش</div>}
       {EpochId?<BtnEnd />:''}
-      {params.SalonId && !params.EpochId && <div className=' mt-2 mr-[225px]'>جدول اطلاعات سالن</div>}
+      {params.SalonId && !params.EpochId && <div className=' mt-2 lg:mr-[225px] '>جدول اطلاعات سالن</div>}
     </div>
-    <div className="px-10 pb-6"><Outlet/></div>
+    <div className="lg:px-10 px-2 pb-6"><Outlet/></div>
   </div>
 
   
