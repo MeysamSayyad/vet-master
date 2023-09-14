@@ -61,43 +61,47 @@ return (
 <div className='mb-6'>
   <button onClick={()=> setshow(!show)} className='btn'> وزن مرغ </button>
   <div className={show?"flex ":'hidden'}>
-  <div className="btn-b"><Link className='flex items-center' to={`${param}/V_WeightV`}> مشاهده تاریخچه </Link></div>
+  <div className="btn-b max-sm:w-10 ">
+    <Link className='flex items-center max-sm:text-[11px]' to={`${param}/V_WeightV`}> مشاهده تاریخچه </Link>
+  </div>
     <div dir='ltr' className="card1 flex-col ">
-      <h3 className="mb-2 mt-3 text-lg ">: ابتدای سالن </h3>
+      <h3 className="lg:mb-2 lg:mt-3 my-1 lg:text-lg text-[12px] ">: ابتدای سالن </h3>
       <div dir='rtl' className="flex justify-start items-center flex-wrap  ">
       
         {beginning.map((i)=>
-          <input dir='ltr' key={i.id} className='w-20 mx-2.5 my-1.5' value={i.value} onChange={e => {setbeginning((perv)=>perv.map((item)=> {return {...item, value :item.id == i.id ? e.target.value:item.value}})); setupdate(!update); }} type='number' />
+          <input dir='ltr' key={i.id} className='lg:w-20 lg:mx-2.5 lg:my-1.5 my-1 mx-1 w-10 max-sm:h-7' value={i.value} 
+            onChange={e => {setbeginning((perv)=>perv.map((item)=> {return {...item, value :item.id == i.id ? e.target.value:item.value}})); 
+              setupdate(!update); }} type='number' />
           )}
-          <span onClick={()=>{setbeginning([...beginning,{id:Date.now(),value:''}])}} className=' text-xl text-slate-700 cursor-pointer hover:opacity-60 active:opacity-100 '>&#43;</span>
+          <span onClick={()=>{setbeginning([...beginning,{id:Date.now(),value:''}])}} className=' lg:text-xl text-[15px] text-slate-700 cursor-pointer hover:opacity-60 active:opacity-100 '>&#43;</span>
       </div>
       
-      <h3 className="mb-2 mt-3 text-lg ">: وسط سالن </h3>
+      <h3 className="lg:mb-2 lg:mt-3 my-1 lg:text-lg text-[12px]">: وسط سالن </h3>
       <div dir='rtl' className="flex items-center justify-start flex-wrap  ">
       
         {middle.map((i)=>
-          <input dir='ltr' key={i.id} className='w-20 mx-2.5 my-1.5' value={i.value} onChange={e => {setmiddle((perv)=>perv.map((item)=> {return {...item, value :item.id == i.id ? e.target.value:item.value}})); setupdate(!update); }} type="number" />
+          <input dir='ltr' key={i.id} className='lg:w-20 lg:mx-2.5 lg:my-1.5 my-1 mx-1 w-10 max-sm:h-7' value={i.value} onChange={e => {setmiddle((perv)=>perv.map((item)=> {return {...item, value :item.id == i.id ? e.target.value:item.value}})); setupdate(!update); }} type="number" />
           )}
           <span onClick={()=>{setmiddle([...middle,{id:Date.now(),value:''}])}} className=' text-xl text-slate-700 cursor-pointer hover:opacity-60 active:opacity-100 '>&#43;</span>
       </div>
 
-      <h3 className="mb-2 mt-3 text-lg ">: انتهای سالن</h3>
+      <h3 className="lg:mb-2 lg:mt-3 my-1 lg:text-lg text-[12px]">: انتهای سالن</h3>
       <div dir='rtl' className="flex justify-start items-center flex-wrap  ">
       
         {end.map((i)=>
-          <input dir='ltr' key={i.id} className='w-20 mx-2.5 my-1.5' value={i.value} onChange={e => {setend((perv)=>perv.map((item)=> {return {...item, value :item.id == i.id ? e.target.value:item.value}})); setupdate(!update); }} type="number" />
+          <input dir='ltr' key={i.id} className='lg:w-20 lg:mx-2.5 lg:my-1.5 my-1 mx-1 w-10 max-sm:h-7' value={i.value} onChange={e => {setend((perv)=>perv.map((item)=> {return {...item, value :item.id == i.id ? e.target.value:item.value}})); setupdate(!update); }} type="number" />
           )}
           <span onClick={()=>{setend([...end,{id:Date.now(),value:''}])}} className=' text-xl text-slate-700 cursor-pointer hover:opacity-60 active:opacity-100 '>&#43;</span>
       </div>
       <div className="flex justify-between w-full items-end ">
-        <div className="flex mr-2">
-          <button className={value?'btn-g':'btn-g opacity-60'} onClick={save} disabled={value?false:true} >ثبت</button>
-          <button className='btn-r ml-2 ' onClick={putOff}>انصراف</button>
+        <div className="flex lg:mr-2 mr-1 max-sm:flex-col-reverse max-sm:justify-end max-sm:-my-2">
+        <button className='btn-r lg:mx-2 mx-1 max-sm:w-10 max-sm:mt-1 ' onClick={putOff}>انصراف</button>
+          <button className={value?'btn-g max-sm:ml-1':'btn-g opacity-60 max-sm:ml-1'} onClick={save} disabled={value?false:true} >ثبت</button>
         </div>
 
         <div className="flex items-end ">
           <DatePickerF setdate={setdate} value={value} setvalue={setvalue} />
-          <h3 className="mb-2 mt-3 text-lg mx-2 ">: تاریخ </h3> 
+          <h3 className="lg:mb-2 lg:mt-3 my-1 lg:text-lg text-[12px] mx-2 ">: تاریخ </h3> 
         </div>
       </div>
     </div>

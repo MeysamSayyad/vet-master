@@ -9,21 +9,21 @@
   select {@apply rounded border p-1 px-2 text-center w-[220px] } 
   .bold {@apply font-bold}
   .center {@apply flex justify-center items-center}
-  .btn-g {@apply bg-[#00DA1C] text-white w-20 rounded-lg p-1 text-sm }
-  .btn-r {@apply bg-[#dc592d] text-white w-20 rounded-lg p-1 text-sm }
-  .nav {@apply p-1 mx-2 }
-  .activnav {@apply p-1 mx-2 text-slate-700 bold bg-slate-50 rounded }
+  .btn-g {@apply bg-[#00DA1C] max-sm:w-10 text-white w-20 rounded-lg p-1 lg:text-sm text-[11px] }
+  .btn-r {@apply bg-[#dc592d] text-white w-20 rounded-lg p-1 lg:text-sm text-[11px] }
+  .nav {@apply p-1 lg:mx-2 lg:text-base text-[11px] }
+  .activnav {@apply p-1 lg:mx-2 text-slate-700 bold bg-slate-50 rounded text-[10px] lg:text-base }
   .backdrop {@apply bg-black z-10 fixed top-0 left-0 opacity-30 w-[100vw] h-[100vh] text-center }
-  .btn {@apply border text-lg text-black rounded-sm rounded-tl-3xl w-48 p-1 border-[#707070] }
-  .btn-b {@apply bg-[#BFFCF3] w-20 border border-slate-300 border-l-0 flex text-[#00A2FF] text-center }
-  .card1 {@apply border w-full border-slate-300 items-end flex justify-between px-6 py-4 }
-  .t_Ration {@apply border p-2 px-4 min-w-[140px] w-[22vw] }
+  .btn {@apply border lg:text-lg text-[12px] text-black rounded-sm rounded-tl-3xl lg:w-48 w-24 p-1 border-[#707070] }
+  .btn-b {@apply bg-[#BFFCF3] lg:w-24  border border-slate-300 border-l-0 flex text-[#00A2FF] text-center }
+  .card1 {@apply border w-full border-slate-300 items-end flex justify-between lg:px-6 lg:py-4 px-1 py-3}
+  .t_Ration {@apply border lg:p-2 p-1 lg:px-4 px-2 lg:min-w-[140px] lg:w-[22vw] max-sm:h-7 }
   .not_active {@apply p-1 w-36 m-2 mx-2 }
   .active {@apply p-1 w-36 m-2 mx-4 text-black bg-slate-300 rounded-full }
-  .th_Ration {@apply t_Ration bg-slate-200 text-[#494545] }
+  .th_Ration {@apply t_Ration bg-slate-200 text-[#494545] max-sm:text-[12px]}
   .card2 {@apply bg-slate-200 rounded-lg text-right p-4 px-7 ml-5 mt-4 text-sm w-80 grid grid-cols-2 gap-6}
   .info_btn {@apply mx-4 bold hover:underline underline-offset-8 }
-  .ads_bar {@apply inline-block hover:text-blue-600 hover:font-medium }
+  .ads_bar {@apply inline-block hover:text-blue-600 lg:hover:font-medium max-sm:text-[12px] }
   .text {@apply text-center text-xl italic mt-6}
   /* . {@apply } */
 }
