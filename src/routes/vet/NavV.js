@@ -41,7 +41,7 @@ return (
     <div className='bg-[#6FFFF1] flex justify-between items-center p-2'>
       <div className="flex items-center">
       <Link className='nav text-slate-700 bold bg-slate-50 rounded' to={`/NavV/HomePageV/${id}`} > 
-        <img src="/img/home button.png" alt="" className="w-36 " />
+        <img src="/img/home button.png" alt="" className=" w-24 lg:w-36 " />
       </Link>
         <nav className={params.EpochId?"mx-6":'hidden'}>
           <NavLink 
@@ -56,13 +56,13 @@ return (
           </NavLink>
         </nav>
       </div>
-      <div className="flex flex-col mx-4 ">
+      <div className="flex flex-row-reverse items-center lg:gap-0 gap-2 lg:flex-col mx-4 ">
         <img src="/img/download (1).jfif" alt="" className="rounded-full w-12 h-10 mx-auto " />
         <h2 className="bold text-sm">{data.first_name} {data.last_name} </h2>
       </div>
     </div>
     
-    <div className="px-10 mt-2 text-[17px] ">
+    <div className="px-10 mt-2 text-[14px] lg:text-[17px] ">
     <Link to={`/NavV/HomePageV/${id}/userId/${params.userId}`} className='ads_bar'>{params.userId?`  ${farmerName}`:''} </Link>
     {/* <Link to={`/NavV/HomePageV/${id}`} className='ads_bar'> مرغدار ها </Link> }
 
@@ -81,7 +81,7 @@ return (
     </div>
   </div>
 
-  <div className="px-10 py-6"><Outlet/></div>
+  <div className="lg:px-10 px-2 py-6"><Outlet/></div>
 </>
 )}
 export default NavV

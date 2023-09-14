@@ -28,13 +28,13 @@ return loading ? <div className='flex justify-center items-center'> <div classNa
 data.length === 0 ? <h1 className="text"> پیشنهادی هنوز ثبت نشده</h1>:
 (
 <div className="flex justify-center">
-  <div className="flex flex-col text-center">
+  <div className="flex flex-col  text-center">
     {data.map(i=>
-    <div key={i.id} className="border-2 rounded-3xl m-2 mb-4 p-5 md:px-14 px-4 max-w-[700px] relative">
-      <div className='absolute right-4 top-10'>
+    <div key={i.id} className="border-2 rounded-3xl m-2 mb-4 p-5 lg:px-14 px-1  max-w-[700px] relative">
+      <div className='absolute left-3 bottom-0 lg:bottom-auto lg:left-auto lg:right-4 lg:top-12'>
         <Btndel/>
       </div>
-      <div className="grid grid-cols-5 text-center mb-4">
+      <div className="grid grid-cols-5 text-xs lg:text-base text-center mb-4">
         <h5 className="mb-2 border-l px-2">نام واکسن</h5>
         <h5 className="mb-2 border-l px-2">طریقه مصرف</h5>
         <h5 className="mb-2 border-l px-2">سن</h5>
@@ -46,7 +46,7 @@ data.length === 0 ? <h1 className="text"> پیشنهادی هنوز ثبت نش�
         <h6 className="">{Gregorian_to_jalali(i.date)} </h6>
         <p className=""><StatusT status={i.status} /> </p>
       </div>
-      <div className="flex -mb-[34px] ">
+      <div className="flex -mb-[32px] mr-[40px] lg:mr-0 lg:-mb-[34px] ">
         <div className="border-2 rounded-full text-sm bg-white px-4 pt-0.5 -mr-5 ">  تاریخ ثبت {Gregorian_to_jalali(i.suggested_at)} </div>
       </div>
     </div>

@@ -35,7 +35,7 @@ data.length == 0 ? <h1 className="text">سالنی وجود ندارد</h1> :
     )}
   </div>
 
-  <div className="mr-20">
+  <div className="lg:mr-20 mr-2">
     {salonId && <Epoch />}
   </div>
 </div>

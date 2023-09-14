@@ -26,11 +26,11 @@ data.length === 0 ? <h1 className="text"> پیشنهادی هنوز ثبت نش�
 (
 <div className="flex justify-center text-center">
   <div className="flex flex-col">
-    {data.map(i=><div key={i.id} className="border-2 rounded-xl m-2 p-6 px-10 w-[950px] h-[auto]  mb-4 relative">
-      <div className='absolute right-4 top-12'>
+    {data.map(i=><div key={i.id} className="border-2 rounded-xl m-2 lg:p-6 lg:px-10 p-2  h-[auto]  mb-4 relative">
+    <div className='absolute left-3 bottom-0 lg:bottom-auto lg:left-auto lg:right-4 lg:top-12'>
         <Btndel/>
       </div>
-      <div className="grid grid-cols-6 gap-1 mb-4">
+      <div className="grid text-xs grid-cols-6 gap-1 mb-4">
         <h3 className="mt-2 mb-4 border-l border-[#707070] "> تاریخ </h3>
         <h3 className="mt-2 mb-4 border-l border-[#707070] "> رنگ نور </h3>
         <h3 className="mt-2 mb-4 border-l border-[#707070] "> شدت نور </h3>
