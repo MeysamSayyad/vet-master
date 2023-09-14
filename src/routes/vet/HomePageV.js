@@ -24,12 +24,12 @@ const HomePageV = () => {
       
       },[])
 
-   return loading ? <div className='flex justify-center items-center'> <div className=' border-2 border-gray-700  w-8 h-8 border-r-transparent animate-spin  rounded-full '> </div></div> : 
+   return loading ? <div className='flex  justify-center items-center'> <div className=' border-2 border-gray-700  w-8 h-8 border-r-transparent animate-spin  rounded-full '> </div></div> : 
    data.length === 0 ? <h1 className="text">مرغداری وجود ندارد</h1>:
    (
    <div className='flex flex-row w-full'>
       {/* farmers name */}
-      <div className="flex flex-col justify-start ml-12 flex-wrap gap-6 w-[300px] h-auto items-center">
+      <div className={` flex-col ${userId ? 'hidden':'flex'} lg:flex  justify-start ml-12 flex-wrap gap-6 w-[300px] h-auto items-center`}>
          <span className="">مرغدار ها</span>
          {data.map(i => 
          <Link key={i.id} to={`userId/${i.id}`} onClick={()=>{ setfarmerName(`${i.first_name} ${i.last_name}`); localStorage.farmerName= `${i.first_name} ${i.last_name}` }}

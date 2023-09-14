@@ -68,14 +68,12 @@ return (
         </div>
         
       </div>
-      {params.SalonId && !params.EpochId &&<div className=' mt-2 mr-[225px]'>دوره های پرورش</div>}
+      {params.SalonId && !params.EpochId &&<div className=' hidden lg:block mt-2 lg:ml-[80px] lg:mr-[225px]'>دوره های پرورش</div>}
       {EpochId?<BtnEnd />:''}
-      {params.SalonId && !params.EpochId && <div className=' mt-2 mr-[225px]'>جدول اطلاعات سالن</div>}
+      {params.SalonId && !params.EpochId && <div className=' mt-2 lg:mr-[225px] '>جدول اطلاعات سالن</div>}
     </div>
     <div className="lg:px-10 px-6 pb-6"><Outlet/></div>
   </div>
-
-  
 </>
 )}
 export default NavF

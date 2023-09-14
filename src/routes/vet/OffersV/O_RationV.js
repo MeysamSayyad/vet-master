@@ -28,11 +28,11 @@ data.length === 0 ? <h1 className="text"> پیشنهادی هنوز ثبت نش�
 (
 <div className='flex flex-col text-center mt-4 '>
   {data.map(i=>
-    <div key={i.id} className="border-2 rounded-3xl m-2 p-4 md:px-12 px-4 w-4/5 mb-6 mx-auto relative">
-      <div className='absolute right-4 top-12'>
+    <div key={i.id} className="border-2 rounded-3xl m-2 p-4 md:px-12 px-1 lg:px-4 lg:w-4/5 mb-6 mx-auto relative">
+      <div className='absolute left-3 bottom-0 lg:bottom-auto lg:left-auto lg:right-4 lg:top-12'>
         <Btndel/>
       </div>
-      <div className="grid grid-cols-5 text-center gap-4">
+      <div className="grid grid-cols-5 text-xs lg:text-base text-center lg:gap-4">
         <h5 className="mt-2 mb-1 border-l border-[#707070] "> نوع جیره </h5>
         <h5 className="my-2 border-l border-[#707070] "> مقدار </h5>
         <h5 className="my-2 border-l border-[#707070] ">تاریخ</h5>
@@ -46,7 +46,7 @@ data.length === 0 ? <h1 className="text"> پیشنهادی هنوز ثبت نش�
         <p className=""><StatusT status={i.status} /> </p>
       </div>
 
-      <div className="flex justify-between -mb-[30px] w-[102%] ">
+      <div className="flex justify-between -mb-[28px] mr-5 lg:mr-0 lg:-mb-[30px] w-[102%] ">
         <div className="border-2 rounded-full text-sm bg-white px-4 pt-0.5 -mr-4 "> تاریخ ثبت {Gregorian_to_jalali(i.suggested_at)} </div>
       </div>
     </div>
