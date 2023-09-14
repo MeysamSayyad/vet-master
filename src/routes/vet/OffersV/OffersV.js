@@ -40,7 +40,7 @@ return (
     <>    
     <div onClick={()=> setshow(false)} className="backdrop"></div>
     <div className="center ">
-      <div className="z-40 bg-white rounded-xl p-11 px-16 fixed top-[20%]  max-h-[60vh]	"> 
+      <div className="z-40 bg-white rounded-xl lg:p-11 px-4 p-2  lg:px-16 fixed top-[20%]  max-h-[60vh]	"> 
         <R_VaccinationV setshow={setshow} />
         <R_RationV setshow={setshow} />
         <R_LightClockV setshow={setshow} />
