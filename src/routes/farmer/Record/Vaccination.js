@@ -50,7 +50,7 @@ return (
 <div className='mb-6'>
   <button onClick={()=> setshow(!show)} className='btn'> واکسیناسیون </button>
   <div className={show?"flex ":'hidden'}>
-    <div className="btn-b max-sm:w-10 max-sm:h-16">
+    <div className="btn-b max-sm:w-10">
       <Link className='flex items-center max-sm:text-[11px]' to={`${param}/V_VaccinationV`}> مشاهده تاریخچه </Link>
     </div>
     <div className="card1 ">
