@@ -40,10 +40,10 @@ return (
     <div className="bg-[#6FFF7D] flex justify-between items-center p-2">
       <div className="flex items-center">
         <NavLink className='nav text-slate-700 bold rounded  bg-slate-50 w-auto ' to={`/NavF/HomePage/${id}`}>
-          <img src="/img/home button.png" alt="" className="w-28  bg-slate-50  lg:w-36 " />
+          <img src="/img/home button.png" alt="" className="w-24  bg-slate-50  lg:w-36 " />
         </NavLink>
        
-        <nav className={EpochId?"mx-4":'hidden'}>
+        <nav className={EpochId?"mx-4 hidden lg:block":'hidden'}>
           <div className={epoch.is_active?"inline-block":'hidden'}><NavLink className={({isActive}) => isActive? 'activnav':'nav'} to={`${param}/Record`}>ثبت اطلاعات </NavLink></div>
           <NavLink className={({isActive}) => isActive? 'activnav':'nav'} to={`${param}/View`}>مشاهده اطلاعات </NavLink>
           <NavLink className={location.pathname.includes("/NavO") ? 'nav text-slate-700 bold bg-slate-50 rounded':'nav'} to={`${param}/NavO/O_Vaccination`}>پیشنهادات دامپزشک </NavLink>

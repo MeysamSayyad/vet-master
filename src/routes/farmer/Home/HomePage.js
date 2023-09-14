@@ -64,7 +64,7 @@ return (
 <div className="">
   {loading && <Loading loading={loading} setLoading={setLoading}  />}
   <div className=' flex flex-row lg:gap-[40px]  gap-3  '>
-    <div  className={` lg:border-l ${SalonId && "hidden"} lg:block mr-4 lg:mr-0 border-slate-400 w-92 min-h-[90vh] pl-6`}>
+    <div  className={` border-none lg:border-l ${SalonId && "hidden"} lg:block mr-4 lg:mr-0 lg:border-slate-400 w-92 min-h-[90vh] pl-6`}>
       <button className='text-slate-500 bold border-[1.5px] border-slate-500 p-2 px-6 mb-1 hover:bg-slate-500 transition-all hover:text-white  rounded 'onClick={()=> setshow(true)}> افزودن سالن </button>
       {
         data.length > 0?
@@ -90,8 +90,8 @@ return (
     <>    
     <div onClick={()=> setshow(false)} className="backdrop"></div>
     <div className="center ">
-      <div className="z-40 bg-white rounded-xl p-8 px-14 fixed top-[30vh] ">
-        <div className="flex justify-between w-full gap-7 ">
+      <div className="z-40 bg-white rounded-xl p-8 px-2 lg:px-14 fixed top-[30vh] ">
+        <div className="flex justify-between items-center w-full gap-7 ">
           <div className="">
             <h4 className=""> نام سالن </h4>
             <h4 className="mt-8"> مکان سالن </h4>

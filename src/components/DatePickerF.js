@@ -50,7 +50,7 @@ const DatePickerF = ({setdate,value,setvalue}) => {
  
 
 return (
-<div dir='ltr' className='flex justify-between items-center border rounded w-[220px] '>
+<div dir='ltr' className='flex justify-between items-center border rounded max-w-[220px] '>
   <DatePicker 
     className='teal'
     value

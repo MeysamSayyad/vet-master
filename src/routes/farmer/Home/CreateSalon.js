@@ -58,25 +58,25 @@ const CreateSalon = ({ setshow, id, setadd, add }) => {
 return (
 <>
 <div onClick={(e)=> e.target.id == 'outside' && setshow(false)} id='outside' className=" bg-black z-30  bg-opacity-30 inset-0 flex fixed   justify-center items-center">
-    <div className="z-40 bg-white rounded-xl  w-[430px] box-content  p-8 px-14 ">
-      <div className="flex justify-between w-full gap-7 items-center ">
+    <div className="z-40 bg-white rounded-xl  min-w-[260px] box-content  p-8 px-3 lg:px-14 ">
+      <div className="flex justify-between w-full gap-4 lg:gap-7 items-center ">
         <div className="w-20">
           <h4 className="mt-1"> نوع مرغ </h4>
           <h4 className="my-5"> نژاد گله </h4>
           <h4 className=""> نام گله مادر </h4>
         </div>
         <div>
-          <select className="" onChange={e=>{e.target.value ? settype(e.target.value): settype("")}}> 
+          <select className="w-[150px] lg:w-[100%]" onChange={e=>{e.target.value ? settype(e.target.value): settype("")}}> 
             <option value=""> </option>
             <option value="LAYING"> مرغ تخمگذار </option>
             <option value="BROILER"> مرغ گوشتی </option>
           </select><br />
-          <input className="my-3" value={race} onChange={e => setrace(e.target.value)} /> <br/>
-          <input className="" value={name} onChange={e => setname(e.target.value)} /> <br/>
+          <input className="my-3 w-[150px] lg:w-[100%]" value={race} onChange={e => setrace(e.target.value)} /> <br/>
+          <input className=" w-[150px] lg:w-[100%]" value={name} onChange={e => setname(e.target.value)} /> <br/>
         </div>
       </div>
-      <div className="flex mt-5 ">
-        <h5 className=""> آیا پرورش سالن را از امروز شروع کرده اید ؟ </h5>
+      <div className="flex mt-5 items-center ">
+        <h5 className=" text-xs bold lg:text-base lg:font-normal"> آیا پرورش سالن را از امروز  شروع کرده اید ؟ </h5>
         <label htmlFor='1' className='mr-4' >بله</label>
         <input className='w-min' id='1' type="radio" value={false} onChange={e => setstarted(e.target.defaultValue)} checked={started == 'false'} />
 
@@ -85,14 +85,14 @@ return (
       </div>
       <div className={started?"mt-8 flex justify-between items-center":'hidden'}>
         <div className=" ">
-          <h5 className={started == 'true'?"":'hidden'}>  تاریخ شروع پرورش  </h5>
-          <h5 className={started == 'true'?"mt-5":'hidden'}>تعداد کل پرنده در روز اول </h5>
-          <h5 className={started == 'true'?"inline-block mt-5":'mt-2'}>تعداد کل پرنده در حال حاضر</h5>
+          <h5 className={started == 'true'?"text-xs bold lg:text-base lg:font-normal ":'hidden'}>  تاریخ شروع پرورش  </h5>
+          <h5 className={started == 'true'?"mt-7 lg:mt-5 text-xs bold lg:text-base lg:font-normal ":'hidden'}>تعداد کل پرنده در روز اول </h5>
+          <h5 className={started == 'true'?"inline-block text-xs bold lg:text-base lg:font-normal   mt-7 lg:mt-5":'mt-2 text-xs bold lg:text-base lg:font-normal '}>تعداد کل پرنده در حال حاضر</h5>
         </div>
         <div className="-ml-2">
-          <div className={started == 'true'?"mr-2":'hidden'}><DatePickerF setdate={setdate} value={value} setvalue={setvalue} /></div>
-          <input className={started == 'true'?"mt-3 mx-2 block ":'hidden'} type="number" value={firstNum} onChange={e => setfirstNum(e.target.value)} /> 
-          <input className='my-0.5 block mx-2 mt-3' type="number" value={lastNum} onChange={e => setlastNum(e.target.value)} /> 
+          <div className={started == 'true'?"mr-2 w-[150px] lg:w-[100%]" :'hidden'}><DatePickerF setdate={setdate} value={value} setvalue={setvalue} /></div>
+          <input className={started == 'true'?"mt-3 mx-2 block w-[150px] lg:w-[100%]":'hidden'} type="number" value={firstNum} onChange={e => setfirstNum(e.target.value)} /> 
+          <input className='my-0.5 block mx-2 mt-3 w-[150px] lg:w-[100%]' type="number" value={lastNum} onChange={e => setlastNum(e.target.value)} /> 
         </div>
       </div>
 
