@@ -50,20 +50,22 @@ return (
 <div className='mb-6'>
   <button onClick={()=> setshow(!show)} className='btn'> واکسیناسیون </button>
   <div className={show?"flex ":'hidden'}>
-  <div className="btn-b"><Link className='flex items-center max-sm:text-[11px]' to={`${param}/V_VaccinationV`}> مشاهده تاریخچه </Link></div>
-    <div className="card1">
+    <div className="btn-b max-sm:w-10 max-sm:h-16">
+      <Link className='flex items-center max-sm:text-[11px]' to={`${param}/V_VaccinationV`}> مشاهده تاریخچه </Link>
+    </div>
+    <div className="card1 ">
       <div className="grid grid-cols-3 text-center lg:gap-4 gap-2 mx-auto items-center ">
         <h5 className="-m-2 max-sm:text-[12px] max-sm:ml-2">نام واکسن</h5>
         <h5 className="-m-2 max-sm:text-[12px] max-sm:ml-2">طریقه مصرف</h5>
         <h5 className="-m-2 max-sm:text-[12px] max-sm:ml-2">تاریخ</h5>
 
-        <select value={name} onChange={e=>{e.target.value ? setname(e.target.value): setname("")}} className=' max-sm:w-5'><Vaccine /> </select>
-        <select value={use} onChange={e=>{e.target.value ? setuse(e.target.value): setuse("")}}><Use /> </select>
+        <select value={name} onChange={e=>{e.target.value ? setname(e.target.value): setname("")}} className=' max-sm:w-16 max-sm:text-[11px] max-sm:h-7'><Vaccine /> </select>
+        <select value={use} onChange={e=>{e.target.value ? setuse(e.target.value): setuse("")}} className=' max-sm:w-16 max-sm:text-[11px] max-sm:h-7'><Use /> </select>
         <DatePickerF setdate={setdate} value={value} setvalue={setvalue} />
       </div>
-      <div className="flex mr-2">
-        <button className='btn-r ml-2' onClick={putOff}>انصراف</button>
-        <button className={value&&name&&use?'btn-g':'btn-g opacity-60'} onClick={save} disabled={value&&name&&use?false:true} >ثبت</button>
+      <div className="flex mr-4 max-sm:flex-col-reverse max-sm:justify-end max-sm:-my-2">
+        <button className='btn-r lg:mx-2 mx-1 max-sm:w-10 max-sm:mt-1' onClick={putOff}>انصراف</button>
+        <button className={value&&name&&use?'btn-g max-sm:mr-1 ':'btn-g opacity-60 max-sm:mr-1'} onClick={save} disabled={value&&name&&use?false:true} >ثبت</button>
       </div>
     </div>
   </div>
