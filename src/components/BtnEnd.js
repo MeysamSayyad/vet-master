@@ -10,6 +10,7 @@ const BtnEnd = () => {
   const [update,setupdate] = useState(false)
   const navigate =useNavigate()
   const epoch_id = useParams().EpochId
+  const width = window.innerWidth;
 
   function ok(){
     const body={ epoch_id }
@@ -25,8 +26,8 @@ const BtnEnd = () => {
     setepoch(epoch)
   }
 return (
-  <div className={epoch.end_date?'hidden':"flex justify-end"}>
-    <button className='active w-auto p-2 px-5 shadow-md' onClick={ok}> اتمام دوره پرورش </button>
+  <div className={epoch.end_date?'hidden':"flex justify-center max-sm:mt-2"}>
+    <button className='active w-auto p-2 lg:px-5 px-2 shadow-md max-sm:text-[12px]' onClick={ok}>{width >= 640 ? " اتمام دوره پرورش " : " اتمام دوره "}</button>
   </div>
 )}
 export default BtnEnd

@@ -49,8 +49,10 @@ return (
 <div className='mb-6'>
   <button onClick={()=> setshow(!show)} className='btn'> جیره </button>
   <div className={show?"flex ":'hidden'}>
-  <div className="btn-b"><Link className='flex items-center' to={`${param}/V_RationV`}> مشاهده تاریخچه </Link></div>
-    <div className="card1">
+    <div className="btn-b max-sm:w-10">
+      <Link className='flex items-center max-sm:text-[11px]' to={`${param}/V_RationV`}> مشاهده تاریخچه </Link>
+    </div>
+    <div className="card1 ">
       <div className="w-full">
         <div className="center ">
           <table className=''>
@@ -64,25 +66,26 @@ return (
               {amount.map((i,inx)=>
                 <tr key={inx} className="">
                   <td className="t_Ration">
-                    <select className='w-full' onChange={e=> {i.name = e.target.value; setamount(amount); setupdate(!update) }}><RationOption /> </select>
+                    <select className='w-full  max-sm:text-[11px] max-sm:h-7' onChange={e=> {i.name = e.target.value; setamount(amount); setupdate(!update) }}><RationOption /> </select>
                   </td>
                   <td className="t_Ration">
-                    <input className='w-full ' value={i.amount} onChange={e=> {i.amount = Number(e.target.value); setamount(amount); setupdate(!update)}} type="number" />
+                    <input className='w-full  max-sm:h-7' value={i.amount} onChange={e=> {i.amount = Number(e.target.value); setamount(amount); setupdate(!update)}} type="number" />
                   </td>
                 </tr>
               )}
             </tbody>
           </table> 
         </div>
-        <div className="center"><button className='text-4xl px-2 text-center ' onClick={plus}>+</button></div>
-
-        <div className="flex items-end ">
-          <h3 className="mb-2 mt-3 text-lg mx-2 "> تاریخ :</h3> 
-          <DatePickerF setdate={setdate} value={value} setvalue={setvalue} />
-        </div>
-        <div className="flex justify-end w-full mt-4">
-          <button className='btn-r mx-2' onClick={putOff}>انصراف</button>
-          <button className={amount[0].amount&&amount[0].name&&value?'btn-g':'btn-g opacity-60'} onClick={save} disabled={amount[0].amount&&amount[0].name&&value?false:true} >ثبت</button>
+        <div className="center "><button className='lg:text-4xl px-2 text-center text-[22px]' onClick={plus}>+</button></div>
+        <div>
+          <div className="flex items-end ">
+            <h3 className="lg:mb-2 lg:mt-3 lg:text-lg lg:mx-2 my-1 mx-1 text-[12px]"> تاریخ :</h3> 
+            <DatePickerF setdate={setdate} value={value} setvalue={setvalue} />
+          </div>
+          <div className="flex lg:justify-end lg:mt-4 max-sm:flex-col-reverse mt-2 w-full items-end max-sm:-my-2">
+            <button className='btn-r lg:mx-2 mx-1 max-sm:w-10 max-sm:mt-1' onClick={putOff}>انصراف</button>
+            <button className={amount[0].amount&&amount[0].name&&value?'btn-g max-sm:ml-1 ':'btn-g opacity-60 max-sm:ml-1'} onClick={save} disabled={amount[0].amount&&amount[0].name&&value?false:true} >ثبت</button>
+          </div>
         </div>
       </div>
     </div>

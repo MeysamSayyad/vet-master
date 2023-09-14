@@ -56,30 +56,32 @@ return (
 <div className='mb-6'>
   <button onClick={()=> setshow(!show)} className='btn'> ساعات روشنایی </button>
   <div className={show?"flex ":'hidden'}>
-    <div className="btn-b"><Link className='flex items-center' to={`${param}/V_LightClockV`}> مشاهده تاریخچه </Link></div>
-    <div className="card1 flex-wrap">
-      <div className="grid grid-cols-3 text-center gap-4 mx-auto ">
-        <h5 className="-m-2">رنگ نور</h5>
-        <h5 className="-m-2"> شدت نور  (lx)</h5>
-        <h5 className="-m-2">تاریخ</h5>
-        <input className=''  value={light_color} onChange={e => setlight_color(e.target.value)} />
-        <input className=' ' type="number" value={light_intensity} onChange={e => setlight_intensity(e.target.value)} />
+    <div className="btn-b max-sm:w-10">
+      <Link className='flex items-center max-sm:text-[11px]' to={`${param}/V_LightClockV`}> مشاهده تاریخچه </Link>
+    </div>
+    <div className="card1 lg:flex-wrap max-sm:flex max-sm:flex-col">
+      <div className="grid grid-cols-3 text-center lg:gap-4 gap-2 mx-auto items-center ">
+        <h5 className="-m-2 max-sm:-mr-6 max-sm:text-[12px] max-sm:ml-2">رنگ نور</h5>
+        <h5 className="-m-2 max-sm:-mr-6 max-sm:text-[12px] max-sm:ml-2"> شدت نور  (lx)</h5>
+        <h5 className="-m-2 max-sm:text-[12px] max-sm:ml-2">تاریخ</h5>
+        <input className='max-sm:w-14 max-sm:h-7'  value={light_color} onChange={e => setlight_color(e.target.value)} />
+        <input className='max-sm:w-14 max-sm:h-7' type="number" value={light_intensity} onChange={e => setlight_intensity(e.target.value)} />
         <DatePickerF setdate={setdate} value={value} setvalue={setvalue} />
       </div>
       {hours.map((i,inx)=>{
         return <div key={inx} className="w-full center my-4 ">
-          <span className='mx-2'>از</span>
+          <span className='mx-2 max-sm:text-[12px]'>از</span>
           
-          <TimePicker className=' w-[170px] h-[30px]' renderSecondHand={false} value={i.start_time} format='m:H' onChange={value=> { hours[inx].start_time = value; sethours(hours); setupdate(!update)}} />
-          <span className='mx-2'>تا</span>
-          <TimePicker  className=' w-[170px] h-[30px]' renderSecondHand={false} format='m:H' value={i.end_time} onChange={value=> {hours[inx].end_time = value; sethours(hours); setupdate(!update)}} />
+          <TimePicker className=' lg:w-[170px]  lg:h-[30px] h-7' renderSecondHand={false} value={i.start_time} format='m:H' onChange={value=> { hours[inx].start_time = value; sethours(hours); setupdate(!update)}} />
+          <span className='mx-2 max-sm:text-[12px]'>تا</span>
+          <TimePicker className=' lg:w-[170px]  lg:h-[30px] h-7' renderSecondHand={false} format='m:H' value={i.end_time} onChange={value=> {hours[inx].end_time = value; sethours(hours); setupdate(!update)}} />
         </div>}
       )}
       <div className="center w-full -mt-4">
-        <button className="text-4xl px-2 text-center " onClick={plus}>+</button>
+        <button className="lg:text-4xl lg:px-2 text-center text-[20px] px-1 " onClick={plus}>+</button>
       </div>
-      <div className="flex justify-end w-full">
-        <button className='btn-r mx-2' onClick={putOff}>انصراف</button>
+      <div className="flex justify-end w-full max-sm:justify-end ">
+        <button className='btn-r lg:mx-2 mx-1 max-sm:w-10' onClick={putOff}>انصراف</button>
         <button className={value?'btn-g':'btn-g opacity-60'} onClick={save} disabled={value?false:true} >ثبت</button>
       </div>
     </div>
