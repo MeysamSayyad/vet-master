@@ -69,12 +69,18 @@ return (
         <DatePickerF setdate={setdate} value={value} setvalue={setvalue} />
       </div>
       {hours.map((i,inx)=>{
-        return <div key={inx} className="w-full center my-4 ">
-          <span className='mx-2 max-sm:text-[12px]'>از</span>
-          
-          <TimePicker className=' lg:w-[170px]  lg:h-[30px] h-7' renderSecondHand={false} value={i.start_time} format='m:H' onChange={value=> { hours[inx].start_time = value; sethours(hours); setupdate(!update)}} />
-          <span className='mx-2 max-sm:text-[12px]'>تا</span>
-          <TimePicker className=' lg:w-[170px]  lg:h-[30px] h-7' renderSecondHand={false} format='m:H' value={i.end_time} onChange={value=> {hours[inx].end_time = value; sethours(hours); setupdate(!update)}} />
+        return <div key={inx} className="w-full center my-4 max-sm:flex max-sm:flex-col">
+          <div>
+            <span className='mx-2 max-sm:text-[12px]'>از</span>
+            <TimePicker className=' lg:w-[170px]  lg:h-[30px] h-7' renderSecondHand={false} value={i.start_time} format='m:H' 
+              onChange={value=> { hours[inx].start_time = value; sethours(hours); setupdate(!update)}} />
+          </div>
+          <div>
+            <span className='mx-2 max-sm:text-[12px]'>تا</span>
+            <TimePicker className=' lg:w-[170px]  lg:h-[30px] h-7' renderSecondHand={false} format='m:H' value={i.end_time} 
+              onChange={value=> {hours[inx].end_time = value; sethours(hours); setupdate(!update)}} />
+          </div>
+
         </div>}
       )}
       <div className="center w-full -mt-4">
