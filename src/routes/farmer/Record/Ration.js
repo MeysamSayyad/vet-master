@@ -82,9 +82,9 @@ return (
             <h3 className="lg:mb-2 lg:mt-3 lg:text-lg lg:mx-2 my-1 mx-1 text-[12px]"> تاریخ :</h3> 
             <DatePickerF setdate={setdate} value={value} setvalue={setvalue} />
           </div>
-          <div className="flex lg:justify-end lg:mt-4 max-sm:flex-col-reverse mt-2 w-full items-end max-sm:-my-2">
-            <button className='btn-r lg:mx-2 mx-1 max-sm:w-10 max-sm:mt-1' onClick={putOff}>انصراف</button>
-            <button className={amount[0].amount&&amount[0].name&&value?'btn-g max-sm:ml-1 ':'btn-g opacity-60 max-sm:ml-1'} onClick={save} disabled={amount[0].amount&&amount[0].name&&value?false:true} >ثبت</button>
+          <div className="flex justify-end lg:mt-4 mt-2 w-full max-sm:-my-2">
+            <button className='btn-r lg:mx-2 mx-1 max-sm:w-10 ' onClick={putOff}>انصراف</button>
+            <button className={amount[0].amount&&amount[0].name&&value?'btn-g  ':'btn-g opacity-60 '} onClick={save} disabled={amount[0].amount&&amount[0].name&&value?false:true} >ثبت</button>
           </div>
         </div>
       </div>
